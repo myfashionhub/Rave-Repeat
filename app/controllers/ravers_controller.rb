@@ -5,5 +5,6 @@ class RaversController < ApplicationController
 
   def show
     @raver = current_raver
+    @trip  = Trip.new
   end
 end

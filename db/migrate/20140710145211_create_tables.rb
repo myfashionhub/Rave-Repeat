@@ -16,8 +16,9 @@ class CreateTables < ActiveRecord::Migration
       t.string :name
       t.string :location
       t.string :date
-      t.string :lineup
+      t.text   :lineup
       t.string :playlist
+      t.string :status
       t.timestamps
     end
 
