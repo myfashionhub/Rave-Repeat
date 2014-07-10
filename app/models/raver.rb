@@ -6,7 +6,7 @@ class Raver < ActiveRecord::Base
   serialize :lineup, Array
 
   def self.twitter_omniauth(data)
-    @user = Raver.find_by(name: data.info.nickname) || create_with_omniauth(data)
+    @user = Raver.find_by(name: data.info.nickname) || create_with_twitter(data)
   end
 
   def self.create_with_twitter(data)
@@ -19,7 +19,7 @@ class Raver < ActiveRecord::Base
   end
 
   def self.facebook_omniauth(data)
-    @user = Raver.find_by(facebook_uid: data.uid) || create_with_omniauth(data)
+    @user = Raver.find_by(facebook_uid: data.uid) || create_with_facebook(data)
   end
 
   def self.create_with_facebook(data)

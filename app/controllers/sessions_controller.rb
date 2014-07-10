@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController
   def signin_twitter
-    user = Raver.twitter_omniauth(env['omniauth.auth'])
+    raver = Raver.twitter_omniauth(env['omniauth.auth'])
     session[:raver_id] = raver.id
-    redirect_to raver_path
+    redirect_to raver_path(raver)
   end
 
   def signin_facebook
-    user = Raver.facebook_omniauth(env['omniauth.auth'])
+    raver = Raver.facebook_omniauth(env['omniauth.auth'])
     session[:raver_id] = raver.id
-    redirect_to raver_path
+    redirect_to raver_path(raver)
   end
 
   def destroy
