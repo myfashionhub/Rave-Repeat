@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/logout'                => 'sessions#destroy'
 
   get '/raver' => 'ravers#show'
+  get '/ravers/:raver_id/trips/:id' => 'trips#edit'
   resources :ravers, only: [:index, :update] do
     resources :trips, only: [:new, :create, :update, :delete]
   end

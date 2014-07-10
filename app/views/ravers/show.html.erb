@@ -1,1 +1,10 @@
 <h2>Hi <%= @raver.name %> </h2>
+
+  <h3>Select a festival to plan your trip:</h3>
+
+  <div class="">
+    <%= form_for [@raver, @trip] do |f| %>
+      <%= f.collection_select(:festival_id, Festival.all, :id, :name) %>
+      <%= f.submit 'Start planning' %>
+    <% end %>
+  </div>
