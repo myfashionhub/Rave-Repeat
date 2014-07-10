@@ -1,0 +1,68 @@
+<div class="menu">
+  <div class="logo">
+  <a href="/">
+    <img src="assets/logo.png" alt="">
+  </a>
+  </div>
+
+  <div class='location'>
+    <big><%= formatted_date_time(Time.now) %></big></br>
+    <small>72 &deg;F, New York, NY</small>
+  </div>
+
+
+  <div class='profile'>
+    <% if current_reader %>
+      <% if current_reader.image %>
+        <img src="<%= current_reader.image %>" alt="profile-image" />
+      <% end %>
+      <% if current_reader.name %>
+        <span>Hi, <%= current_reader.name %></span>
+      <% else %>
+        <span>Hi, <%= current_reader.email %></span>
+      <% end %>
+    <% else %>
+      <span>Hi, Reader</span><br/>
+      <span class='works'>
+        <a href="/about">
+        How it works</a>
+      </span>
+    <% end %>
+    <br/>
+
+    <% if current_reader %>
+    <span>
+    <a href="/feed">
+      <i class="fa fa-list-ul"></i>&nbsp;News Feed
+    </a> &nbsp;
+    <a href="/articles">
+      <i class="fa fa-bookmark"></i>&nbsp;Bookmarks
+    </a>
+    </span>
+    <% end %>
+  </div>
+
+
+  <div id='arrow'>
+    Menu &nbsp; <i class="fa fa-chevron-down"></i>
+  </div>
+
+  <ul class="nav">
+  <% if current_reader %>
+    <li>
+        <a href="/leafers">What friends are reading</a>
+    </li>
+  <li>
+      <a href="/profile">My Profile</a>
+    </li>
+    <li>
+      <a href="/logout">Log out</a>
+    </li>
+   <% end %>
+    <li>
+      <a href="/about">About Leafthru</a>
+    </li>
+  </ul>
+
+
+</div>
