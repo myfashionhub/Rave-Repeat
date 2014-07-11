@@ -15,7 +15,8 @@ class CreateTables < ActiveRecord::Migration
     create_table :festivals do |t|
       t.string :name
       t.string :location
-      t.string :date
+      t.date :start_date
+      t.date :end_date
       t.text   :lineup
       t.string :playlist
       t.string :status

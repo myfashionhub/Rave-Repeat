@@ -1,1 +1,15 @@
 <h2><%= @raver.name %>, customize your trip</h2>
+
+
+<script type="text/javascript">
+  $(function() {
+    window.router = new GoRaver.Routers.Trips();
+    Backbone.history.start();
+  });
+</script>
+
+<%= @date1 %>
+<%= @date2 %>
+
+<iframe src="http://kayak.com/widget/300x250?ai=kayaksample&d=n&cars=n&tab=flights&doubleEncoded=on&l1=!&l2=<%= @festival.location %>&df=ymd&d1=<%= @date1 %>&d2=<%= @date2 %>&v=1" width="300" height="250" frameborder="0" scrolling="no"></iframe>
+

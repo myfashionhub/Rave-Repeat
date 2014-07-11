@@ -65,6 +65,9 @@ GEM
       sass (~> 3.2)
     hashie (2.1.2)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.1.2)
       activesupport (>= 3.0.0, < 5)
@@ -81,10 +84,13 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.6.0)
     minitest (5.4.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
     oauth (0.4.7)
     oauth2 (0.9.4)
       faraday (>= 0.8, < 0.10)
@@ -197,9 +203,11 @@ DEPENDENCIES
   backbone-on-rails
   coffee-rails (~> 4.0.0)
   font-awesome-sass
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails (~> 4.0.5)
+  nokogiri
   omniauth
   omniauth-facebook
   omniauth-twitter

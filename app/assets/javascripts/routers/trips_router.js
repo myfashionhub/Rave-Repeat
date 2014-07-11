@@ -1,1 +1,1 @@
-class GoRaver.Routers.Trips extends Backbone.Router
+GoRaver.Routers.Trips = Backbone.Router.extend({});

@@ -1,3 +1,5 @@
-class GoRaver.Views.TripsIndex extends Backbone.View
+GoRaver.Views.TripsIndex = Backbone.View.extend({
+  template: _.template("<%= location %>")
+})
 
-  template: JST['trips/index']
+// Ref: http://ricostacruz.com/backbone-patterns/#jst_templates

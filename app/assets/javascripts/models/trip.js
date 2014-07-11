@@ -1,1 +1,1 @@
-class GoRaver.Models.Trip extends Backbone.Model
+GoRaver.Models.Trip = Backbone.Model.extend({});
