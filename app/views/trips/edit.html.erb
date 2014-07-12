@@ -1,5 +1,7 @@
 <h2><%= @raver.name %>, plan your trip</h2>
 
+Destination: <%= @festival.name %>, <%= @festival.start_date %> - <%= @festival.end_date %>
+
 <script type="text/javascript">
   $(function() {
     window.router = new GoRaver.Routers.Trips();
@@ -9,16 +11,21 @@
 
 <h3>Flight search:</h3>
 
-<form action="">
-From:
-<input type="text" id='from-airport' value='<%= @raver.location %>'></input>
-From:
-<input type="text" id='to-airport' value='<%= @festival.location %>'></input>
-Depart:
-<input type="text" id='depart-date' value='<%= @date1 %>'></input>
-Return:
-<input type="text" id='return-date' value='<%= @date2 %>'></input>
-<button id='search-flight'>Search on Kayak</button>
+<form class='search-flight'>
+  From:
+  <input type="text" id='from-airport' value='<%= @raver.location %>'></input>
+<!-- Drop down to select airport -->
+  To:
+  <input type="text" id='to-airport' value='<%= @festival.location %>'></input>
+  Depart:
+  <input type="text" id='depart-date' value='<%= @date1 %>'></input>
+  Return:
+  <input type="text" id='return-date' value='<%= @date2 %>'></input>
+  <button id='search-flight'>Search on Kayak</button>
 </form>
 
 
+<form class="view-flights">
+  <input class='result-url' placeholder="Paste your Kayak search result url here"></input>
+  <button id='view-flights'>View flights</button>
+</form>

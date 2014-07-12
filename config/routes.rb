@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/raver' => 'ravers#show'
   get '/trips/:id' => 'trips#edit'
+  post '/flights'  => 'trips#flight'
   resources :ravers, only: [:index, :update] do
     resources :trips, only: [:new, :create, :update, :delete]
   end
