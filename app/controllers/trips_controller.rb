@@ -10,9 +10,10 @@ class TripsController < ApplicationController
     @raver    = current_raver
     @trip     = Trip.find(params[:id])
     @festival = Festival.find(@trip.festival_id)
-    @date1    = (@festival.start_date - 1).to_s.gsub('-','%2F')
-    @date2    = (@festival.end_date + 1).to_s.gsub('-','%2F')
-  #?ai=kayaksample&d=n&cars=n&tab=flights&doubleEncoded=on&l1=!&l2=<%= @festival.location %>&df=ymd&d1=<%= @date1 %>&d2=<%= @date2 %>
+
+    @date1    = convert_date(@festival.start_date - 1)
+    @date2    = convert_date(@festival.end_date + 1)
+    Trip.flight(@raver.location, @festival.location, @date1, @date2)
   end
 
   def update

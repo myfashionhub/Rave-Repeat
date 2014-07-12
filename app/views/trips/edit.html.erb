@@ -1,5 +1,4 @@
-<h2><%= @raver.name %>, customize your trip</h2>
-
+<h2><%= @raver.name %>, plan your trip</h2>
 
 <script type="text/javascript">
   $(function() {
@@ -8,8 +7,18 @@
   });
 </script>
 
-<%= @date1 %>
-<%= @date2 %>
+<h3>Flight search:</h3>
 
-<iframe src="http://kayak.com/widget/300x250?ai=kayaksample&d=n&cars=n&tab=flights&doubleEncoded=on&l1=!&l2=<%= @festival.location %>&df=ymd&d1=<%= @date1 %>&d2=<%= @date2 %>&v=1" width="300" height="250" frameborder="0" scrolling="no"></iframe>
+<form action="">
+From:
+<input type="text" id='from-airport' value='<%= @raver.location %>'></input>
+From:
+<input type="text" id='to-airport' value='<%= @festival.location %>'></input>
+Depart:
+<input type="text" id='depart-date' value='<%= @date1 %>'></input>
+Return:
+<input type="text" id='return-date' value='<%= @date2 %>'></input>
+<button id='search-flight'>Search on Kayak</button>
+</form>
+
 
