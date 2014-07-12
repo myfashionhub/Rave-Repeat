@@ -1,6 +1,6 @@
 <h2><%= @raver.name %>, plan your trip</h2>
 
-Destination: <%= @festival.name %>, <%= @festival.start_date %> - <%= @festival.end_date %>
+Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>
 
 <script type="text/javascript">
   $(function() {
@@ -32,6 +32,8 @@ Destination: <%= @festival.name %>, <%= @festival.start_date %> - <%= @festival.
   </form>
 
   <div class="flight-results"></div>
+
+  <button id='save-flight'>Save and continue</button>
 </section>
 
 

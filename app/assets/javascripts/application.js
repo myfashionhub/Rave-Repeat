@@ -4,6 +4,7 @@
 //= require underscore
 //= require backbone
 //= require go_raver
+//= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views

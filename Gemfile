@@ -49,5 +49,6 @@ gem 'httparty'
 gem 'nokogiri'
 
 gem 'backbone-on-rails'
+
 gem 'jquery-ui-rails', "~> 4.0.5"
 gem 'font-awesome-sass'

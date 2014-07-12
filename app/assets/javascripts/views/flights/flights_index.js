@@ -1,24 +1,10 @@
-function searchFlight() {
-  var location1 = $('#from-airport').val().replace(' ', '%20');
-  var location2 = $('#to-airport').val().replace(' ', '%20');
-  var date1 = $('#depart-date').val().replace('/', '%2F');
-  var date2 = $('#return-date').val().replace('/', '%2F');
-  var base_url = 'http://www.kayak.com/s/search/air?';
-  var query    = 'l1='+location1+'&l2='+location2+'&df=mdy&d1='+date1+'&d2='+date2+'&ns=y';
-  window.open(base_url+query);
-}
-
-function viewFlights() {
-  var url = $('.result-url').val();
-  $.ajax({
-    url: '/flights',
-    method: 'post',
-    data: { url: url },
-    dataType: 'json',
-    success: function(data) {
-      displayFlights(data); }
-  });
-}
+GoRaver.Views.FlightView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'all', this.render);
+  },
+  tagName: 'article',
+  template: JST['templates/flight']
+});
 
 function displayFlights(data) {
   for (var i = 0; i < data.length; i++) {
@@ -56,30 +42,5 @@ function displayFlights(data) {
   }
 }
 
-function saveFlight() {
-  var checkedBoxes = $('input:checked');
-    console.log('save checked');
-  _.each(checkedBoxes, function(checkedBox) {
-    var trip = $(checkedBox).parent();
-    var flight1 = trip.find('p')[0];
-    var flight2 = trip.find('p')[1];
-    var buy     = trip.find('a');
-    $.ajax({
-      url: 'flights',
-      method: 'post'
-    })
-  })
-}
-
-$(document).ready(function() {
-  $('#search-flight').click(searchFlight);
-
-  $('.view-flights').submit(function(e) {
-    e.preventDefault();
-    viewFlights();
-  });
-
-  $('#save-flight').click(saveFlight);
+GoRaver.Views.FlightsView = Backbone.View.extend({
 });
-
-
