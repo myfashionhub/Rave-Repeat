@@ -9,23 +9,31 @@ Destination: <%= @festival.name %>, <%= @festival.start_date %> - <%= @festival.
   });
 </script>
 
-<h3>Flight search:</h3>
+<section class="flight">
+  <h3>Flight search:</h3>
 
-<form class='search-flight'>
-  From:
-  <input type="text" id='from-airport' value='<%= @raver.location %>'></input>
-<!-- Drop down to select airport -->
-  To:
-  <input type="text" id='to-airport' value='<%= @festival.location %>'></input>
-  Depart:
-  <input type="text" id='depart-date' value='<%= @date1 %>'></input>
-  Return:
-  <input type="text" id='return-date' value='<%= @date2 %>'></input>
-  <button id='search-flight'>Search on Kayak</button>
-</form>
+  <form class='search-flight'>
+    From:
+    <input type="text" id='from-airport' value='<%= @raver.location %>'></input>
+  <!-- Drop down to select airport -->
+    To:
+    <input type="text" id='to-airport' value='<%= @festival.location %>'></input>
+    Depart:
+    <input type="text" id='depart-date' value='<%= @date1 %>'></input>
+    Return:
+    <input type="text" id='return-date' value='<%= @date2 %>'></input>
+    <button id='search-flight'>Search on Kayak</button>
+  </form>
 
 
-<form class="view-flights">
-  <input class='result-url' placeholder="Paste your Kayak search result url here"></input>
-  <button id='view-flights'>View flights</button>
-</form>
+  <form class="view-flights">
+    <input class='result-url' placeholder="Paste your Kayak search result url here"></input>
+    <button id='view-flights'>View flights</button>
+  </form>
+
+  <div class="flight-results"></div>
+</section>
+
+
+<section class="flight">
+</section>
