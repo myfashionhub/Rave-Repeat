@@ -24,10 +24,10 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :trips do |t|
-      t.string :name
-      t.string :location
       t.string :date
       t.string :lineup
+      t.date :start_date
+      t.date :end_date
       t.references :raver
       t.references :festival
       t.timestamps

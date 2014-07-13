@@ -13,6 +13,7 @@ Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - 
   <h3>Flight search:</h3>
 
   <form class='search-flight'>
+    <input type="hidden" id='trip-id' value='<%= @trip.id %>'>
     From:
     <input type="text" id='from-airport' value='<%= @raver.location %>'></input>
   <!-- Drop down to select airport -->

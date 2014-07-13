@@ -11,7 +11,7 @@ function searchFlight() {
 function viewFlights() {
   var url = $('.result-url').val();
   $.ajax({
-    url: '/flights',
+    url: '/flights/search',
     method: 'post',
     data: { url: url },
     dataType: 'json',
@@ -39,18 +39,17 @@ function displayFlights(data) {
     var price        = data[i].price;
     var link         = data[i].link;
 
-    var trip = $('<article>').addClass('trip');
-    var leg1 = $('<p>').html('Depart: '+fromAirport1 + ' ' + fromTime1 + ' => ' + toAirport1 + ' ' + toTime1 + ' ' + duration1);
-    var leg2 = $('<p>').html('Arrive: '+fromAirport2 + ' ' + fromTime2 + ' => ' + toAirport2 + ' ' + toTime2 + ' ' + duration2);
+    var trip = $('<article>').addClass('flight');
+    var leg1 = $('<p>').html(fromAirport1 + ' ' + fromTime1 + ' => ' + toAirport1 + ' ' + toTime1 + ' ' + duration1);
+    var leg2 = $('<p>').html(fromAirport2 + ' ' + fromTime2 + ' => ' + toAirport2 + ' ' + toTime2 + ' ' + duration2);
     var buyLink = $('<a>').attr('href', link).attr('target', '_blank');
     var buy  = price + ' from ' + airline;
     buyLink.html(buy);
     var checkbox = $('<input>').attr('type', 'checkbox');
     var save = $('<span>').html('Save this flight');
 
-    trip.append('<h4>'+airline+'</h4>')
+    trip.append(buyLink)
         .append(leg1).append(leg2)
-        .append(buyLink)
         .append(checkbox).append(save);
     $('.flight-results').append(trip);
   }
@@ -61,13 +60,20 @@ function saveFlight() {
     console.log('save checked');
   _.each(checkedBoxes, function(checkedBox) {
     var trip = $(checkedBox).parent();
-    var flight1 = trip.find('p')[0];
-    var flight2 = trip.find('p')[1];
+    var leg1 = $(trip.find('p')[0]).html();
+    var leg2 = $(trip.find('p')[1]).html();
     var buy     = trip.find('a');
+    var link    = buy.attr('href');
+    var airline = buy.html().split(' ').slice(-1)[0];
+    var price   = buy.html().split(' ').slice(0,1)[0];
+    var trip_id = $('#trip-id').val();
     $.ajax({
-      url: 'flights',
-      method: 'post'
-    })
+      url: '/flights',
+      method: 'post',
+      data: { leg1: leg1, leg2: leg2, price: price, airline: airline, link: link, trip_id: trip_id },
+      dataType: 'json',
+      success: function() { console.log('Saved!') }
+    });
   })
 }
 

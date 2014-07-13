@@ -14,12 +14,6 @@ class TripsController < ApplicationController
     @date2    = convert_date(@festival.end_date + 1)
   end
 
-  def flight
-    url = params[:url]
-    results = Trip.flight(url)
-    render json: results.to_json
-  end
-
   def update
   end
 end

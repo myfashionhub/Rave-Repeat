@@ -1,10 +1,20 @@
 class FlightsController < ApplicationController
-  def create
-    flight = Flight.create(
+  def search
+    url = params[:url]
+    results = Flight.search(url)
+    render json: results.to_json
+  end
 
+  def create
+    Flight.create(
+      leg1: params[:leg1],
+      leg2: params[:leg2],
+      airline: params[:airline],
+      price: params[:price],
+      link: params[:link],
+      trip_id: params[:trip_id]
     )
-    trip = Trip.find(id)
-    trip.flights << flight
+    render json: { msg: 'Successfully saved' }.to_json
   end
 
   def destroy

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712212750) do
+ActiveRecord::Schema.define(version: 20140713000313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,18 +30,11 @@ ActiveRecord::Schema.define(version: 20140712212750) do
 
   create_table "flights", force: true do |t|
     t.string   "airline"
-    t.string   "leg1_airport1"
-    t.time     "leg1_time1"
-    t.string   "leg1_airport2"
-    t.string   "leg1_time2"
-    t.string   "leg1_duration"
-    t.string   "leg2_airport1"
-    t.time     "leg2_time1"
-    t.string   "leg2_airport2"
-    t.string   "leg2_time2"
-    t.string   "leg2_duration"
+    t.string   "leg1"
+    t.string   "leg2"
     t.string   "price"
-    t.text     "link"
+    t.string   "link"
+    t.integer  "trip_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,14 +70,13 @@ ActiveRecord::Schema.define(version: 20140712212750) do
   end
 
   create_table "trips", force: true do |t|
-    t.string   "name"
-    t.string   "location"
-    t.string   "date"
     t.string   "lineup"
     t.integer  "raver_id"
     t.integer  "festival_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
 end

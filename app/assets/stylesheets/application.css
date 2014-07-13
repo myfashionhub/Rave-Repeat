@@ -8,3 +8,7 @@
 body {
   font-family: Helvetica;
 }
+
+p {
+  margin: .1em 0;
+}
