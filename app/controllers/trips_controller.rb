@@ -15,6 +15,12 @@ class TripsController < ApplicationController
   end
 
   def update
+    trip = Trip.find(params[:trip_id])
+    trip.update(from_airport: params[:from_airport],
+                to_airport: params[:to_airport],
+                start_date: params[:start_date],
+                end_date: params[:end_date])
+    render json: { msg: "Updated trip" }.to_json
   end
 
   def lineup

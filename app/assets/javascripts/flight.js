@@ -1,4 +1,5 @@
 function searchFlight() {
+  updateTrip();
   var location1 = $('#from-airport').val().replace(' ', '%20');
   var location2 = $('#to-airport').val().replace(' ', '%20');
   var date1 = $('#depart-date').val().replace('/', '%2F');
@@ -69,34 +70,17 @@ function saveFlight() {
     var link    = trip.find('a').attr('href');
     var airline = trip.find('.airline').html();
     var price   = trip.find('.price').html();
-    var trip_id = $('#trip-id').val();
+    var tripId = $('#trip-id').val();
     $.ajax({
       url: '/flights',
       method: 'post',
-      data: { leg1: leg1, leg2: leg2, price: price, airline: airline, link: link, trip_id: trip_id },
+      data: { leg1: leg1, leg2: leg2, price: price, airline: airline, link: link, trip_id: tripId },
       dataType: 'json',
       success: showLineup
     });
   })
 }
 
-$(document).ready(function() {
-  $('#search-flight').click(searchFlight);
 
-  $('.view-flights').submit(function(e) {
-    e.preventDefault();
-    viewFlights();
-  });
-
-  if ($('.flight-results').html() === '') {
-    $('#save-flight').click(showLineup);
-  } else {
-    $('#save-flight').click(function() {
-      saveFlight();
-      updateTrip();
-    });
-  }
-
-});
 
 
