@@ -15,7 +15,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find(params[:trip_id])
+    trip = Trip.find(params[:id])
     trip.update(from_airport: params[:from_airport],
                 to_airport: params[:to_airport],
                 start_date: params[:start_date],

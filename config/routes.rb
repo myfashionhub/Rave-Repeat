@@ -10,25 +10,27 @@ Rails.application.routes.draw do
   post '/flights/search' => 'flights#search'
   post '/trips/lineup' => 'trips#lineup'
   resources :flights, only: [:create, :destroy]
-  resources :ravers, only: [:index, :update] do
-    resources :trips, only: [:new, :create, :update, :delete]
-  end
+  resources :trips, only: [:new, :create, :update, :delete]
+  resources :ravers, only: [:index, :update]
 
   resources :festivals, only: [:index, :show]
 end
 
-# root GET   /                                     welcome#index
-#  auth_twitter_callback GET   /auth/twitter/callback(.:format)      sessions#signin_twitter
-# auth_facebook_callback GET   /auth/facebook/callback(.:format)     sessions#signin_facebook
-#                 logout GET   /logout(.:format)                     sessions#destroy
-#                  raver GET   /raver(.:format)                      ravers#show
-#                        GET   /trips/:id(.:format)                  trips#edit
-#            raver_trips POST  /ravers/:raver_id/trips(.:format)     trips#create
-#         new_raver_trip GET   /ravers/:raver_id/trips/new(.:format) trips#new
-#             raver_trip PATCH /ravers/:raver_id/trips/:id(.:format) trips#update
-#                        PUT   /ravers/:raver_id/trips/:id(.:format) trips#update
-#                 ravers GET   /ravers(.:format)                     ravers#index
-#                        PATCH /ravers/:id(.:format)                 ravers#update
-#                        PUT   /ravers/:id(.:format)                 ravers#update
-#              festivals GET   /festivals(.:format)                  festivals#index
-#               festival GET   /festivals/:id(.:format)              festivals#show
+#  auth_twitter_callback GET    /auth/twitter/callback(.:format)  sessions#signin_twitter
+# auth_facebook_callback GET    /auth/facebook/callback(.:format) sessions#signin_facebook
+#                 logout GET    /logout(.:format)                 sessions#destroy
+#                  raver GET    /raver(.:format)                  ravers#show
+#                        GET    /trips/:id(.:format)              trips#edit
+#         flights_search POST   /flights/search(.:format)         flights#search
+#           trips_lineup POST   /trips/lineup(.:format)           trips#lineup
+#                flights POST   /flights(.:format)                flights#create
+#                 flight DELETE /flights/:id(.:format)            flights#destroy
+#                  trips POST   /trips(.:format)                  trips#create
+#               new_trip GET    /trips/new(.:format)              trips#new
+#                   trip PATCH  /trips/:id(.:format)              trips#update
+#                        PUT    /trips/:id(.:format)              trips#update
+#                 ravers GET    /ravers(.:format)                 ravers#index
+#                        PATCH  /ravers/:id(.:format)             ravers#update
+#                        PUT    /ravers/:id(.:format)             ravers#update
+#              festivals GET    /festivals(.:format)              festivals#index
+#               festival GET    /festivals/:id(.:format)          festivals#show

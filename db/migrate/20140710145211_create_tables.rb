@@ -26,8 +26,10 @@ class CreateTables < ActiveRecord::Migration
     create_table :trips do |t|
       t.string :date
       t.string :lineup
-      t.date :start_date
-      t.date :end_date
+      t.string :start_date
+      t.string :end_date
+      t.string :from_airport
+      t.string :to_airport
       t.references :raver
       t.references :festival
       t.timestamps
@@ -48,6 +50,16 @@ class CreateTables < ActiveRecord::Migration
       t.integer :merchandise_id
       t.integer :raver_id
     end
+
+    create_table :flights do |t|
+      t.string :airline
+      t.string :leg1
+      t.string :leg2
+      t.string :price
+      t.string :link
+      t.integer :trip_id
+      t.timestamps
+    end
   end
 
   def down
@@ -55,5 +67,6 @@ class CreateTables < ActiveRecord::Migration
     drop_table :festivals
     drop_table :trips
     drop_table :merchandises
+    drop_table :flights
   end
 end

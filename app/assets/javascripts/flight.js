@@ -4,7 +4,6 @@ function showFlight() {
 }
 
 function searchFlight() {
-  updateTrip();
   var location1 = $('#from-airport').val().replace(' ', '%20');
   var location2 = $('#to-airport').val().replace(' ', '%20');
   var date1 = $('#depart-date').val().replace('/', '%2F');

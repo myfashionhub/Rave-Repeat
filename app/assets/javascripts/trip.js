@@ -1,5 +1,4 @@
 function updateTrip() {
-  console.log('got here');
   var fromAirport = $('#from-airport').val();
   var toAirport   = $('#to-airport').val();
   var startDate   = $('#depart-date').val();
@@ -8,7 +7,7 @@ function updateTrip() {
 
   $.ajax({
     url: '/trips/'+tripId,
-    method: 'post',
+    method: 'put',
     dataType: 'json',
     data: { from_airport: fromAirport, to_airport: toAirport, start_date: startDate, end_date: endDate },
     success: function() { console.log("Trip updated"); }

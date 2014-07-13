@@ -14,7 +14,10 @@
 $(document).ready(function() {
   // Flight functions
   $('#search-flight').click(function() {
+    console.log('need to update');
+    updateTrip();
     searchFlight();
+    return false;
   });
 
   $('.view-flights').submit(function(e) {
