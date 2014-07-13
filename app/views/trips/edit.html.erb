@@ -18,14 +18,14 @@ Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - 
     <form class='search-flight'>
       <input type="hidden" id='trip-id  ' value='<%= @trip.id %>'>
       From:
-      <input type="text" id='from-airport' value='<%= @raver.location %>'></input>
+      <input type="text" id='from-airport' value='<%= @raver.location %>'></input><br/>
     <!-- Drop down to select airport -->
       To:
-      <input type="text" id='to-airport' value='<%= @festival.location %>'></input>
+      <input type="text" id='to-airport' value='<%= @festival.location %>'></input><br/>
       Depart:
-      <input type="text" id='depart-date' value='<%= @date1 %>'></input>
+      <input type="text" id='depart-date' value='<%= @date1 %>'></input><br/>
       Return:
-      <input type="text" id='return-date' value='<%= @date2 %>'></input>
+      <input type="text" id='return-date' value='<%= @date2 %>'></input><br/>
       <button id='search-flight'>Search on Kayak</button>
     </form>
 
@@ -47,7 +47,14 @@ Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - 
 <div class="hidden">
   <section class='lineup'>
     <h3>Dream lineup:</h3>
-    <ul>
+    <p>Drag artists from the official list and drop in the left column to create your own lineup</p>
+
+    <div class='own'>
+      <h4>Your lineup</h4>
+    </div>
+
+    <ul class='official'>
+    <h4>Official lineup</h4>
     <% @festival.lineup.each do |artist| %>
       <li><%= artist %></li>
     <% end %>
@@ -55,5 +62,9 @@ Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - 
   </section>
 
   <section class='hotel'>
+  </section>
+
+  <section class='itinerary'>
+
   </section>
 </div>

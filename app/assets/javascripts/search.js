@@ -50,13 +50,13 @@ function displayFlights(data) {
     var airlineEl = $("<h4>").addClass('airline').html(airline);
     var priceEl = $("<span>").addClass('price').html(price);
     var checkbox = $('<input>').attr('type', 'checkbox');
-    var save = $('<span>').html('Save this flight');
+    var save = $('<span>').html('Save to intinerary');
 
     trip.append(airlineEl).append(priceEl)
         .append(leg1).append(leg2)
         .append(buyLink)
         .append(checkbox).append(save);
-    $('.flight-results').append(trip);
+    $('.flight-results').append(trip).hide().slideDown();
   }
 }
 
@@ -66,10 +66,9 @@ function saveFlight() {
     var trip = $(checkedBox).parent();
     var leg1 = $(trip.find('p')[0]).html();
     var leg2 = $(trip.find('p')[1]).html();
-    var buy     = trip.find('a');
-    var link    = buy.attr('href');
-    var airline = buy.html().split(' ').slice(-1)[0];
-    var price   = buy.html().split(' ').slice(0,1)[0];
+    var link    = trip.find('a').attr('href');
+    var airline = trip.find('.airline').html();
+    var price   = trip.find('.price').html();
     var trip_id = $('#trip-id').val();
     $.ajax({
       url: '/flights',
@@ -89,7 +88,12 @@ $(document).ready(function() {
     viewFlights();
   });
 
-  $('#save-flight').click(saveFlight);
+  if ($('.flight-results').html() === '') {
+    $('#save-flight').click(showLineup);
+  } else {
+    $('#save-flight').click(saveFlight);
+  }
+
 });
 
 

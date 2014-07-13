@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
     Flight.create(
       leg1: params[:leg1],
       leg2: params[:leg2],
-      airline: params[:airline],
+      airline: params[:airline].delete!("\n").squeeze!,
       price: params[:price],
       link: params[:link],
       trip_id: params[:trip_id]
