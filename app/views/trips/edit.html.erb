@@ -2,6 +2,8 @@
 
 Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>
 
+<button>View current itinerary</button>
+
 <script type="text/javascript">
   $(function() {
     window.router = new GoRaver.Routers.Trips();
@@ -9,34 +11,49 @@ Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - 
   });
 </script>
 
-<section class="flight">
-  <h3>Flight search:</h3>
+<div class="show">
+  <section class='flight current'>
+    <h3>Flight search:</h3>
 
-  <form class='search-flight'>
-    <input type="hidden" id='trip-id' value='<%= @trip.id %>'>
-    From:
-    <input type="text" id='from-airport' value='<%= @raver.location %>'></input>
-  <!-- Drop down to select airport -->
-    To:
-    <input type="text" id='to-airport' value='<%= @festival.location %>'></input>
-    Depart:
-    <input type="text" id='depart-date' value='<%= @date1 %>'></input>
-    Return:
-    <input type="text" id='return-date' value='<%= @date2 %>'></input>
-    <button id='search-flight'>Search on Kayak</button>
-  </form>
-
-
-  <form class="view-flights">
-    <input class='result-url' placeholder="Paste your Kayak search result url here"></input>
-    <button id='view-flights'>View flights</button>
-  </form>
-
-  <div class="flight-results"></div>
-
-  <button id='save-flight'>Save and continue</button>
-</section>
+    <form class='search-flight'>
+      <input type="hidden" id='trip-id  ' value='<%= @trip.id %>'>
+      From:
+      <input type="text" id='from-airport' value='<%= @raver.location %>'></input>
+    <!-- Drop down to select airport -->
+      To:
+      <input type="text" id='to-airport' value='<%= @festival.location %>'></input>
+      Depart:
+      <input type="text" id='depart-date' value='<%= @date1 %>'></input>
+      Return:
+      <input type="text" id='return-date' value='<%= @date2 %>'></input>
+      <button id='search-flight'>Search on Kayak</button>
+    </form>
 
 
-<section class="flight">
-</section>
+    <form class="view-flights">
+      <input class='result-url' placeholder="Paste your Kayak search result url here"></input>
+      <button id='view-flights'>View flights</button>
+    </form>
+
+    <div class="flight-results"></div>
+
+    <button id='save-flight'>Save and continue</button>
+  </section>
+</div>
+
+
+
+<!-- Hidden -->
+<div class="hidden">
+  <section class='lineup'>
+    <h3>Dream lineup:</h3>
+    <ul>
+    <% @festival.lineup.each do |artist| %>
+      <li><%= artist %></li>
+    <% end %>
+    </ul>
+  </section>
+
+  <section class='hotel'>
+  </section>
+</div>

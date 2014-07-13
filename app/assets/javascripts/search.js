@@ -29,7 +29,7 @@ function displayFlights(data) {
     var toTime1      = data[i].leg1_time2;
     var duration1    = data[i].leg1_duration;
 
-    var airline = data[i].airline;
+    var airline      = data[i].airline;
     var fromAirport2 = data[i].leg2_airport1;
     var toAirport2   = data[i].leg2_airport2;
     var fromTime2    = data[i].leg2_time1;
@@ -40,16 +40,21 @@ function displayFlights(data) {
     var link         = data[i].link;
 
     var trip = $('<article>').addClass('flight');
-    var leg1 = $('<p>').html(fromAirport1 + ' ' + fromTime1 + ' => ' + toAirport1 + ' ' + toTime1 + ' ' + duration1);
-    var leg2 = $('<p>').html(fromAirport2 + ' ' + fromTime2 + ' => ' + toAirport2 + ' ' + toTime2 + ' ' + duration2);
-    var buyLink = $('<a>').attr('href', link).attr('target', '_blank');
-    var buy  = price + ' from ' + airline;
-    buyLink.html(buy);
+    var leg1 = $('<p>').addClass('leg1')
+               .html(fromAirport1 + ' ' + fromTime1 + ' => ' + toAirport1 + ' ' + toTime1 + ' ' + duration1);
+    var leg2 = $('<p>').addClass('leg2')
+              .html(fromAirport2 + ' ' + fromTime2 + ' => ' + toAirport2 + ' ' + toTime2 + ' ' + duration2);
+    var buyLink = $('<a>').attr('href', link)
+                          .attr('target', '_blank')
+                          .html('Buy now');
+    var airlineEl = $("<h4>").addClass('airline').html(airline);
+    var priceEl = $("<span>").addClass('price').html(price);
     var checkbox = $('<input>').attr('type', 'checkbox');
     var save = $('<span>').html('Save this flight');
 
-    trip.append(buyLink)
+    trip.append(airlineEl).append(priceEl)
         .append(leg1).append(leg2)
+        .append(buyLink)
         .append(checkbox).append(save);
     $('.flight-results').append(trip);
   }
@@ -57,7 +62,6 @@ function displayFlights(data) {
 
 function saveFlight() {
   var checkedBoxes = $('input:checked');
-    console.log('save checked');
   _.each(checkedBoxes, function(checkedBox) {
     var trip = $(checkedBox).parent();
     var leg1 = $(trip.find('p')[0]).html();
@@ -72,7 +76,7 @@ function saveFlight() {
       method: 'post',
       data: { leg1: leg1, leg2: leg2, price: price, airline: airline, link: link, trip_id: trip_id },
       dataType: 'json',
-      success: function() { console.log('Saved!') }
+      success: showLineup
     });
   })
 }
