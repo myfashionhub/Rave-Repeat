@@ -91,7 +91,10 @@ $(document).ready(function() {
   if ($('.flight-results').html() === '') {
     $('#save-flight').click(showLineup);
   } else {
-    $('#save-flight').click(saveFlight);
+    $('#save-flight').click(function() {
+      saveFlight();
+      updateTrip();
+    });
   }
 
 });

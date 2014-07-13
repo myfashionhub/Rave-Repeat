@@ -16,6 +16,12 @@ class TripsController < ApplicationController
 
   def update
   end
+
+  def lineup
+    trip = Trip.find(params[:trip_id])
+    trip.update(lineup: params[:lineup])
+    render json: { msg: "Updated lineup" }.to_json
+  end
 end
 
 #http://www.airportcodes.org/

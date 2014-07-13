@@ -6,19 +6,37 @@ function showLineup() {
 function lineupBuilder() {
   var officialArtists = $('.official').find('li');
   _.each(officialArtists, function(artist) {
-    console.log(artist);
-    $(artist).draggable();
-  })
+    $(artist).draggable({
+      cursor: 'move',
+      helper: 'clone'
+    });
+  });
+
   $('.own').droppable({
     drop: function(e, dropped) {
-      console.log(dropped);
-      var index = officialArtists.indexOf($(dropped));
-      officialArtists.remove(index);
-      $(dropped).appendTo($('.own'));
+      $(dropped.draggable).appendTo($('.own'));
     }
   });
 }
 
+function saveLineup() {
+  var trip_id    = $('#trip-id').val();
+  var artistList = $('.own').find('li');
+  var artists    = [];
+  _.each(artistList, function(artistLi) {
+    artists.push($(artistLi).html());
+  })
+
+  $.ajax({
+    url: '/trips/lineup',
+    method: 'post',
+    dataType: 'json',
+    data: { trip_id: trip_id, lineup: artists },
+    success: function() { console.log("Updated lineup"); }
+  })
+}
+
 $(document).ready(function() {
   lineupBuilder();
+  $('#save-lineup').click(saveLineup);
 });

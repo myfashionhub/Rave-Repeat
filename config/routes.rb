@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback'=> 'sessions#signin_facebook'
   get '/logout'                => 'sessions#destroy'
 
-  get '/raver' => 'ravers#show'
-  get '/trips/:id' => 'trips#edit'
+  get '/raver'        => 'ravers#show'
+  get '/trips/:id'    => 'trips#edit'
   post '/flights/search' => 'flights#search'
+  post '/trips/lineup' => 'trips#lineup'
   resources :flights, only: [:create, :destroy]
   resources :ravers, only: [:index, :update] do
     resources :trips, only: [:new, :create, :update, :delete]

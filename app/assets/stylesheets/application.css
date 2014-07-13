@@ -31,7 +31,7 @@ article {
   float: left;
 }
 
-.official {
+.official, .own {
   list-style-type: none;
   padding-left: 0;
 }
