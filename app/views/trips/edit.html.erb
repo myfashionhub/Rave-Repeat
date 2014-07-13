@@ -4,7 +4,15 @@
 
 Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>
 
-<button>View current itinerary</button>
+<nav class='trip'>
+  <ul>
+    <li class='flight-section'>Add flight</li>
+    <li class='hotel-section'>Add hotel</li>
+    <li class='lineup-section'>Customize lineup</li>
+    <li class='itinerary-section'>View current itinerary</li>
+  </ul>
+</nav>
+
 
 <script type="text/javascript">
   $(function() {
@@ -56,7 +64,7 @@ Destination: <%= @festival.name %>, <%= display_date(@festival.start_date) %> - 
 
     <ul class='official'>
     <h4>Official lineup</h4>
-    <% @festival.lineup.each do |artist| %>
+    <% @festival.lineup.sort.each do |artist| %>
       <li><%= artist %></li>
     <% end %>
     </ul>

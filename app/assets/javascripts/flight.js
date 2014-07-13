@@ -1,3 +1,8 @@
+function showFlight() {
+  $('.current').removeClass('current').fadeOut().appendTo('.hidden');
+  $('.flight').addClass('current').appendTo('.show').hide().fadeIn();
+}
+
 function searchFlight() {
   updateTrip();
   var location1 = $('#from-airport').val().replace(' ', '%20');
@@ -78,9 +83,8 @@ function saveFlight() {
       dataType: 'json',
       success: showLineup
     });
-  })
+  });
 }
-
 
 
 

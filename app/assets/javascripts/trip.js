@@ -14,3 +14,8 @@ function updateTrip() {
     success: function() { console.log("Trip updated"); }
   })
 }
+
+function showItinerary() {
+  $('.current').removeClass('current').fadeOut().appendTo('.hidden');
+  $('.itinerary').addClass('current').appendTo('.show').hide().fadeIn();
+}

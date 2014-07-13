@@ -22,15 +22,19 @@ $(document).ready(function() {
     viewFlights();
   });
 
-  if ($('.flight-results').html() === '') {
-    $('#save-flight').click(showLineup);
-  } else {
-    $('#save-flight').click(function() {
-      saveFlight();
-    });
-  }
+  $('#save-flight').click(saveFlight);
 
   // Line up functions
   lineupBuilder();
-  $('#save-lineup').click(saveLineup);
+  $('#save-lineup').click(function() {
+    saveLineup();
+  });
+
+  // Nav triggers
+  $('.flight-section').click(function() {
+    showFlight();
+    console.log('I clicked');
+  });
+  $('.lineup-section').click(showLineup);
+  $('.itinerary-section').click(showItinerary);
 });
