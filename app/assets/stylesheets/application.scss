@@ -7,8 +7,22 @@
 
 body {
   font-family: Helvetica;
+  margin: 0;
 }
 
+.background {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  opacity: .75;
+}
+
+.wrapper {
+  overflow: auto;
+}
 
 /* TRIP EDIT */
 p {
@@ -52,5 +66,9 @@ article {
 }
 
 .ui-draggable:hover {
+  cursor: pointer;
+}
+
+i:hover {
   cursor: pointer;
 }

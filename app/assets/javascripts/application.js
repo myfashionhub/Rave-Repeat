@@ -13,11 +13,10 @@
 
 $(document).ready(function() {
   // Flight functions
-  $('#search-flight').click(function() {
-    console.log('need to update');
+  $('#search-flight').click(function(e) {
+    e.preventDefault();
     updateTrip();
     searchFlight();
-    return false;
   });
 
   $('.view-flights').submit(function(e) {
@@ -28,16 +27,14 @@ $(document).ready(function() {
   $('#save-flight').click(saveFlight);
 
   // Line up functions
+  displayOwnLineup();
   lineupBuilder();
   $('#save-lineup').click(function() {
     saveLineup();
   });
 
   // Nav triggers
-  $('.flight-section').click(function() {
-    showFlight();
-    console.log('I clicked');
-  });
+  $('.flight-section').click(showFlight);
   $('.lineup-section').click(showLineup);
   $('.itinerary-section').click(showItinerary);
 });

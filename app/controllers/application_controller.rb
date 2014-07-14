@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_raver,
-                :convert_date, :display_date
+                :convert_date,
+                :display_date, :display_year
 
   def current_raver
     Raver.find(session[:raver_id]) if session[:raver_id]
@@ -16,5 +17,9 @@ class ApplicationController < ActionController::Base
 
   def display_date(date)
     date.strftime("%B %d")
+  end
+
+  def display_year(date)
+    date.strftime("%Y")
   end
 end

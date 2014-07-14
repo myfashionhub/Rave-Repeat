@@ -1,6 +1,19 @@
 function showLineup() {
   $('.current').removeClass('current').fadeOut().appendTo('.hidden');
   $('.lineup').addClass('current').appendTo('.show').hide().fadeIn();
+  displayOwnLineup();
+}
+
+function displayOwnLineup() {
+  var ownArtists = $('.own').find('li');
+  _.each(ownArtists, function(artistLi) {
+    if ($(artistLi).find('i').length === 0 ) {
+      $(artistLi).append('<i class="fa fa-times"></i>');
+    }
+  });
+  $('i').click(function(e) {
+    $(e.target).parent().remove();
+  })
 }
 
 function lineupBuilder() {
@@ -14,17 +27,36 @@ function lineupBuilder() {
 
   $('.own').droppable({
     drop: function(e, dropped) {
-      $(dropped.draggable).append(' <i class="fa fa-times"></i>');
-      $(dropped.draggable).appendTo($('.own'));
-      $('i').click(function(e) {
-        modifyLineup(e);
-      });
+      var artistLi = dropped.draggable;
+      console.log(artistLi.html());
+      console.log(notDupe(artistLi.html()));
+      //if (notDupe(artistLi.html())) {
+        $(artistLi).append('<i class="fa fa-times"></i>');
+        $(artistLi).appendTo($('.own'));
+        $('i').click(function(e) {
+          modifyLineup(e);
+        });
+      //}
+    }
+  });
+}
+
+// not working
+function notDupe(artist) {
+  var ownArtists = $('.own').find('li');
+  _.each(ownArtists, function(artistLi) {
+    if ($(artistLi).html() === artist) {
+      console.log('start comparing');
+      console.log($(artistLi).html());
+      return false;
+    } else {
+      return true;
     }
   });
 }
 
 function saveLineup() {
-  var tripId    = $('#trip-id').val();
+  var tripId     = $('#trip-id').val();
   var artistList = $('.own').find('li');
   var artists    = [];
   _.each(artistList, function(artistLi) {
@@ -45,4 +77,6 @@ function modifyLineup(e) {
   var artistLi = $(e.target).parent();
   artistLi.find('i').remove();
   $('.official').append(artistLi);
+  lineupBuilder();
+  // Make item draggable after being returned to the list
 }

@@ -2,16 +2,20 @@ class TripsController < ApplicationController
   def create
     @raver      = current_raver
     festival_id = params[:trip][:festival_id]
-    @trip = Trip.create(raver_id: @raver.id, festival_id: festival_id)
+    festival    = Festival.find(festival_id)
+    @trip = Trip.create(raver_id: @raver.id,
+      festival_id: festival_id,
+      to_airport: festival.location,
+      start_date: convert_date(festival.start_date - 1),
+      end_date: convert_date(festival.end_date + 1),
+    )
     redirect_to "/trips/#{@trip.id}"
   end
 
-  def edit
+  def show
     @raver    = current_raver
     @trip     = Trip.find(params[:id])
     @festival = Festival.find(@trip.festival_id)
-    @date1    = convert_date(@festival.start_date - 1)
-    @date2    = convert_date(@festival.end_date + 1)
   end
 
   def update
@@ -25,7 +29,7 @@ class TripsController < ApplicationController
 
   def lineup
     trip = Trip.find(params[:trip_id])
-    trip.update(lineup: params[:lineup])
+    trip.update(lineup: params[:lineup].uniq!)
     render json: { msg: "Updated lineup" }.to_json
   end
 end

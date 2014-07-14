@@ -1,0 +1,20 @@
+  <h3>Flight search:</h3>
+
+  <form class='search-flight'>
+    From:
+    <input type="text" id='from-airport' placeholder='City, State or airport code' value='<%= @trip.from_airport %>'></input><br/>
+     <!-- Drop down to select airport -->
+    To:
+    <input type="text" id='to-airport' value='<%= @trip.to_airport %>'></input><br/>
+    Depart:
+    <input type="text" id='depart-date' value='<%= @trip.start_date %>'></input><br/>
+    Return:
+    <input type="text" id='return-date' value='<%= @trip.end_date %>'></input><br/>
+    <button id='search-flight'>Search on Kayak</button>
+  </form>
+  <form class="view-flights">
+    <input class='result-url' placeholder="Paste your Kayak search result url here"></input>
+    <button id='view-flights'>View flights</button>
+  </form>
+
+  <div class="flight-results"></div>

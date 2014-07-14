@@ -1,0 +1,68 @@
+<%= render 'layouts/nav' %>
+
+<div class="wrapper">
+<h2><%= @raver.name %>, plan your trip</h2>
+
+<input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
+
+Destination: <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
+
+<nav class='trip'>
+  <ul>
+    <li class='flight-section'>Add flight</li>
+    <li class='hotel-section'>Add hotel</li>
+    <li class='lineup-section'>Customize lineup</li>
+    <li class='itinerary-section'>View itinerary</li>
+  </ul>
+</nav>
+
+
+<div class="show">
+  <section class='flight current'>
+    <% if @trip.flights.length == 0 %>
+      <%= render 'layouts/flight' %>
+    <% else %>
+      <script> //render with backbone </script>
+    <% end %>
+
+    <button id='save-lineup'>Save flight info</button>
+    <button id='save-flight'>Save and continue</button>
+  </section>
+</div>
+
+
+
+<!-- Hidden -->
+<div class="hidden">
+  <section class='lineup'>
+    <h3>Dream lineup:</h3>
+    <p>Drag artists from the official list and drop in the left column to create your own lineup</p>
+
+    <ul class='own'>
+      <h4>Your lineup</h4>
+      <% @trip.lineup.sort.each do |artist| %>
+        <li><%= artist.html_safe %></li>
+      <% end %>
+    </ul>
+
+    <ul class='official'>
+    <h4>Official lineup</h4>
+    <% @festival.lineup.sort.each do |artist| %>
+      <li><%= artist %></li>
+    <% end %>
+    </ul>
+
+    <button id='save-lineup'>Save lineup</button>
+    <button id='save-lineup'>Save and continue</button>
+  </section>
+
+  <section class='hotel'>
+  </section>
+
+  <section class='itinerary'>
+    <!-- render backbone -->
+  </section>
+</div> <!-- hidden div -->
+
+
+</div> <!-- wrapper -->
