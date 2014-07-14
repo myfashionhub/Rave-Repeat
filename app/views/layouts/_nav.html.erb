@@ -3,16 +3,21 @@
     <li class='new-trip'>New rave</li>
   </ul>
 
-  <iframe width="100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https://soundcloud.com/peaceloveedm/sets/electric-zoo-2013-essential&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+<script>
+  $(function() {
+    playMusic();
+    widgetControl();
+  });
+</script>
+
+  <iframe width="100%" class="music-player" scrolling="no" frameborder="no" src=""></iframe>
+
+  <button class='prev'><i class="fa fa-angle-double-left"></i> Prev</button>
+
+  <button class='next'>Next <i class="fa fa-angle-double-right"></i></button>
+
 </nav>
 
-<script>
-$(document).ready(function() {
-  // SC.initialize({
-  //   client_id: "fc46d58a55be79d17b031f6309ed02e6",
-  //   redirect_uri: "http://localhost:3000/trips/:id",
-  // });
-});
-</script>
+
 
 

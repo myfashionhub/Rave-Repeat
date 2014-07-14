@@ -6,69 +6,40 @@
  */
 
 body {
-  font-family: Helvetica;
   margin: 0;
+  overflow: auto;
+  font-family: Helvetica;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .background {
   position: absolute;
+  top: 0;
   z-index: -1;
   height: 100%;
   width: 100%;
   background-image: url('bg.jpg');
   background-size: cover;
-  opacity: .75;
+  opacity: .85;
 }
 
-.wrapper {
+.wrapper, .welcome {
   overflow: auto;
 }
 
-/* TRIP EDIT */
-p {
-  margin: .1em 0;
+h1 {
+  font-family: 'Fredoka One';
+  font-size: 5em;
+  color: rgba(255,255,255,.7);
 }
 
-article {
-  margin: .6em 2em;
-  display: inline-block;
-}
-
-.hidden {
-  display: none;
-}
-
-.trip {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.trip li {
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 1em;
-}
-
-/* LINEUP */
-.official, .own {
-  width: 45%;
-  margin-left: 4%;
-  float: left;
-}
-
-.official, .own {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.own {
-  min-height: 450px;
-}
-
-.ui-draggable:hover {
-  cursor: pointer;
-}
-
-i:hover {
-  cursor: pointer;
+.welcome {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20% 0 0 0;
 }

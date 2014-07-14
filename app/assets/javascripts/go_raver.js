@@ -6,7 +6,7 @@ GoRaver.initialize = function() {
   var flightsView = new GoRaver.Views.FlightsView({
     collection: flights,
     el        : $('.flight-results')
-  })
+  });
 }
 
 $(document).ready(function() {

@@ -4,7 +4,12 @@ class FestivalsController < ApplicationController
     trips    = Trip.where(festival_id: @festival.id)
     @ravers  = []
     trips.each do |trip|
-      Raver.find(trip.raver_id) >> @ravers
+      @ravers.push(Raver.find(trip.raver_id))
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @festival.to_json }
     end
   end
 end

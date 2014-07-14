@@ -4,6 +4,7 @@
 <h2><%= @raver.name %>, plan your trip</h2>
 
 <input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
+<input type="hidden" id='festival-id' value='<%= @festival.id %>'></input>
 
 Destination: <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
 
@@ -19,11 +20,11 @@ Destination: <%= @festival.name %> | <%= display_date(@festival.start_date) %> -
 
 <div class="show">
   <section class='flight current'>
-    <% if @trip.flights.length == 0 %>
+    <%# if @trip.flights.length == 0 %>
       <%= render 'layouts/flight' %>
-    <% else %>
+    <%# else %>
       <script> //render with backbone </script>
-    <% end %>
+    <%# end %>
 
     <button id='save-lineup'>Save flight info</button>
     <button id='save-flight'>Save and continue</button>

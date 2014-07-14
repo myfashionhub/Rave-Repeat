@@ -1,0 +1,48 @@
+/* TRIP EDIT */
+p {
+  margin: .1em 0;
+}
+
+article {
+  margin: .6em 2em;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+.trip {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.trip li {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+/* LINEUP */
+.official, .own {
+  width: 45%;
+  margin-left: 4%;
+  float: left;
+}
+
+.official, .own {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.own {
+  min-height: 450px;
+}
+
+.ui-draggable:hover {
+  cursor: pointer;
+}
+
+i:hover {
+  cursor: pointer;
+}
