@@ -1,7 +1,4 @@
-/* TRIP EDIT */
-p {
-  margin: .1em 0;
-}
+@import 'variables';
 
 article {
   margin: .6em 2em;
@@ -12,16 +9,29 @@ article {
   display: none;
 }
 
-.trip {
-  list-style-type: none;
-  padding-left: 0;
-}
-
 .trip li {
   cursor: pointer;
   display: inline-block;
   margin-right: 1em;
 }
+
+.trip-menu {
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 1.2em;
+  color: $lime-green;
+  @include menu-list;
+
+  > li {
+    display: inline-block;
+    margin-right: .8em;
+    &:hover {
+      color: $neon-green;
+      cursor: pointer;
+    }
+  }
+}
+
 
 /* LINEUP */
 .official, .own {

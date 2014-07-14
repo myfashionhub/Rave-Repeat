@@ -1,12 +1,25 @@
+<div class="background">&nbsp;</div>
+
 <div class="wrapper">
-<h2>Hi <%= @raver.name %> </h2>
 
-  <h3>Select a festival to plan your trip:</h3>
+<h2>Hi <%= @raver.name %></h2>
 
-  <div class="">
-    <%= form_for @trip do |f| %>
-      <%= f.collection_select(:festival_id, Festival.all, :id, :name) %>
-      <%= f.submit 'Start planning' %>
+  <% if @raver.trips.length == 0 %>
+    <%= render 'layouts/trip' %>
+
+  <% else %>
+    <button class='new-rave'>
+      <h3>Plan new rave</h3>
+    </button>
+
+    <h3>Current raves:</h3>
+    <section class='current-trips'>
+    <% @trips.each do |trip| %>
+      <%= trip.from_airport %>
     <% end %>
-  </div>
-</div>
+    </section>
+
+  <% end %>
+
+
+</div> <!-- wrapper -->

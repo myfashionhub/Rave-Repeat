@@ -1,25 +1,25 @@
 <%= render 'layouts/nav' %>
 
-<div class="wrapper">
-<h2><%= @raver.name %>, plan your trip</h2>
+<script>
+  $(function() { fetchPlaylist(); });
+</script>
 
 <input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
 <input type="hidden" id='festival-id' value='<%= @festival.id %>'></input>
 
-Destination: <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
+<div class="wrapper">
+  <h2><%= @raver.name %>, plan your trip</h2>
+  <p>
+    <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
+  </p>
 
-<script>
-  $(function(fetchPlaylist);
-</script>
 
-<nav class='trip'>
-  <ul>
+  <ul class='trip-menu'>
     <li class='flight-section'>Add flight</li>
     <li class='hotel-section'>Add hotel</li>
     <li class='lineup-section'>Customize lineup</li>
     <li class='itinerary-section'>View itinerary</li>
   </ul>
-</nav>
 
 
 <div class="show">

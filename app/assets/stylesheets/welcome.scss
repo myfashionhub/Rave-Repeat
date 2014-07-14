@@ -1,0 +1,34 @@
+@import 'variables';
+
+h1.logo {
+  font-size: 6em;
+  color: rgba(255,255,255,.9);
+  text-align: center;
+
+  p {
+    font-size: 0.22em;
+  }
+}
+
+.welcome {
+  width: 350px;
+  margin: 6% auto;
+  text-align: center;
+
+  p {
+    width: 12em;
+    margin: .5em auto;
+    ;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: $lime-green;
+    @include button-style;
+  }
+  p:hover {
+    background-color: $neon-green;
+  }
+
+  a {
+    color: #fff;
+  }
+}

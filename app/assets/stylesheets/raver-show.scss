@@ -1,0 +1,25 @@
+@import 'variables';
+
+
+.wrapper {
+  width: 700px;
+  margin: 5em auto;
+  padding: 2em 1em;
+  background-color: rgba(255,255,255,.85);
+  border-radius: 10px;
+
+  h2 {
+    color: $blood-orange;
+  }
+  .new-rave {
+    width: 10em;
+    float: right;
+    color: #fff;
+    h3 {
+      margin: .2em 0;
+    }
+    @include button-style;
+    @include button-green;
+  }
+
+}

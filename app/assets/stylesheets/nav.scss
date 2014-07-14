@@ -1,10 +1,16 @@
+@import 'variables';
+
 .menu {
   width: 25%;
   height: 100%;
-  float: right;
+  position: absolute;
+  z-index: 1;
+  right: 0;
   overflow: auto;
+  @include menu-list;
 }
 
 .music-player {
   height: 450px;
 }
+

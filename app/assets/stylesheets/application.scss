@@ -5,15 +5,14 @@
  *= require_self
  */
 
+@import 'variables';
+
 body {
   margin: 0;
   overflow: auto;
   font-family: 'Hammersmith One'; /*Montserrat*/
   font-size: 16px;
-}
-
-a {
-  text-decoration: none;
+  color: #444;
 }
 
 .background {
@@ -31,36 +30,14 @@ a {
   overflow: auto;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: 'Montserrat';
-  font-size: 5em;
-  color: rgba(255,255,255,.9);
-  text-align: center;
-
-  p {
-    font-size: 0.22em;
-  }
 }
 
-.welcome {
-  width: 350px;
-  margin: 6% auto;
-  text-align: center;
+a {
+  text-decoration: none;
+}
 
-  p {
-    width: 12em;
-    margin: .5em auto;
-    padding: .35em .2em .3em .2em;
-    font-size: 1.2em;
-    color: #fff;
-    background-color: #32CD32;
-    border-radius: 6px;
-  }
-  p:hover {
-    background-color: #39FF14;
-  }
-
-  a {
-    color: #fff;
-  }
+p {
+  margin: .1em 0;
 }
