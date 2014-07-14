@@ -8,7 +8,7 @@
 body {
   margin: 0;
   overflow: auto;
-  font-family: Helvetica;
+  font-family: 'Hammersmith One'; /*Montserrat*/
   font-size: 16px;
 }
 
@@ -32,14 +32,35 @@ a {
 }
 
 h1 {
-  font-family: 'Fredoka One';
+  font-family: 'Montserrat';
   font-size: 5em;
-  color: rgba(255,255,255,.7);
+  color: rgba(255,255,255,.9);
+  text-align: center;
+
+  p {
+    font-size: 0.22em;
+  }
 }
 
 .welcome {
-  width: 500px;
-  margin: 0 auto;
+  width: 350px;
+  margin: 6% auto;
   text-align: center;
-  padding: 20% 0 0 0;
+
+  p {
+    width: 12em;
+    margin: .5em auto;
+    padding: .35em .2em .3em .2em;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #32CD32;
+    border-radius: 6px;
+  }
+  p:hover {
+    background-color: #39FF14;
+  }
+
+  a {
+    color: #fff;
+  }
 }

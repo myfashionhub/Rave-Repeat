@@ -12,8 +12,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-  fetchPlaylist();
-
   // Flight functions
   $('#search-flight').click(function(e) {
     e.preventDefault();
