@@ -12,7 +12,7 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
     });
 
     this.trips.fetch({async: false});
-    this.body = $('.current-trips');
+    this.body = $('.current-trips').find('div');
     return this;
   },
 

@@ -1,9 +1,6 @@
 <div class="background">&nbsp;</div>
 
 <div class="raver-wrapper">
-
-<h2>Hi <%= @raver.name %></h2>
-
   <% if @raver.trips.length == 0 %>
     <nav class="raver">
       <h3 class='selected new-rave'>Plan new rave</h3>
@@ -18,9 +15,13 @@
     <div class="clear"></div>
   <% end %>
 
+<h2>Hi <%= @raver.name %></h2>
   <%= render 'layouts/trip' %>
 
-  <section class='current-trips'></section>
+  <section class='current-trips'>
+    <h3>Current trips:</h3>
+    <div></div>
+  </section>
 
 
 

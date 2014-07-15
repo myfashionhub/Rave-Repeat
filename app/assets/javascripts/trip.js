@@ -1,3 +1,8 @@
+function showItinerary() {
+  $('.current').removeClass('current').fadeOut().appendTo('.hidden');
+  $('.itinerary').addClass('current').appendTo('.show').hide().fadeIn();
+}
+
 function updateTrip() {
   var fromAirport = $('#from-airport').val();
   var toAirport   = $('#to-airport').val();
@@ -14,7 +19,3 @@ function updateTrip() {
   })
 }
 
-function showItinerary() {
-  $('.current').removeClass('current').fadeOut().appendTo('.hidden');
-  $('.itinerary').addClass('current').appendTo('.show').hide().fadeIn();
-}

@@ -38,6 +38,8 @@ class TripsController < ApplicationController
     @raver    = current_raver
     @trip     = Trip.find(params[:id])
     @festival = Festival.find(@trip.festival_id)
+    @flight    = Flight.find_by(trip_id: @trip.id)
+    #render json: @flight.to_json
   end
 
   def update

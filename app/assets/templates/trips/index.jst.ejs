@@ -6,11 +6,9 @@ From <%- start_date %> to <%- end_date %><br/>
 
 To see: <%- lineup %><br/>
 
-Flight details:<br/>
-Depart: <%= leg1 %><br/>
-Return: <%= leg2 %><br/>
+Depart flight: <%= leg1 %><br/>
+Return flight: <%= leg2 %><br/>
 
-<form class='edit-trip'>
-  <input type='hidden' value='<%- trip_id %>'></input>
+<form class='edit-trip' action='/trips/<%- trip_id %>'>
   <button>Edit trip</button>
 <form>

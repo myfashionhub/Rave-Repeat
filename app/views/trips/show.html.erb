@@ -29,11 +29,14 @@
 
 <div class="show">
   <section class='flight current'>
-    <%# if @trip.flights.length == 0 %>
-      <%= render 'layouts/flight' %>
-    <%# else %>
-      <script> //render with backbone </script>
-    <%# end %>
+    <% if @trip.flights.length > 0 %>
+      <h3>Saved flight:</h3>
+      <%= @flight.airline %><br/>
+      <%= @trip.start_date %>: <%= @flight.leg1.html_safe %><br/>
+      <%= @trip.end_date %>: <%= @flight.leg2.html_safe %>
+    <% end %>
+
+    <%= render 'layouts/flight' %>
 
     <button id='save-flight'>Save and continue</button>
   </section>
