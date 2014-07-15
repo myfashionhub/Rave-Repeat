@@ -55,7 +55,20 @@ function toggleSection(section) {
   $(section).addClass('current').appendTo('.show').hide().fadeIn();
 }
 
-$(function() {
-  raverNav();
-  tripNav();
-});
+function tripFlow() {
+  $('#save-flight').click(function() {
+    saveFlight();
+    toggleTab('.hotel-tab');
+    toggleSection('.hotel');
+  });
+
+  $('#save-hotel').click(function() {
+    toggleTab('.lineup-tab');
+    toggleSection('.lineup');
+  });
+
+  $('#save-lineup').click(function() {
+    saveLineup();
+    toggleTab('.itinerary-tab');
+  });
+}

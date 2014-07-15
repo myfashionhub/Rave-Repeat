@@ -20,21 +20,23 @@
   </p>
 
   <ul class='trip-menu'>
-    <li class='flight-tab current-tab'>Add flight</li>
-    <li class='hotel-tab'>Add hotel</li>
-    <li class='lineup-tab'>Customize lineup</li>
-    <li class='itinerary-tab'>View itinerary</li>
+    <li class='flight-tab current-tab'>
+      Add flight <i class="fa fa-paper-plane-o"></i>
+    </li>
+    <li class='hotel-tab'>
+      Add hotel <i class="fa fa-building-o"></i>
+    </li>
+    <li class='lineup-tab'>
+      Customize lineup <i class="fa fa-heart-o"></i>
+    </li>
+    <li class='itinerary-tab'>
+      View itinerary <i class="fa fa-list"></i>
+    </li>
   </ul>
 </header>
 
 <div class="show">
   <section class='flight current'>
-    <% if @trip.flights.length > 0 %>
-      <h3>Saved flight:</h3>
-      <div class="current-flight"></div>
-      <hr/>
-    <% end %>
-
     <%= render 'layouts/flight' %>
 
     <button id='save-flight'>Save and continue</button>
@@ -67,10 +69,22 @@
 
   <section class='hotel'>
     <h3>Coming soon.</h3>
+
+    <button id='save-hotel'>Continue</button>
   </section>
 
   <section class='itinerary'>
-    <!-- render backbone -->
+    <% if @trip.flights.length > 0 %>
+      <h2>Rave details:</h2>
+      <h3>Flight:</h3>
+      <div class="current-flight"></div>
+    <% end %>
+
+    <%# if @trip.hotel != nil %>
+<!--       <h3>Hotel booking:</h3>
+      <div class="current-hotel"></div> -->
+    <%# end %>
+
   </section>
 </div> <!-- hidden div -->
 

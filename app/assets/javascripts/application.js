@@ -12,6 +12,10 @@
 //= require_tree .
 
 $(document).ready(function() {
+  raverNav();
+  tripNav();
+  tripFlow();
+
   // Flight functions
   $('#search-flight').click(function(e) {
     e.preventDefault();
@@ -24,13 +28,8 @@ $(document).ready(function() {
     viewFlights();
   });
 
-  $('#save-flight').click(saveFlight);
-
   // Line up functions
   displayOwnLineup();
   lineupBuilder();
-  $('#save-lineup').click(function() {
-    saveLineup();
-  });
 
 });
