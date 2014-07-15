@@ -1,9 +1,3 @@
-function showLineup() {
-  $('.current').removeClass('current').fadeOut().appendTo('.hidden');
-  $('.lineup').addClass('current').appendTo('.show').hide().fadeIn();
-  displayOwnLineup();
-}
-
 function displayOwnLineup() {
   var ownArtists = $('.own').find('li');
   _.each(ownArtists, function(artistLi) {

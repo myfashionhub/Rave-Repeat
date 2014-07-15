@@ -1,4 +1,10 @@
 class FlightsController < ApplicationController
+  def index
+    trip = Trip.find(params[:id])
+    flights = trip.flights
+    render json: flights.to_json
+  end
+
   def search
     url = params[:url]
     results = Flight.search(url)

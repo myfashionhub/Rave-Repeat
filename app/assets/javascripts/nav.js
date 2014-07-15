@@ -1,14 +1,28 @@
-function navTrip() {
-  var tabs = $('menu-trip').find('li');
-  _.each(tabs, function(tab) {
-    $(tab).click(function() {
-      $(tab).addClass('current-tab');
-    })
-  })
+function tripNav() {
+  $('.flight-tab').click(function() {
+    toggleTab('.flight-tab');
+    toggleSection('.flight');
+  });
+  $('.hotel-tab').click(function() {
+    toggleTab('.hotel-tab');
+    toggleSection('.hotel');
+  });
+  $('.lineup-tab').click(function() {
+    toggleTab('.lineup-tab');
+    toggleSection('.lineup');
+  });
+  $('.itinerary-tab').click(function() {
+    toggleTab('.itinerary-tab');
+    toggleSection('.itinerary');
+  });
 }
 
+function toggleTab(clickedTab) {
+  $('.current-tab').removeClass('current-tab');
+  $(clickedTab).addClass('current-tab');
+}
 
-function navRaver() {
+function raverNav() {
   RaveRepeat.initialize();
 
   if ($('.current-trips').children().html() === '') {
@@ -38,11 +52,12 @@ function navRaver() {
   });
 }
 
-$(function() {
-  navRaver();
+function toggleSection(section) {
+  $('.current').removeClass('current').fadeOut().appendTo('.hidden');
+  $(section).addClass('current').appendTo('.show').hide().fadeIn();
+}
 
-  $('.flight-section').click(showFlight);
-  $('.hotel-section').click(showHotel);
-  $('.lineup-section').click(showLineup);
-  $('.itinerary-section').click(showItinerary);
+$(function() {
+  raverNav();
+  tripNav();
 });

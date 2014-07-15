@@ -39,7 +39,11 @@ class TripsController < ApplicationController
     @trip     = Trip.find(params[:id])
     @festival = Festival.find(@trip.festival_id)
     @flight    = Flight.find_by(trip_id: @trip.id)
-    #render json: @flight.to_json
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { trip: @trip, flight: @flight} }
+    end
   end
 
   def update

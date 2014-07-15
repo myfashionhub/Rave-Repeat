@@ -20,10 +20,10 @@
   </p>
 
   <ul class='trip-menu'>
-    <li class='flight-section'>Add flight</li>
-    <li class='hotel-section'>Add hotel</li>
-    <li class='lineup-section'>Customize lineup</li>
-    <li class='itinerary-section'>View itinerary</li>
+    <li class='flight-tab current-tab'>Add flight</li>
+    <li class='hotel-tab'>Add hotel</li>
+    <li class='lineup-tab'>Customize lineup</li>
+    <li class='itinerary-tab'>View itinerary</li>
   </ul>
 </header>
 
@@ -31,9 +31,8 @@
   <section class='flight current'>
     <% if @trip.flights.length > 0 %>
       <h3>Saved flight:</h3>
-      <%= @flight.airline %><br/>
-      <%= @trip.start_date %>: <%= @flight.leg1.html_safe %><br/>
-      <%= @trip.end_date %>: <%= @flight.leg2.html_safe %>
+      <div class="current-flight"></div>
+      <hr/>
     <% end %>
 
     <%= render 'layouts/flight' %>
