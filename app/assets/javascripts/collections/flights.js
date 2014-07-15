@@ -1,5 +1,5 @@
 RaveRepeat.Collections.Flights = Backbone.Collection.extend({
   model: RaveRepeat.Models.Flight,
-  url: '/flights'
+  url: '/trips/'+tripId+'/flights'
 })
 

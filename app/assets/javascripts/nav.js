@@ -29,7 +29,7 @@ function raverNav() {
     $('.current-trips').append('You currently don\'t have any trip planned.');
   }
 
-  if ($('.raver').find('.selected').html() === 'Current raves') {
+  if ($('.current-tab').html() === 'Current raves') {
     $('.new-trip').hide();
     $('.current-trips').show();
   } else {
@@ -38,15 +38,13 @@ function raverNav() {
   }
 
   $('.new-rave').click(function() {
-    $('.raver').find('.selected').removeClass('selected');
-    $('.new-rave').addClass('selected');
+    toggleTab('.new-rave');
     $('.current-trips').hide();
     $('.new-trip').toggle('blind');
   });
 
   $('.current-raves').click(function() {
-    $('.raver').find('.selected').removeClass('selected');
-    $('.current-raves').addClass('selected');
+    toggleTab('.current-raves');
     $('.new-trip').hide();
     $('.current-trips').toggle('blind');
   });

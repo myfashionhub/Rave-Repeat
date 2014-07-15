@@ -1,24 +1,5 @@
-_.template("<article class='flight'>\
-  <p>Depart:\
-  <span class='airport'><%- fromAirport1 %></span>\
-  <span class='time'><%- fromTime1 %></span>\
-  <span class='airport'><%- toAirport1 %></span>\
-  <span class='time'><%- toTime1 %></span>\
-  </p>\
-\
-  <p>Arrive:\
-  <span class='airport'><%- fromAirport2 %></span>\
-  <span class='time'><%- fromTime2 %></span>\
-  <span class='airport'><%- toAirport2 %></span>\
-  <span class='time'><%- toTime2 %></span>\
-  <p>\
-\
-  <p>\
-    <a href='<%- link %>'>\
-      <%- price %> from <%- airline %>\
-    </a>\
-  </p>\
-\
-  <button class='save-flight'>Save this flight</button>\
-</article>")
+  <%= airline %><br/>
+  Depart: <%= leg1 %>
+  Return: <%= leg2 %>
 
+  <button>Delete</button>

@@ -3,7 +3,6 @@ RaveRepeat.Views.TripIndex = Backbone.View.extend({
   template: JST['trips/index'],
   initialize: function() {
     this.listenTo(this.model, 'all', this.render);
-    //this.listenTo(this.model, 'destroy', this.remove);
   },
   render: function() {
     var trip = this.template(this.model.attributes);
