@@ -1,4 +1,5 @@
 function fetchPlaylist() {
+  console.log('fetching');
   var festivalId = $('#festival-id').val();
   var playlistUrl, playlistId;
   $.ajax({
@@ -20,6 +21,7 @@ function playMusic(playlistUrl, playlistId) {
   var params  = "&auto_play=false&hide_related=false&show_comments=true&show_user=false&show_reposts=false&visual=false&start_track=";
   iframe.attr('src', baseUrl + playlistUrl + params + startTrack);
   $('.menu').toggle('slide', 'left').show();
+  console.log('start playing');
   widgetControl();
 }
 

@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback'=> 'sessions#signin_facebook'
   get '/logout'                => 'sessions#destroy'
 
-  get '/ravers/:id/trips'        => 'ravers#trips' #for backbone
   post '/flights/search' => 'flights#search'
   post '/trips/lineup' => 'trips#lineup'
   resources :flights, only: [:create, :destroy]
-  resources :trips, only: [:index, :new, :create, :show, :update, :delete]
+  resources :trips
   resources :ravers, only: [:index, :update, :show]
 
   resources :festivals, only: [:index, :show]

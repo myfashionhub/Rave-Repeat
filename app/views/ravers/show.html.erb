@@ -1,13 +1,13 @@
 <div class="background">&nbsp;</div>
 
-<div class="wrapper">
+<div class="raver-wrapper">
 
 <h2>Hi <%= @raver.name %></h2>
 
   <% if @raver.trips.length == 0 %>
     <nav class="raver">
-      <h3 class='selected new-rave'>Plan new rave:</h3>
-      <h3 class='current-raves'>Current raves:</h3>
+      <h3 class='selected new-rave'>Plan new rave</h3>
+      <h3 class='current-raves'>Current raves</h3>
     </nav>
     <div class="clear"></div>
   <% else %>
@@ -20,8 +20,7 @@
 
   <%= render 'layouts/trip' %>
 
-  <section class='current-trips'>
-  </section>
+  <section class='current-trips'></section>
 
 
 

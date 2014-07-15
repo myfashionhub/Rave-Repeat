@@ -12,12 +12,12 @@
 }
 
 .search-flight {
-  width: 50%;
-  min-width: 450px;
+  width: 60%;
+  min-width: 600px;
   margin: 1em auto;
   font-size: 1.2em;
   input[type='text'] {
-    width: 7em;
+    width: 11em;
     padding: 3px;
     border: 0;
     border-bottom: 1px solid #ccc;
@@ -46,5 +46,12 @@
   }
   button {
     @include button-green;
+  }
+}
+
+.flight-results {
+  article {
+    display: inline-block;
+    margin: 0 2em 0 0;
   }
 }

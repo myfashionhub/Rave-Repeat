@@ -44,7 +44,7 @@ function displayFlights(data) {
     var price        = data[i].price;
     var link         = data[i].link;
 
-    var trip = $('<article>').addClass('flight');
+    var trip = $('<article>');
     var leg1 = $('<p>').addClass('leg1')
                .html(fromAirport1 + ' ' + fromTime1 + ' => ' + toAirport1 + ' ' + toTime1 + ' ' + duration1);
     var leg2 = $('<p>').addClass('leg2')

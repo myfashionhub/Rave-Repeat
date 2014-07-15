@@ -1,7 +1,8 @@
 @import 'variables';
 
-.wrapper {
+.raver-wrapper {
   width: 700px;
+  min-height: 350px;
   margin: 5em auto;
   padding: 2em 1em;
   background-color: rgba(255,255,255,.85);
@@ -25,7 +26,7 @@
   color: $lime-green;
 }
 
-.new-trip {
+.new-trip, current-trips {
   margin: 5em auto 2em auto;
   width: 350px;
   text-align: center;

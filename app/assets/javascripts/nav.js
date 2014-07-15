@@ -11,6 +11,10 @@ function navTrip() {
 function navRaver() {
   RaveRepeat.initialize();
 
+  if ($('.current-trips').children().html() === '') {
+    $('.current-trips').append('You currently don\'t have any trip planned.');
+  }
+
   if ($('.raver').find('.selected').html() === 'Current raves') {
     $('.new-trip').hide();
     $('.current-trips').show();

@@ -1,6 +1,16 @@
-  <%- trip.start_date %> <%- trip.from_airport %><br/>
-  <%- trip.end_date %> <%- trip.to_airport %><br/>
-  <%- trip.lineup %>
+<h3><%- festival %></h3>
 
-Render festival name & flight info
+Traveling from <%- from_airport %> to <%- to_airport %><br/>
 
+From <%- start_date %> to <%- end_date %><br/>
+
+To see: <%- lineup %><br/>
+
+Flight details:<br/>
+Depart: <%= leg1 %><br/>
+Return: <%= leg2 %><br/>
+
+<form class='edit-trip'>
+  <input type='hidden' value='<%- trip_id %>'></input>
+  <button>Edit trip</button>
+<form>

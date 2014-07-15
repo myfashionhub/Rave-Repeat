@@ -2,7 +2,23 @@ class TripsController < ApplicationController
   def index
     raver = current_raver
     trips = raver.trips.to_a
-    render json: trips.to_json
+    current_trips  = trips.map do |trip|
+      festival = Festival.find(trip.festival_id)
+      flight   = Flight.find_by(trip_id: trip.id)
+      { festival: festival.name,
+        airline: flight.airline,
+        start_date: trip.start_date,
+        end_date: trip.end_date,
+        from_airport: trip.from_airport,
+        to_airport: trip.to_airport,
+        lineup: trip.lineup,
+        leg1: flight.leg1,
+        leg2: flight.leg2,
+        trip_id: trip.id
+      }
+    end
+
+    render json: current_trips.to_json
   end
 
   def create

@@ -1,10 +1,7 @@
-<%= render 'layouts/nav' %>
-<%= render 'layouts/music' %>
-
 <script>
   $(function() {
     fetchPlaylist();
-    $('.player').hide();
+    //$('.player').hide();
   });
 </script>
 
@@ -13,6 +10,8 @@
 
 
 <div class="trip-wrapper">
+<%= render 'layouts/nav' %>
+<%= render 'layouts/music' %>
 
 <header>
   <h2><%= @raver.name %>, plan your trip</h2>
