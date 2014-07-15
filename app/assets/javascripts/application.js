@@ -33,8 +33,4 @@ $(document).ready(function() {
     saveLineup();
   });
 
-  // Nav triggers
-  $('.flight-section').click(showFlight);
-  $('.lineup-section').click(showLineup);
-  $('.itinerary-section').click(showItinerary);
 });

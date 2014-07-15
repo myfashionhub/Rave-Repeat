@@ -1,6 +1,5 @@
 @import 'variables';
 
-
 .wrapper {
   width: 700px;
   margin: 5em auto;
@@ -8,18 +7,37 @@
   background-color: rgba(255,255,255,.85);
   border-radius: 10px;
 
-  h2 {
-    color: $blood-orange;
-  }
-  .new-rave {
-    width: 10em;
+  .raver {  /*mini nav*/
     float: right;
-    color: #fff;
     h3 {
       margin: .2em 0;
+      @include menu-style;
     }
-    @include button-style;
-    @include button-green;
   }
 
+  h2 {
+    font-size: 1.8em;
+    color: $blood-orange;
+  }
+}
+
+.selected {
+  color: $lime-green;
+}
+
+.new-trip {
+  margin: 5em auto 2em auto;
+  width: 350px;
+  text-align: center;
+  select {
+    font-family: $hammersmith;
+    font-size: 1.2em;
+    color: $text-color;
+    @include hover-style;
+  }
+  input[type='submit'] {
+    @include button-style;
+    @include button-orange;
+    margin: 1.5em;
+  }
 }

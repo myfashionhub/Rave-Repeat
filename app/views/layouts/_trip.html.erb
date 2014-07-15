@@ -1,8 +1,11 @@
+<section class="new-trip">
   <h3>Select a festival to plan your trip:</h3>
 
-  <section class="new-trip">
-    <%= form_for @trip do |f| %>
-      <%= f.collection_select(:festival_id, Festival.all, :id, :name) %>
-      <%= f.submit 'Start planning' %>
-    <% end %>
-  </section>
+  <%= form_for @trip do |f| %>
+    <%= f.collection_select(:festival_id, Festival.all, :id, :name) %>
+    <%= f.submit 'Start planning' %>
+  <% end %>
+
+</section>
+
+<!-- Grab festival id & start fetching playlist -->

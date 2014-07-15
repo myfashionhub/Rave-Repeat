@@ -45,18 +45,17 @@
 <!-- Hidden -->
 <div class="hidden">
   <section class='lineup'>
-    <h3>Dream lineup:</h3>
     <p>Drag artists from the official list and drop in the left column to create your own lineup</p>
 
     <ul class='own'>
-      <h4>Your lineup</h4>
+      <h2>Dream lineup:</h2>
       <% @trip.lineup.sort.each do |artist| %>
         <li><%= artist.html_safe %></li>
       <% end %>
     </ul>
 
     <ul class='official'>
-    <h4>Official lineup</h4>
+    <h3>Official lineup</h3>
     <% @festival.lineup.sort.each do |artist| %>
       <li><%= artist %></li>
     <% end %>
@@ -66,6 +65,7 @@
   </section>
 
   <section class='hotel'>
+    <h3>Coming soon.</h3>
   </section>
 
   <section class='itinerary'>
@@ -74,4 +74,4 @@
 </div> <!-- hidden div -->
 
 
-</div> <!-- wrapper -->
+</div> <!-- trip wrapper -->

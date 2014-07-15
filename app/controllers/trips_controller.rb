@@ -29,7 +29,7 @@ class TripsController < ApplicationController
 
   def lineup
     trip = Trip.find(params[:trip_id])
-    trip.update(lineup: params[:lineup].uniq!)
+    trip.update(lineup: params[:lineup].uniq)
     render json: { msg: "Updated lineup" }.to_json
   end
 end

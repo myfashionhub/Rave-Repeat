@@ -3,6 +3,7 @@ $light-lime: #46d246;
 $neon-green: #39FF14;
 $blood-orange: #fe4b03;
 $light-orange: #ff5e1d;
+$text-color: #444;
 $hammersmith: 'Hammersmith One';
 $mont: 'Montserrat';
 
@@ -36,4 +37,19 @@ $mont: 'Montserrat';
 @mixin menu-list {
   list-style-type: none;
   padding-left: 0;
+}
+
+@mixin menu-style  {
+  display: inline-block;
+  margin-right: .8em;
+  &:hover {
+    color: $lime-green;
+    cursor: pointer;
+  }
+}
+
+@mixin hover-style {
+  &:hover {
+    cursor: pointer;
+  }
 }

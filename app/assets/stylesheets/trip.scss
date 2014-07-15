@@ -34,9 +34,9 @@ header {
     > li {
       display: inline-block;
       margin-right: .8em;
+      @include hover-style;
       &:hover {
         color: $lime-green;
-        cursor: pointer;
       }
     }
   }
@@ -49,7 +49,7 @@ header {
   z-index: -1;
   bottom: 0;
   background-color: #f5f5f5;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .show {
@@ -58,84 +58,41 @@ header {
   margin: 5% 0 0 10%;
   button {
     @include button-style;
+  }
+  #save-flight, #save-lineup {
     @include button-orange;
-  }
-}
-
-#save-flight {
-  float: right;
-  margin: 0 5% 5% 0;
-  bottom: 3%;
-}
-
-.flight {
-  width: 65%;
-  font-family: $hammersmith;
-  h4 {
-    margin: 0 0 .4em 0;
-  }
-  input[type='checkbox'] {
-    margin-left: 1em;
-  }
-}
-
-.search-flight {
-  width: 50%;
-  min-width: 450px;
-  margin: 1em auto;
-  font-size: 1.2em;
-  input[type='text'] {
-    width: 7em;
-    padding: 3px;
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    font-family: $mont;
-    font-size: 1em;
-    color: #666;
-    background-color: #f5f5f5;
-    &:hover {
-      background-color: #fff;
-    }
-  }
-  button {
     display: block;
-    margin: 2em auto;
-    @include button-green;
+    margin: 0 auto 5% auto;
+    bottom: 3%;
   }
 }
 
-.view-flights {
-  text-align: center;
-  margin: 2em 0;
-  input[type='text'] {
-    width: 20em;
-    font-family: $mont;
-    padding: .5em;
-  }
-  button {
-    @include button-green;
-  }
-}
 
 
 /* LINEUP */
+.lineup {
+  p {
+    font-size: 1.2em;
+  }
+  h2, h3 {
+    margin: 10px 0 15px 0;
+  }
+}
+
 .official, .own {
   width: 45%;
   margin-left: 4%;
   float: left;
-}
-
-.official, .own {
-  list-style-type: none;
-  padding-left: 0;
+  font-size: 1.2em;
+  @include menu-list;
 }
 
 .own {
   min-height: 450px;
 }
 
-.ui-draggable:hover {
-  cursor: pointer;
+.ui-draggable {
+  @include hover-style;
 }
 
 i:hover {

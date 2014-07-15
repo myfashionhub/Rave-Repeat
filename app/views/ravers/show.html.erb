@@ -5,21 +5,25 @@
 <h2>Hi <%= @raver.name %></h2>
 
   <% if @raver.trips.length == 0 %>
-    <%= render 'layouts/trip' %>
-
+    <nav class="raver">
+      <h3 class='selected new-rave'>Plan new rave:</h3>
+      <h3 class='current-raves'>Current raves:</h3>
+    </nav>
+    <div class="clear"></div>
   <% else %>
-    <button class='new-rave'>
-      <h3>Plan new rave</h3>
-    </button>
-
-    <h3>Current raves:</h3>
-    <section class='current-trips'>
-    <% @trips.each do |trip| %>
-      <%= trip.from_airport %>
-    <% end %>
-    </section>
-
+    <nav class="raver">
+      <h3 class='selected current-raves'>Current raves</h3>
+      <h3 class='new-rave'>Plan new rave</h3>
+    </nav>
+    <div class="clear"></div>
   <% end %>
+
+  <%= render 'layouts/trip' %>
+
+  <section class='current-trips'>
+  </section>
+
+
 
 
 </div> <!-- wrapper -->
