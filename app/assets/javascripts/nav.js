@@ -7,20 +7,22 @@ function navTrip() {
   })
 }
 
-function fetchCurrentTrips() {
-
-}
 
 function navRaver() {
+  RaveRepeat.initialize();
+
   if ($('.raver').find('.selected').html() === 'Current raves') {
     $('.new-trip').hide();
+    $('.current-trips').show();
   } else {
-    fetchCurrentTrips();
+    $('.current-trips').hide();
+    $('.new-trip').show();
   }
 
   $('.new-rave').click(function() {
     $('.raver').find('.selected').removeClass('selected');
     $('.new-rave').addClass('selected');
+    $('.current-trips').hide();
     $('.new-trip').toggle('blind');
   });
 
@@ -28,12 +30,12 @@ function navRaver() {
     $('.raver').find('.selected').removeClass('selected');
     $('.current-raves').addClass('selected');
     $('.new-trip').hide();
+    $('.current-trips').toggle('blind');
   });
 }
 
 $(function() {
   navRaver();
-  $('new-rave').click(newTripForm);
 
   $('.flight-section').click(showFlight);
   $('.hotel-section').click(showHotel);

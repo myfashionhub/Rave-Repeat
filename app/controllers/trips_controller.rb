@@ -1,4 +1,10 @@
 class TripsController < ApplicationController
+  def index
+    raver = current_raver
+    trips = raver.trips.to_a
+    render json: trips.to_json
+  end
+
   def create
     @raver      = current_raver
     festival_id = params[:trip][:festival_id]

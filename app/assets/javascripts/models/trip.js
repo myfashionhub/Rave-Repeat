@@ -1,1 +1,1 @@
-GoRaver.Models.Trip = Backbone.Model.extend({});
+RaveRepeat.Models.Trip = Backbone.Model.extend({});

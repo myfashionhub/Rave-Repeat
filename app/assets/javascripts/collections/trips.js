@@ -1,5 +1,5 @@
-GoRaver.Collections.Trips = Backbone.Collection.extend({
-  model: GoRaver.Models.Trip,
+RaveRepeat.Collections.Trips = Backbone.Collection.extend({
+  model: RaveRepeat.Models.Trip,
   url: '/trips'
 })
 

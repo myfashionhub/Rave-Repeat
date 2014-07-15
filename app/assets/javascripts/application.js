@@ -3,7 +3,7 @@
 //= require jquery.ui.all
 //= require underscore
 //= require backbone
-//= require go_raver
+//= require rave_repeat
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
