@@ -1,0 +1,31 @@
+@import 'variables';
+
+.player {
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  padding: 5% 1em 0 1em;
+  background-color: rgba(255,255,255,.45);
+  overflow: auto;
+}
+
+.music-player {
+  height: 450px;
+}
+
+.control {
+  text-align: center;
+}
+
+.prev, .next {
+  margin: 0 .3em;
+  font-family: $mont;
+  @include button-style;
+  background-color: #ccc;
+  &:hover {
+    background-color: $light-orange;
+  }
+}

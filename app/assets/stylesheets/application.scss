@@ -36,8 +36,17 @@ h1, h2, h3 {
 
 a {
   text-decoration: none;
+  &:visited {
+
+  }
 }
 
 p {
   margin: .1em 0;
+}
+
+/* NAV */
+.menu {
+  padding: 0 1em;
+  @include menu-list;
 }

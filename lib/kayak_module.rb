@@ -8,7 +8,7 @@ class Kayak
     links     = doc.css('.bookitselect.buylink')
     durations = doc.css('.legholder').css('.duration')
     flights   = []
-    (0..10).each do |i|
+    (0..7).each do |i|
       flights.push({ airline: airlines[i].children[0].text.strip,
         leg1_airport1: airports[4*i].attributes['title'].value.split(' ').last,
         leg1_time1: times[4*i].children[0].text.strip,

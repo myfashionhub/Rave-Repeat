@@ -1,18 +1,24 @@
 <%= render 'layouts/nav' %>
+<%= render 'layouts/music' %>
 
 <script>
-  $(function() { fetchPlaylist(); });
+  $(function() {
+    fetchPlaylist();
+    $('.player').hide();
+  });
 </script>
 
 <input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
 <input type="hidden" id='festival-id' value='<%= @festival.id %>'></input>
 
-<div class="wrapper">
+
+<div class="trip-wrapper">
+
+<header>
   <h2><%= @raver.name %>, plan your trip</h2>
   <p>
     <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
   </p>
-
 
   <ul class='trip-menu'>
     <li class='flight-section'>Add flight</li>
@@ -20,7 +26,7 @@
     <li class='lineup-section'>Customize lineup</li>
     <li class='itinerary-section'>View itinerary</li>
   </ul>
-
+</header>
 
 <div class="show">
   <section class='flight current'>
@@ -30,7 +36,6 @@
       <script> //render with backbone </script>
     <%# end %>
 
-    <button id='save-lineup'>Save flight info</button>
     <button id='save-flight'>Save and continue</button>
   </section>
 </div>
@@ -57,7 +62,6 @@
     <% end %>
     </ul>
 
-    <button id='save-lineup'>Save lineup</button>
     <button id='save-lineup'>Save and continue</button>
   </section>
 

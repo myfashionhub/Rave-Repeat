@@ -1,21 +1,34 @@
 $lime-green: #32CD32;
+$light-lime: #46d246;
 $neon-green: #39FF14;
 $blood-orange: #fe4b03;
+$light-orange: #ff5e1d;
+$hammersmith: 'Hammersmith One';
+$mont: 'Montserrat';
 
 @mixin button-style {
-  padding: .35em .2em .3em .2em;
+  padding: .55em .5em .5em .5em;
   border-radius: 5px;
   border: 0;
   outline: 0;
   &:hover {
     cursor: pointer;
   }
+  font-family: $mont;
 }
 
 @mixin button-green {
   background-color: $lime-green;
   &:hover {
-    background-color: $neon-green;
+    background-color: $light-lime;
+  }
+  color: #fff;
+}
+
+@mixin button-orange {
+  background-color: $blood-orange;
+  &:hover {
+    background-color: $light-orange;
   }
   color: #fff;
 }
