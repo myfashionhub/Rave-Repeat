@@ -32,3 +32,27 @@ h1.logo {
     color: #fff;
   }
 }
+
+/* NAV BAR */
+.menu {
+  width: 25%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  margin: 0;
+  @include menu-list;
+  font-family: $mont;
+  color: #fff;
+  background-color: #888;
+  > li {
+    display: inline-block;
+    margin: .5em .4em;
+    }
+  }
+  a {
+    color: #fff;
+    &:hover {
+      color: $neon-green;
+  }
+}

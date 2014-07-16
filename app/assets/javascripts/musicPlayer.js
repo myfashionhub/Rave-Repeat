@@ -19,7 +19,6 @@ function playMusic(playlistUrl, playlistId) {
   var baseUrl = "https://w.soundcloud.com/player/?url=";
   var params  = "&auto_play=false&hide_related=false&show_comments=true&show_user=false&show_reposts=false&visual=false&start_track=";
   iframe.attr('src', baseUrl + playlistUrl + params + startTrack);
-  $('.menu').toggle('slide', 'left').show();
   widgetControl();
 }
 

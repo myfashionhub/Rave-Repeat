@@ -1,10 +1,12 @@
-<nav class="menu">
-  <ul>
-    <li class='new-trip'>Your raves</li>
-    <li class='new-trip'>Plan new</li>
-    <li class='new-trip'>Who's going</li>
-  </ul>
-</nav>
+<ul class="menu">
+  <li class=''>
+    <%= link_to "Your raves", raver_path(current_raver.id) %> &nbsp;/
+  </li>
+  <li class=''><%= link_to "Log out", logout_path %> &nbsp;/
+  </li>
+  <li class=''><%= link_to "Who's going", festivals_path %>
+  </li>
+</ul>
 
 
 

@@ -7,13 +7,15 @@
   z-index: 1;
   top: 0;
   right: 0;
-  padding: 5% 1em 0 1em;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   background-color: rgba(255,255,255,.45);
   overflow: auto;
 }
 
 .music-player {
   height: 450px;
+  margin: 7em 1em 0 1em;
 }
 
 .control {
@@ -24,8 +26,8 @@
   margin: 0 .3em;
   font-family: $mont;
   @include button-style;
-  background-color: #ccc;
+  background-color: transparent;
   &:hover {
-    background-color: $light-orange;
+    color: $light-orange;
   }
 }

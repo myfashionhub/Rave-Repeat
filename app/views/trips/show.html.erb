@@ -1,44 +1,43 @@
+<input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
+<input type="hidden" id='festival-id' value='<%= @festival.id %>'></input>
+
 <script>
   fetchPlaylist();
 </script>
 
-<input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
-<input type="hidden" id='festival-id' value='<%= @festival.id %>'></input>
-
-
 <div class="trip-wrapper">
-<%= render 'layouts/nav' %>
-<%= render 'layouts/music' %>
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/music' %>
 
-<header>
-  <h2><%= @raver.name %>, plan your trip</h2>
-  <p>
-    <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
-  </p>
+  <header>
+    <h2><%= @raver.name %>, plan your trip</h2>
+    <p>
+      <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
+    </p>
 
-  <ul class='trip-menu'>
-    <li class='flight-tab current-tab'>
-      Add flight <i class="fa fa-paper-plane-o"></i>
-    </li>
-    <li class='hotel-tab'>
-      Add hotel <i class="fa fa-building-o"></i>
-    </li>
-    <li class='lineup-tab'>
-      Customize lineup <i class="fa fa-heart-o"></i>
-    </li>
-    <li class='itinerary-tab'>
-      View itinerary <i class="fa fa-list"></i>
-    </li>
-  </ul>
-</header>
+    <ul class='trip-menu'>
+      <li class='flight-tab current-tab'>
+        Add flight <i class="fa fa-paper-plane-o"></i>
+      </li>
+      <li class='hotel-tab'>
+        Add hotel <i class="fa fa-building-o"></i>
+      </li>
+      <li class='lineup-tab'>
+        Customize lineup <i class="fa fa-heart-o"></i>
+      </li>
+      <li class='itinerary-tab'>
+        View itinerary <i class="fa fa-list"></i>
+      </li>
+    </ul>
+  </header>
 
-<div class="show">
-  <section class='flight current'>
-    <%= render 'layouts/flight' %>
+  <div class="show">
+    <section class='flight current'>
+      <%= render 'layouts/flight' %>
 
-    <button id='save-flight'>Save and continue</button>
-  </section>
-</div>
+      <button id='save-flight'>Save and continue</button>
+    </section>
+  </div>
 
 
 
@@ -55,10 +54,10 @@
     </ul>
 
     <ul class='official'>
-    <h3>Official lineup</h3>
-    <% @festival.lineup.sort.each do |artist| %>
-      <li><%= artist %></li>
-    <% end %>
+      <h3>Official lineup</h3>
+      <% @festival.lineup.sort.each do |artist| %>
+        <li><%= artist %></li>
+      <% end %>
     </ul>
 
     <button id='save-lineup'>Save and continue</button>
@@ -70,6 +69,7 @@
     <button id='save-hotel'>Continue</button>
   </section>
 
+
   <section class='itinerary'>
     <% if @trip.flights.length > 0 %>
       <h2>Rave details:</h2>
@@ -77,6 +77,7 @@
       <div class="current-flight"></div>
     <% end %>
 
+    <button id='share'>Spread the PLUR</button>
     <%# if @trip.hotel != nil %>
 <!--  <h3>Hotel booking:</h3>
       <div class="current-hotel"></div> -->
