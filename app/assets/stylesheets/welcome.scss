@@ -23,11 +23,12 @@ h1.logo {
     color: #fff;
     background-color: $lime-green;
     @include button-style;
+
   }
   p:hover {
     background-color: $neon-green;
+    a { color: #fff; }
   }
-
   a {
     color: #fff;
   }

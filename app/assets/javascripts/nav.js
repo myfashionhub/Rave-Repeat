@@ -23,8 +23,6 @@ function toggleTab(clickedTab) {
 }
 
 function raverNav() {
-  RaveRepeat.initialize();
-
   if ($('.current-trips').children().html() === '') {
     $('.current-trips').append('You currently don\'t have any trip planned.');
   }

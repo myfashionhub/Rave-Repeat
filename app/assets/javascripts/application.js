@@ -12,6 +12,8 @@
 //= require_tree .
 
 $(document).ready(function() {
+  RaveRepeat.initialize();
+
   raverNav();
   tripNav();
   tripFlow();

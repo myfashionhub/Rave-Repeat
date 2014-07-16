@@ -4,18 +4,32 @@ class TripsController < ApplicationController
     trips = raver.trips.to_a
     current_trips  = trips.map do |trip|
       festival = Festival.find(trip.festival_id)
-      flight   = Flight.find_by(trip_id: trip.id)
-      { festival: festival.name,
-        airline: flight.airline,
-        start_date: trip.start_date,
-        end_date: trip.end_date,
-        from_airport: trip.from_airport,
-        to_airport: trip.to_airport,
-        lineup: trip.lineup,
-        leg1: flight.leg1,
-        leg2: flight.leg2,
-        trip_id: trip.id
-      }
+      begin
+        flight   = Flight.find_by(trip_id: trip.id)
+        { festival: festival.name,
+          airline: flight.airline,
+          start_date: trip.start_date,
+          end_date: trip.end_date,
+          from_airport: trip.from_airport,
+          to_airport: trip.to_airport,
+          lineup: trip.lineup,
+          leg1: flight.leg1,
+          leg2: flight.leg2,
+          trip_id: trip.id
+        }
+      rescue NoMethodError
+        { festival: festival.name,
+          airline: 'Not specified',
+          start_date: trip.start_date,
+          end_date: trip.end_date,
+          from_airport: trip.from_airport,
+          to_airport: trip.to_airport,
+          lineup: 'Not specified',
+          leg1: 'Not specified',
+          leg2: 'Not specified',
+          trip_id: trip.id
+        }
+      end
     end
 
     render json: current_trips.to_json

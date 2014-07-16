@@ -11,7 +11,3 @@ window.RaveRepeat = {
   }
 };
 
-$(document).ready(function() {
-  // initialize in navRaver
-})
-

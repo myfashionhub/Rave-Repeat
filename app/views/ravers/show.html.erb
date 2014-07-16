@@ -1,6 +1,8 @@
-<div class="background">&nbsp;</div>
+<div class="background">
 
 <div class="raver-wrapper">
+  <%= render 'layouts/nav' %>
+
   <% if @raver.trips.length == 0 %>
     <nav class="raver">
       <h3 class='current-tab new-rave'>Plan new rave</h3>
@@ -23,7 +25,6 @@
     <div class='trips'></div>
   </section>
 
-
-
-
 </div> <!-- wrapper -->
+
+</div> <!-- background -->
