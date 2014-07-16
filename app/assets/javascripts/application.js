@@ -12,6 +12,10 @@
 //= require_tree .
 
 $(document).ready(function() {
+  if (window.location.hash && window.location.hash == '#_=_') {
+      window.location.hash = '';
+  }
+
   RaveRepeat.initialize();
 
   raverNav();

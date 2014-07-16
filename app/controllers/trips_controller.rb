@@ -17,7 +17,7 @@ class TripsController < ApplicationController
           leg2: flight.leg2,
           trip_id: trip.id
         }
-      rescue NoMethodError
+      rescue NoMethodError # needs refactoring
         { festival: festival.name,
           airline: 'Not specified',
           start_date: trip.start_date,

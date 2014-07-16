@@ -1,6 +1,7 @@
 RaveRepeat.Routers.Trips = Backbone.Router.extend({
   routes: {
     '': 'index'
+
   },
 
   initialize: function() {
