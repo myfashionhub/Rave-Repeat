@@ -14,3 +14,19 @@ function updateTrip() {
   })
 }
 
+function spreadPLUR() {
+  $('#share').mouseenter(function() {
+
+  })
+}
+
+function flightsRender() {
+  _.extend($('.itinerary-tab'), Backbone.Events);
+  _.extend($('#save-lineup'), Backbone.Events);
+  $('.itinerary-tab').click(function() {
+    RaveRepeat.showFlights();
+  });
+
+  $('#save-lineup').click(RaveRepeat.showFlights);
+
+}

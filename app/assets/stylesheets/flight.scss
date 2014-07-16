@@ -6,9 +6,6 @@
   h4 {
     margin: 0 0 .4em 0;
   }
-  input[type='checkbox'] {
-    margin-left: 1em;
-  }
 }
 
 .search-flight {
@@ -43,10 +40,13 @@
   input[type='text'] {
     width: 20em;
     font-family: $mont;
-    padding: .5em;
+    padding: .45em;
+    border: 0;
   }
-  button {
-    @include button-green;
+  #view-flights {
+    &:hover {
+      background-color: #ebebeb;
+    }
   }
 }
 
@@ -54,6 +54,15 @@
   width: 650px;
   margin: 0 auto;
   article {
-    margin: .5em 2em 0 0;
+    margin: 1em 2em 0 0;
+  }
+  a {
+    color: $light-orange;
+    &:hover {
+      color: $text-color;
+    }
+  }
+  input[type='checkbox'] {
+    margin-left: 2em;
   }
 }

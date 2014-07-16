@@ -22,8 +22,6 @@ function lineupBuilder() {
   $('.own').droppable({
     drop: function(e, dropped) {
       var artistLi = dropped.draggable;
-      console.log(artistLi.html());
-      console.log(notDupe(artistLi.html()));
       //if (notDupe(artistLi.html())) {
         $(artistLi).append('<i class="fa fa-times"></i>');
         $(artistLi).appendTo($('.own'));

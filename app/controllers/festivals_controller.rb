@@ -1,4 +1,7 @@
 class FestivalsController < ApplicationController
+  def index
+  end
+
   def show
     @festival = Festival.find(params[:id])
     trips    = Trip.where(festival_id: @festival.id)
