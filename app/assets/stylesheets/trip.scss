@@ -87,10 +87,13 @@ header {
   min-height: 450px;
 }
 
-.ui-draggable {
+.ui-draggable, i {
   @include hover-style;
 }
 
-i {
-  @include hover-style;
+/* ITINERARY */
+.itinerary {
+  h2 {
+    margin: 0 0 .8em 0;
+  }
 }

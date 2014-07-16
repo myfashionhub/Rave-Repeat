@@ -27,23 +27,23 @@ function displayFlights(data) {
     var toAirport1   = data[i].leg1_airport2;
     var fromTime1    = data[i].leg1_time1;
     var toTime1      = data[i].leg1_time2;
-    var duration1    = data[i].leg1_duration;
+    //var duration1    = data[i].leg1_duration;
 
     var airline      = data[i].airline;
     var fromAirport2 = data[i].leg2_airport1;
     var toAirport2   = data[i].leg2_airport2;
     var fromTime2    = data[i].leg2_time1;
     var toTime2      = data[i].leg2_time2;
-    var duration2    = data[i].leg2_duration;
+    //var duration2    = data[i].leg2_duration;
 
     var price        = data[i].price;
     var link         = data[i].link;
 
     var trip = $('<article>');
     var leg1 = $('<p>').addClass('leg1')
-               .html(fromAirport1 + ' ' + fromTime1 + ' => ' + toAirport1 + ' ' + toTime1 + ' ' + duration1);
+               .html(fromAirport1 + ' ' + fromTime1 + ' => ' + toAirport1 + ' ' + toTime1);
     var leg2 = $('<p>').addClass('leg2')
-              .html(fromAirport2 + ' ' + fromTime2 + ' => ' + toAirport2 + ' ' + toTime2 + ' ' + duration2);
+              .html(fromAirport2 + ' ' + fromTime2 + ' => ' + toAirport2 + ' ' + toTime2);
     var buyLink = $('<a>').attr('href', link)
                           .attr('target', '_blank')
                           .html('Buy now');

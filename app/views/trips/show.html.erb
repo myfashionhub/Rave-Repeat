@@ -1,8 +1,5 @@
 <script>
-  $(function() {
-    fetchPlaylist();
-    //$('.player').hide();
-  });
+  fetchPlaylist();
 </script>
 
 <input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
@@ -81,7 +78,7 @@
     <% end %>
 
     <%# if @trip.hotel != nil %>
-<!--       <h3>Hotel booking:</h3>
+<!--  <h3>Hotel booking:</h3>
       <div class="current-hotel"></div> -->
     <%# end %>
 

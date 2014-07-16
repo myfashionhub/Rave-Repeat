@@ -10,15 +10,15 @@ class Kayak
     flights   = []
     (0..7).each do |i|
       flights.push({ airline: airlines[i].children[0].text.strip,
-        leg1_airport1: airports[4*i].attributes['title'].value.split(' ').last,
+        leg1_airport1: airports[4*i].attributes['title'].value,
         leg1_time1: times[4*i].children[0].text.strip,
-        leg1_airport2: airports[4*i+1].attributes['title'].value.split(' ').last,
+        leg1_airport2: airports[4*i+1].attributes['title'].value,
         leg1_time2: times[4*i+1].children[0].text.strip,
         leg1_duration: durations[2*i].children.text.strip,
 
-        leg2_airport1: airports[4*i+2].attributes['title'].value.split(' ').last,
+        leg2_airport1: airports[4*i+2].attributes['title'].value,
         leg2_time1: times[4*i+2].children[0].text.strip,
-        leg2_airport2: airports[4*i+3].attributes['title'].value.split(' ').last,
+        leg2_airport2: airports[4*i+3].attributes['title'].value,
         leg2_time2: times[4*i+3].children[0].text.strip,
         leg2_duration: durations[2*i+1].children.text.strip,
 
@@ -32,9 +32,7 @@ class Kayak
   end
 end
 
-# Kayak.query("NYC", "Atlanta,GA", "08/28/2014", "09/01/2014")
-# Kayak.parse('http://www.kayak.com/s/search/air?l1=Washington,DC&l2=New%20York,%20NY&df=mdy&d1=08%2F28%2F2014&d2=09%2F01%2F2014&ns=y')
-
+#.split(' ').last
 #http://www.kayak.com/s/search/air?l1=Washington,DC&l2=New%20York,%20NY&df=mdy&d1=08%2F28%2F2014&d2=09%2F01%2F2014&ns=y
 
 # Regex
