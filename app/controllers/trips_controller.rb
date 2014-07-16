@@ -31,6 +31,7 @@ class TripsController < ApplicationController
         }
       end
     end
+    current_trips.sort_by!{ |trip| [trip[:start_date].slice(-1,4), trip[:start_date].slice(0,2)] }
 
     render json: current_trips.to_json
   end
@@ -73,6 +74,12 @@ class TripsController < ApplicationController
     trip = Trip.find(params[:trip_id])
     trip.update(lineup: params[:lineup].uniq)
     render json: { msg: "Updated lineup" }.to_json
+  end
+
+  def destroy
+    trip = Trip.find(params[:id])
+    trip.destroy
+    render json: trip.to_json
   end
 end
 

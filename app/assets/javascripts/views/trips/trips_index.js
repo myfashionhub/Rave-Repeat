@@ -8,6 +8,14 @@ RaveRepeat.Views.TripIndex = Backbone.View.extend({
     var trip = this.template(this.model.attributes);
     this.$el.append(trip);
     return this;
+  },
+  delete: function() {
+    console.log(this.model.url());
+    this.model.destroy();
+    this.remove();
+  },
+  events: {
+    'click [class="delete-trip"]': 'delete'
   }
 });
 
@@ -23,10 +31,6 @@ RaveRepeat.Views.TripsIndex = Backbone.View.extend({
       that.$el.append(tripView.render().el);
     });
     return this;
-  },
-  events: {
-
   }
-})
+});
 
-// Ref: http://ricostacruz.com/backbone-patterns/#jst_templates

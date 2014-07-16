@@ -1,13 +1,11 @@
 RaveRepeat.Routers.Trips = Backbone.Router.extend({
   routes: {
     '': 'index'
-
   },
 
   initialize: function() {
-    console.log("BB history started");
-
     this.trips = new RaveRepeat.Collections.Trips();
+    debug = this.trips;
     this.tripsIndex = new RaveRepeat.Views.TripsIndex({
       collection: this.trips
     });
