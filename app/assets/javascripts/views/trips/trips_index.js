@@ -1,4 +1,4 @@
-RaveRepeat.Views.TripIndex = Backbone.View.extend({
+RaveRepeat.Views.TripView = Backbone.View.extend({
   tagName: 'article',
   template: JST['trips/index'],
   initialize: function() {
@@ -14,12 +14,13 @@ RaveRepeat.Views.TripIndex = Backbone.View.extend({
     this.model.destroy();
     this.remove();
   },
+
   events: {
     'click [class="delete-trip"]': 'delete'
   }
 });
 
-RaveRepeat.Views.TripsIndex = Backbone.View.extend({
+RaveRepeat.Views.TripsView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'all', this.render);
   },
@@ -27,7 +28,7 @@ RaveRepeat.Views.TripsIndex = Backbone.View.extend({
     var that = this;
     this.$el.empty();
     _.each(this.collection.models, function(trip) {
-      var tripView = new RaveRepeat.Views.TripIndex({model: trip});
+      var tripView = new RaveRepeat.Views.TripView({model: trip});
       that.$el.append(tripView.render().el);
     });
     return this;

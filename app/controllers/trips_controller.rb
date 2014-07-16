@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   def index
     raver = current_raver
     trips = raver.trips.to_a
-    current_trips  = trips.map do |trip|
+    current_trips = trips.map do |trip|
       festival = Festival.find(trip.festival_id)
       begin
         flight   = Flight.find_by(trip_id: trip.id)
@@ -53,7 +53,7 @@ class TripsController < ApplicationController
     @raver    = current_raver
     @trip     = Trip.find(params[:id])
     @festival = Festival.find(@trip.festival_id)
-    @flight    = Flight.find_by(trip_id: @trip.id)
+    @flight   = Flight.find_by(trip_id: @trip.id)
 
     respond_to do |format|
       format.html
@@ -80,6 +80,12 @@ class TripsController < ApplicationController
     trip = Trip.find(params[:id])
     trip.destroy
     render json: trip.to_json
+  end
+
+  def flights
+    trip = Trip.find(params[:trip_id])
+    flights = trip.flights
+    render json: flights.to_json
   end
 end
 
