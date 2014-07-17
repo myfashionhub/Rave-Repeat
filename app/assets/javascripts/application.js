@@ -40,6 +40,7 @@ $(document).ready(function() {
 
   // Itinerary tab
   renderFlights();
+  showFlights();
 
   // Festival index
   renderRavers();
