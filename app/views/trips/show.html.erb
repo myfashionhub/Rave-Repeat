@@ -76,22 +76,22 @@
       <div class="current-flight"></div>
     <% end %>
 
-    <h3>Line up:</h3>
     <% if @trip.lineup %>
-      <div class="current-lineup">
+    <div class="current-lineup">
+      <h3>Line up:</h3>
       <% @trip.lineup.each do |artist| %>
         <span><%= artist.html_safe %></span>
       <% end %>
       </div>
     <% end %>
-    <button id='share'>Spread the PLUR</button>
+    <!-- <button id='share'>Spread the PLUR</button> -->
 
-    <%# if @trip.hotel != nil %>
-<!--  <h3>Hotel booking:</h3>
-      <div class="current-hotel"></div> -->
-    <%# end %>
-
+    <!-- <%# if @trip.hotel != nil %>
+      <h3>Hotel booking:</h3>
+      <div class="current-hotel"></div>
+    <%# end %>  -->
   </section>
+
 </div> <!-- hidden div -->
 
 

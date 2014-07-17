@@ -1,10 +1,4 @@
 class FlightsController < ApplicationController
-  def index
-    trip = Trip.find(params[:id])
-    flights = trip.flights
-    render json: flights.to_json
-  end
-
   def search
     url = params[:url]
     results = Flight.search(url)
@@ -14,7 +8,7 @@ class FlightsController < ApplicationController
   def create
     airline = params[:airline]
     airline.delete!("\n").squeeze! if airline.include?('\n')
-    Flight.create(
+    flight = Flight.create(
       leg1: params[:leg1],
       leg2: params[:leg2],
       airline: airline,
@@ -22,9 +16,12 @@ class FlightsController < ApplicationController
       link: params[:link],
       trip_id: params[:trip_id]
     )
-    render json: { msg: 'Successfully saved' }.to_json
+    render json: flight.to_json
   end
 
   def destroy
+    flight = Flight.find(params[:flight_id])
+    flight.destroy
+    render json: flight.to_json
   end
 end

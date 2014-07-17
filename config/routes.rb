@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/flights/search' => 'flights#search'
   post '/trips/lineup' => 'trips#lineup'
   get '/trips/:trip_id/flights' => 'trips#flights'
+  delete '/trips/:trip_id/flights/:flight_id' => 'flights#destroy'
   resources :flights, only: [:create, :destroy]
   resources :trips
   resources :ravers, only: [:index, :update, :show]
