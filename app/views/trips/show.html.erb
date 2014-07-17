@@ -1,13 +1,15 @@
 <input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
 <input type="hidden" id='festival-id' value='<%= @festival.id %>'></input>
-
-<script>
-  fetchPlaylist();
-</script>
+<input type="hidden" id='playlist' value='<%= @festival.playlist %>'></input>
 
 <div class="trip-wrapper">
   <%= render 'layouts/nav' %>
   <%= render 'layouts/music' %>
+
+  <script>
+    // Must be called after rendering music player
+    playMusic();
+  </script>
 
   <header>
     <h2><%= @raver.name %>, plan your trip</h2>

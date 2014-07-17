@@ -36,11 +36,7 @@ window.RaveRepeat = {
       el: el
     });
 
-    ravers.fetch({ success: function() {
-        $('.ravers').empty();
-        raversView.render();
-      }
-    })
+    ravers.fetch({ success: raversView.render });
   }
 
 };

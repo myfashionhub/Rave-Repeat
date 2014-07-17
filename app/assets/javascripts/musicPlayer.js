@@ -1,19 +1,5 @@
-function fetchPlaylist() {
-  var festivalId = $('#festival-id').val();
-  var playlistUrl, playlistId;
-  $.ajax({
-    url: '/festivals/'+festivalId,
-    method: 'get',
-    dataType: 'json',
-    success: function(data) {
-      var playlistUrl = data['playlist'];
-      var playlistId  = data['playlist_scid'];
-      playMusic(playlistUrl, playlistId);
-    }
-  });
-}
-
-function playMusic(playlistUrl, playlistId) {
+function playMusic() {
+  var playlistUrl = $('#playlist').val();
   var startTrack = Math.floor((Math.random() * 10) + 1);
   var iframe  = $('.music-player');
   var baseUrl = "https://w.soundcloud.com/player/?url=";

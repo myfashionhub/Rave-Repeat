@@ -42,6 +42,5 @@ $(document).ready(function() {
   renderFlights();
 
   // Festival index
-  _.extend($('sup'), Backbone.Events);
-  $('.festival-wrapper sup').click(renderRavers);
+  renderRavers();
 });
