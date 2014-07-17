@@ -26,6 +26,21 @@ window.RaveRepeat = {
     flights.fetch({
       success: flightsView.render
     });
+  },
+
+  showRavers: function(id, el) {
+    var ravers = new RaveRepeat.Collections.Ravers();
+    ravers.url = '/festivals/' + id;
+    var raversView = new RaveRepeat.Views.RaversView({
+      collection: ravers,
+      el: el
+    });
+
+    ravers.fetch({ success: function() {
+        $('.ravers').empty();
+        raversView.render();
+      }
+    })
   }
 
 };

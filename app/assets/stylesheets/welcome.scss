@@ -58,3 +58,28 @@ h1.logo {
       color: $neon-green;
   }
 }
+
+/* FESTIVAL SHOW */
+.festival-wrapper {
+  h3 {
+    font-size: 1.2em;
+    margin-left: 2em;
+  }
+}
+
+.festival {
+  text-align: center;
+  h2 {
+    color: $light-orange;
+  }
+  sup {
+    font-family: Helvetica;
+    font-size: .5em;
+    color: $text-color;
+    @include hover-style;
+  }
+}
+
+.ravers {
+  @include menu-list;
+}

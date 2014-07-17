@@ -1,5 +1,6 @@
 class FestivalsController < ApplicationController
   def index
+    @festivals = Festival.all
   end
 
   def show
@@ -12,7 +13,7 @@ class FestivalsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @festival.to_json }
+      format.json { render json: @ravers.to_json }
     end
   end
 end

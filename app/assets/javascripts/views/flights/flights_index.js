@@ -11,7 +11,6 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
   },
 
   delete: function() {
-    console.log(this.model.url());
     this.model.destroy();
     this.remove();
   },
@@ -26,6 +25,7 @@ RaveRepeat.Views.FlightsView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'all', this.render);
   },
+
   render: function() {
     var that = this;
     that.$el.empty();

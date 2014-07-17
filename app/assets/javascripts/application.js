@@ -39,5 +39,9 @@ $(document).ready(function() {
   lineupBuilder();
 
   // Itinerary tab
-  flightsRender();
+  renderFlights();
+
+  // Festival index
+  _.extend($('sup'), Backbone.Events);
+  $('.festival-wrapper sup').click(renderRavers);
 });

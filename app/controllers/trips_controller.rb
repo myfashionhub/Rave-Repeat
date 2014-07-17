@@ -82,11 +82,6 @@ class TripsController < ApplicationController
     render json: trip.to_json
   end
 
-  def flights
-    trip = Trip.find(params[:trip_id])
-    flights = trip.flights
-    render json: flights.to_json
-  end
 end
 
 #http://www.airportcodes.org/

@@ -17,10 +17,10 @@ function updateTrip() {
 function spreadPLUR() {
   $('#share').mouseenter(function() {
 
-  })
+  });
 }
 
-function flightsRender() {
+function renderFlights() {
   _.extend($('.itinerary-tab'), Backbone.Events);
   _.extend($('#save-lineup'), Backbone.Events);
   $('.itinerary-tab').click(function() {

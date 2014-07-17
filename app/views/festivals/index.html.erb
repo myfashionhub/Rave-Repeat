@@ -1,0 +1,15 @@
+<div class="background">
+  <%= render 'layouts/nav' %>
+
+  <div class="festival-wrapper">
+  <h3>See who's going to:</h3>
+
+  <% @festivals.each do |festival| %>
+    <div class="festival">
+      <h2><%= festival.name %> <sup data='<%= festival.id %>'>VIEW</sup></h2>
+      <ul class="ravers"></ul>
+    </div>
+  <% end %>
+
+  </div>
+</div>
