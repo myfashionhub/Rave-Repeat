@@ -38,9 +38,7 @@ $(document).ready(function() {
   displayOwnLineup();
   lineupBuilder();
 
-  // Itinerary tab
   renderFlights();
-  showFlights();
 
   // Festival index
   renderRavers();
