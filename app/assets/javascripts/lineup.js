@@ -7,7 +7,7 @@ function displayOwnLineup() {
   });
   $('i').click(function(e) {
     $(e.target).parent().remove();
-  })
+  });
 }
 
 function lineupBuilder() {
