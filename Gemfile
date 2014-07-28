@@ -48,6 +48,7 @@ gem 'omniauth-facebook'
 gem 'httparty'
 gem 'nokogiri'
 
+gem 'google-api-client'
 gem 'backbone-on-rails'
 
 gem 'jquery-ui-rails', "~> 4.0.5"
