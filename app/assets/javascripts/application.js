@@ -26,7 +26,7 @@ $(document).ready(function() {
   $('#search-flight').click(function(e) {
     e.preventDefault();
     updateTrip();
-    flightSearch();
+    searchFlight();
   });
 
   $('.view-flights').submit(function(e) {

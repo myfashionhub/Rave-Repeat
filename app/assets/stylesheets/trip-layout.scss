@@ -11,12 +11,13 @@
 }
 
 header {
-  padding: 1em 0 2em 3em;
+  padding: 1em 0 1em 3em;
   background: #efefef;
   box-shadow: 3px 0px 8px 3px #d6d6d6;
   h2 {
     color: $blood-orange;
     font-size: 1.8em;
+    margin: 0 0 .4em 0;
   }
   .trip-menu {
     margin: 1.5em 0 0 12%;

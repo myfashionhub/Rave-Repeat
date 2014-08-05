@@ -16,7 +16,10 @@ function viewFlights() {
     data: { url: url },
     dataType: 'json',
     success: function(data) {
-      displayFlights(data); }
+      displayFlights(data); },
+    error: function(data) {
+      $('.flight-results').append('Cannot fetch flights at the moment.')
+    }
   });
 }
 

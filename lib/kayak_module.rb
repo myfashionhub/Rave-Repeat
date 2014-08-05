@@ -8,6 +8,7 @@ class Kayak
     links     = doc.css('.bookitselect.buylink')
     durations = doc.css('.legholder').css('.duration')
     flights   = []
+
     (0..7).each do |i|
       flights.push({ airline: airlines[i].children[0].text.strip,
         leg1_airport1: airports[4*i].attributes['title'].value,
@@ -25,6 +26,7 @@ class Kayak
         price: prices[i].children[1].children.text,
         link: 'http://kayak.com' + links[i].children[1].attributes['href'].value
       })
+      #flights.push('Cannot fetch flights at the moment.')
     end
 
     flights.keep_if { |flight| flight[:link].length > 60 }
