@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
 
 group :development, :test do
   gem 'pry'

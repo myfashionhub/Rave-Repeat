@@ -14,6 +14,7 @@ function tripNav() {
   $('.itinerary-tab').click(function() {
     toggleTab('.itinerary-tab');
     toggleSection('.itinerary');
+    currentLineup();
   });
 }
 

@@ -65,6 +65,7 @@ function saveLineup() {
   })
 }
 
+
 function modifyLineup(e) {
   var artistLi = $(e.target).parent();
   artistLi.find('i').remove();

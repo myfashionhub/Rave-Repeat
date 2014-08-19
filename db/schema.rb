@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20140714032932) do
   create_table "festivals", force: true do |t|
     t.string   "name"
     t.string   "location"
-    t.text     "lineup"
-    t.string   "playlist"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "status"
     t.date     "start_date"
     t.date     "end_date"
+    t.text     "lineup"
+    t.string   "playlist"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "playlist_scid"
   end
 
@@ -71,15 +71,16 @@ ActiveRecord::Schema.define(version: 20140714032932) do
   end
 
   create_table "trips", force: true do |t|
+    t.string   "date"
     t.string   "lineup"
-    t.integer  "raver_id"
-    t.integer  "festival_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "start_date"
     t.string   "end_date"
     t.string   "from_airport"
     t.string   "to_airport"
+    t.integer  "raver_id"
+    t.integer  "festival_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

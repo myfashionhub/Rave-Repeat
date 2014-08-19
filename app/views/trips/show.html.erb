@@ -4,14 +4,14 @@
 
 <div class="trip-wrapper">
   <%= render 'layouts/nav' %>
-  <%= render 'layouts/music' %>
+  <%#= render 'layouts/music' %>
 
-  <script>
-    // Must be called after rendering music player
-    $(function() {
-      playMusic();
-    });
-  </script>
+  <!-- <script>
+  //   // Must be called after rendering music player
+  //   $(function() {
+  //     playMusic();
+  //   });
+      </script> -->
 
   <header>
     <h2><%= @raver.name %>, plan your trip</h2>
@@ -83,11 +83,10 @@
     <% if @trip.lineup %>
     <div class="current-lineup">
       <h3>Line up:</h3>
-      <% @trip.lineup.each do |artist| %>
-        <span><%= artist.html_safe %></span>
-      <% end %>
-      </div>
+      <ul></ul>
+    </div>
     <% end %>
+
     <!-- <button id='share'>Spread the PLUR</button> -->
 
     <!-- <%# if @trip.hotel != nil %>

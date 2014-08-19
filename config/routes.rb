@@ -5,15 +5,17 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback'=> 'sessions#signin_facebook'
   get '/logout'                => 'sessions#destroy'
 
-  post '/flights/search' => 'flights#search'
-  post '/trips/lineup' => 'trips#lineup'
+  resources :ravers, only: [:index, :update, :show]
+  resources :festivals, only: [:index, :show]
+
+  resources :trips
+  get '/trips/:id/lineup' => 'trips#lineup'
+  post '/trips/lineup' => 'trips#update_lineup'
+
+  resources :flights, only: [:create]
   get '/trips/:trip_id/flights' => 'flights#index'
   delete '/trips/:trip_id/flights/:flight_id' => 'flights#destroy'
-  resources :flights, only: [:create]
-  resources :trips
-  resources :ravers, only: [:index, :update, :show]
-
-  resources :festivals, only: [:index, :show]
+  post '/flights/search' => 'flights#search'
 end
 
 #                   root GET    /                                 welcome#index

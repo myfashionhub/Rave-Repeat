@@ -71,10 +71,16 @@ class TripsController < ApplicationController
   end
 
   def lineup
+    trip   = Trip.find(params[:id])
+    render json: { lineup: trip.lineup }.to_json
+  end
+
+  def update_lineup
     trip = Trip.find(params[:trip_id])
     trip.update(lineup: params[:lineup].uniq)
     render json: { msg: "Updated lineup" }.to_json
   end
+
 
   def destroy
     trip = Trip.find(params[:id])
