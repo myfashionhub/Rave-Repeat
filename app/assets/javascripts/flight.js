@@ -84,4 +84,16 @@ function saveFlight() {
 }
 
 
-
+function suggestAirports() {
+  $('#from-airport').autocomplete({
+    source: airports,
+    minLength: 2,
+    select: function(e, ui) {
+      e.preventDefault();
+      var cityAirport = ui.item.value;
+      var airport = cityAirport.match(/\(.{3}\)/);
+      airport = airport[0].slice(1,4);
+      $('#from-airport').val(airport)
+    }
+  });
+}

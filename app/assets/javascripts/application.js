@@ -21,6 +21,7 @@ $(document).ready(function() {
   raverNav();
   tripNav();
   tripFlow();
+  suggestAirports();
 
   // Flight functions
   $('#search-flight').click(function(e) {
