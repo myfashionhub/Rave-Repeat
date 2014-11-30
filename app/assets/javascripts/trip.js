@@ -37,16 +37,3 @@ function currentLineup() {
     }
   });
 }
-
-function renderFlights() {
-  _.extend($('.itinerary-tab'), Backbone.Events);
-  _.extend($('#save-lineup'), Backbone.Events);
-  $('.itinerary-tab').click(function() {
-    RaveRepeat.showFlights();
-  });
-
-  $('#save-lineup').click(function() {
-    RaveRepeat.showFlights();
-    currentLineup();
-  });
-}

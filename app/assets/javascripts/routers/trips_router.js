@@ -1,14 +1,16 @@
 RaveRepeat.Routers.Trips = Backbone.Router.extend({
   routes: {
+
   },
 
   initialize: function() {
     this.trips = new RaveRepeat.Collections.Trips();
     this.tripsIndex = new RaveRepeat.Views.TripsView({
       collection: this.trips,
-      el: $('.trips .upcoming')
+      el: $('.trips')
     });
     this.trips.fetch({async: false});
+    this.renderFlights();
   },
 
   showFlights: function() {
@@ -23,6 +25,23 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
 
     flights.fetch({
       success: flightsView.render
+    });
+  },
+
+  renderFlights: function() {
+    var that = this;
+    _.extend($('.itinerary-tab'), Backbone.Events);
+    _.extend($('#save-lineup'), Backbone.Events);
+
+    $('.itinerary-tab').click(function() {
+      that.showFlights();
+      currentLineup();
+      console.log('show flights')
+    });
+
+    $('#save-lineup').click(function() {
+      that.showFlights();
+      currentLineup();
     });
   },
 

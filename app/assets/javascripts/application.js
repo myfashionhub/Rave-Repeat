@@ -37,8 +37,6 @@ $(document).ready(function() {
   displayOwnLineup();
   lineupBuilder();
 
-  renderFlights();
-
   // Festival index
   renderRavers();
 });

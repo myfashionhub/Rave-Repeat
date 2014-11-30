@@ -92,7 +92,9 @@ function suggestAirports() {
       e.preventDefault();
       var cityAirport = ui.item.value;
       var airport = cityAirport.match(/\(.{3}\)/);
+      console.log(airport)
       airport = airport[0].slice(1,4);
+      console.log(airport)
       $('#from-airport').val(airport)
     }
   });

@@ -61,7 +61,7 @@ function saveLineup() {
     method: 'post',
     dataType: 'json',
     data: { trip_id: tripId, lineup: artists },
-    success: function() { toggleSection('.itinerary'); }
+    success: function() { toggleSection('itinerary'); }
   })
 }
 

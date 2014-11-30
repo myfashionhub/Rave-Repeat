@@ -4,32 +4,20 @@ class TripsController < ApplicationController
     trips = raver.trips.to_a
     current_trips = trips.map do |trip|
       festival = Festival.find(trip.festival_id)
-      begin
         flight   = Flight.find_by(trip_id: trip.id)
         { festival: festival.name,
-          airline: flight.airline,
           start_date: trip.start_date,
           end_date: trip.end_date,
           from_airport: trip.from_airport,
           to_airport: trip.to_airport,
-          lineup: trip.lineup,
-          leg1: flight.leg1,
-          leg2: flight.leg2,
+          lineup: trip.lineup || 'Not specified',
           trip_id: trip.id
         }
-      rescue NoMethodError # needs refactoring
-        { festival: festival.name,
-          airline: 'Not specified',
-          start_date: trip.start_date,
-          end_date: trip.end_date,
-          from_airport: trip.from_airport,
-          to_airport: trip.to_airport,
-          lineup: 'Not specified',
-          leg1: 'Not specified',
-          leg2: 'Not specified',
-          trip_id: trip.id
-        }
-      end
+        # {
+        #   airline: flight.airline,
+        #   leg1: flight.leg1,
+        #   leg2: flight.leg2,
+        # }
     end
     current_trips.sort_by!{ |trip| [trip[:start_date].slice(-1,4), trip[:start_date].slice(0,2)] }
 
