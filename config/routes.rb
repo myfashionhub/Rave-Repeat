@@ -6,12 +6,11 @@ Rails.application.routes.draw do
   get '/logout'                => 'sessions#destroy'
 
   resources :ravers, only: [:index, :update, :show]
-  get '/ravers/:id/upcoming' => 'ravers#upcoming'
-  get '/ravers/:id/past' => 'ravers#past
-  '
+  get '/ravers/:id/trips' => 'ravers#trips'
+
   resources :festivals, only: [:index, :show]
 
-  resources :trips
+  resources :trips#, only [:index]
   get '/trips/:id/lineup' => 'trips#lineup'
   post '/trips/lineup' => 'trips#update_lineup'
 

@@ -4,13 +4,34 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
   },
 
   initialize: function() {
-    this.trips = new RaveRepeat.Collections.Trips();
-    this.tripsIndex = new RaveRepeat.Views.TripsView({
-      collection: this.trips,
-      el: $('.trips')
+    var raver_id = $('.raver').attr('data-id');
+    this.showPastTrips(raver_id);
+    this.showUpcomingTrips(raver_id);
+    this.renderFlights(); // When cusomizing trips
+  },
+
+  showUpcomingTrips: function(raver_id) {
+    this.tripsUpcoming = new RaveRepeat.Collections.Trips();
+    this.tripsViewUpcoming = new RaveRepeat.Views.TripsView({
+      collection: this.tripsUpcoming,
+      el: $('.trips .upcoming')
     });
-    this.trips.fetch({async: false});
-    this.renderFlights();
+
+    this.tripsUpcoming.url = '/ravers/'+raver_id+'/trips?upcoming=true';
+    this.tripsUpcoming.fetch({async: false});
+    console.log('show upcoming')
+  },
+
+  showPastTrips: function(raver_id) {
+    this.tripsPast = new RaveRepeat.Collections.Trips();
+    this.tripsViewPast = new RaveRepeat.Views.TripsView({
+      collection: this.tripsPast,
+      el: $('.trips .past')
+    });
+
+    this.tripsPast.url = '/ravers/'+raver_id+'/trips?past=true';
+    this.tripsPast.fetch({async: false});
+    console.log('show past')
   },
 
   showFlights: function() {
@@ -36,7 +57,6 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
     $('.itinerary-tab').click(function() {
       that.showFlights();
       currentLineup();
-      console.log('show flights')
     });
 
     $('#save-lineup').click(function() {

@@ -3,7 +3,7 @@
 <div class="raver-wrapper">
   <%= render 'layouts/nav' %>
 
-  <nav class="raver">
+  <nav class="raver" data-id="<%= @raver.id %>">
     <h3 class='current-raves'>Current raves</h3>
     <h3 class='new-rave'>Plan new rave</h3>
   </nav>
@@ -16,7 +16,7 @@
       $('.current-raves').addClass('current-tab');
     }
 
-    if ($('.trips').children().html() === '') {
+    if ($('.trips .upcoming').children().html() === '') {
       $('.trips').append('You currently don\'t have any trip planned.');
     }
   </script>
