@@ -18,35 +18,30 @@ function tripNav() {
   });
 }
 
-function toggleTab(clickedTab) {
-  $('.current-tab').removeClass('current-tab');
-  $(clickedTab).addClass('current-tab');
+function raverNav() {
+  var currentTab = $.trim($('.current-tab').attr('class').replace('current-tab', ''));
+  if (currentTab === 'current-raves') {
+    $('.new-trip').hide();
+  } else {
+    $('.trips').hide();
+  }
+
+  $('nav.raver h3').click(function(e) {
+    var tabName = $.trim($(e.target).attr('class').replace('current-tab', ''));
+    toggleTab(tabName);
+    if (tabName === 'current-raves') {
+      $('.new-trip').hide();
+      $('.trips').toggle('blind');
+    } else {
+      $('.trips').hide();
+      $('.new-trip').toggle('blind');
+    }
+  });
 }
 
-function raverNav() {
-  if ($('.current-trips').children().html() === '') {
-    $('.current-trips').append('You currently don\'t have any trip planned.');
-  }
-
-  if ($('.current-tab').html() === 'Current raves') {
-    $('.new-trip').hide();
-    $('.current-trips').show();
-  } else {
-    $('.current-trips').hide();
-    $('.new-trip').show();
-  }
-
-  $('.new-rave').click(function() {
-    toggleTab('.new-rave');
-    $('.current-trips').hide();
-    $('.new-trip').toggle('blind');
-  });
-
-  $('.current-raves').click(function() {
-    toggleTab('.current-raves');
-    $('.new-trip').hide();
-    $('.current-trips').toggle('blind');
-  });
+function toggleTab(clickedTab) {
+  $('.current-tab').removeClass('current-tab');
+  $('.'+clickedTab).addClass('current-tab');
 }
 
 function toggleSection(section) {

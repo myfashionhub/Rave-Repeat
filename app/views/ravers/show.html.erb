@@ -3,26 +3,33 @@
 <div class="raver-wrapper">
   <%= render 'layouts/nav' %>
 
-  <% if @raver.trips.length == 0 %>
-    <nav class="raver">
-      <h3 class='current-tab new-rave'>Plan new rave</h3>
-      <h3 class='current-raves'>Current raves</h3>
-    </nav>
-    <div class="clear"></div>
-  <% else %>
-    <nav class="raver">
-      <h3 class='current-tab current-raves'>Current raves</h3>
-      <h3 class='new-rave'>Plan new rave</h3>
-    </nav>
-    <div class="clear"></div>
-  <% end %>
+  <nav class="raver">
+    <h3 class='current-raves'>Current raves</h3>
+    <h3 class='new-rave'>Plan new rave</h3>
+  </nav>
+  <div class="clear"></div>
 
-<h2>Hi <%= @raver.name %></h2>
-  <%= render 'layouts/trip' %>
+  <script>
+    if (<%= @raver.trips.length == 0 %>) {
+      $('.new-rave').addClass('current-tab');
+    } else {
+      $('.current-raves').addClass('current-tab');
+    }
 
-  <section class='current-trips'>
-    <h3>Current trips:</h3>
-    <div class='trips'></div>
+    if ($('.trips').children().html() === '') {
+      $('.trips').append('You currently don\'t have any trip planned.');
+    }
+  </script>
+
+  <h2>Hi <%= @raver.name %></h2>
+  <%= render 'layouts/trip_new' %>
+
+  <section class='trips'>
+    <h3>Past trips:</h3>
+    <div class='past'></div>
+
+    <h3>Upcoming trips:</h3>
+    <div class='upcoming'></div>
   </section>
 
 </div> <!-- wrapper -->

@@ -1,13 +1,12 @@
 RaveRepeat.Routers.Trips = Backbone.Router.extend({
   routes: {
-
   },
 
   initialize: function() {
     this.trips = new RaveRepeat.Collections.Trips();
     this.tripsIndex = new RaveRepeat.Views.TripsView({
       collection: this.trips,
-      el: $('.trips')
+      el: $('.trips .upcoming')
     });
     this.trips.fetch({async: false});
   },
