@@ -3,7 +3,7 @@
 //= require jquery.ui.all
 //= require underscore
 //= require backbone
-//= require backboneApp
+//= require raveRepeat
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
@@ -15,8 +15,6 @@ $(document).ready(function() {
   if (window.location.hash && window.location.hash == '#_=_') {
       window.location.hash = '';
   }
-
-  RaveRepeat.initialize();
 
   raverNav();
   tripNav();
