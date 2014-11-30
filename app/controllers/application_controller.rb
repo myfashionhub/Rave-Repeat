@@ -22,4 +22,5 @@ class ApplicationController < ActionController::Base
   def display_year(date)
     date.strftime("%Y")
   end
+
 end

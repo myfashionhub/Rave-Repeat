@@ -2,7 +2,7 @@
   <h3>Select a festival to plan your trip:</h3>
 
   <%= form_for @trip do |f| %>
-    <%= f.collection_select(:festival_id, Festival.all, :id, :name) %>
+    <%= f.collection_select(:festival_id, @festivals, :id, :name) %>
     <%= f.submit 'Start planning' %>
   <% end %>
 

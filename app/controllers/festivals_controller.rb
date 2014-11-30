@@ -1,6 +1,6 @@
 class FestivalsController < ApplicationController
   def index
-    @festivals = Festival.all
+    @festivals = Festival.where('start_date >= ?', Date.today)
   end
 
   def show
@@ -16,4 +16,5 @@ class FestivalsController < ApplicationController
       format.json { render json: @ravers.to_json }
     end
   end
+
 end
