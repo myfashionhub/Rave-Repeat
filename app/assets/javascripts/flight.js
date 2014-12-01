@@ -78,7 +78,7 @@ function saveFlight() {
       method: 'post',
       data: { leg1: leg1, leg2: leg2, price: price, airline: airline, link: link, trip_id: tripId },
       dataType: 'json',
-      success: function() { toggleSection('.hotel'); }
+      success: function() { toggleSection('hotel'); }
     });
   });
 }

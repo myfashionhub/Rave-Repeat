@@ -1,14 +1,18 @@
-<h3><%- festival %></h3>
+<h3>
+  <%= festival %> <span class='year'><%= new Date(start_date).getFullYear() %></span>
+</h3>
 
-From <%- start_date %> to <%- end_date %><br/>
+<div class='details'>
+  From <%- start_date %> to <%- end_date %><br/>
 
-To see: <%= lineup %><br/>
-Flight: <%= from_airport %> - <%= to_airport %>
+  To see: <%= lineup %><br/>
+  Flight: <%= from_airport %> - <%= to_airport %>
 
-<form class='edit-trip' action='/trips/<%- trip_id %>'>
-  <button>Edit trip</button>
-</form>
+  <form class='edit-trip' action='/trips/<%- trip_id %>'>
+    <button>Edit trip</button>
+  </form>
 
-<button class='delete-trip'>Delete trip</button>
+  <button class='delete-trip'>Delete trip</button>
+</div>
 
 <div class='clear'></div>
