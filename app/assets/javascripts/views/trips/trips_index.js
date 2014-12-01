@@ -1,14 +1,18 @@
 RaveRepeat.Views.TripView = Backbone.View.extend({
   tagName: 'article',
+
   template: JST['trips/index'],
+
   initialize: function() {
     this.listenTo(this.model, 'all', this.render);
   },
+
   render: function() {
     var trip = this.template(this.model.attributes);
     this.$el.append(trip);
     return this;
   },
+
   delete: function() {
     this.model.destroy();
     this.remove();

@@ -5,20 +5,24 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
 
   initialize: function() {
     var raver_id = $('.raver').attr('data-id');
-    this.showTrips(raver_id, '.trips .upcoming', 'upcoming=true');
-    this.showTrips(raver_id, '.trips .past', 'past=true');
+    var pastTrips,
+        upcomingTrips,
+        pastTripsView,
+        upcomingTripsView;
+    this.showTrips(raver_id, '.trips .upcoming', 'upcoming=true', upcomingTrips, upcomingTripsView);
+    this.showTrips(raver_id, '.trips .past', 'past=true', pastTrips, pastTripsView);
     this.renderFlights(); // When cusomizing trips
   },
 
-  showTrips: function(raver_id, el, params) {
-    this.trips = new RaveRepeat.Collections.Trips();
-    this.tripsView = new RaveRepeat.Views.TripsView({
-      collection: this.trips,
+  showTrips: function(raver_id, el, params, collection, listView) {
+    this.collection = new RaveRepeat.Collections.Trips();
+    this.listView = new RaveRepeat.Views.TripsView({
+      collection: this.collection,
       el: $(el)
     });
 
-    this.trips.url = '/ravers/'+raver_id+'/trips?'+params;
-    this.trips.fetch({async: false});
+    this.collection.url = '/ravers/'+raver_id+'/trips?'+params;
+    this.collection.fetch({async: false});
   },
 
   showFlights: function() {
