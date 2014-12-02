@@ -1,6 +1,6 @@
 require 'csv'
 
-CSV.foreach("#{Rails.root}/db/festivals.csv") do |row|
+CSV.foreach("#{Rails.root}/db/festivals-2014.csv") do |row|
   Festival.find_or_create_by(
     name: row[0],
     location: row[1],
@@ -27,15 +27,14 @@ CSV.foreach("#{Rails.root}/db/festivals.csv") do |row|
   end
 end
 
-# Initial heroku db seed
-names = ['ploxiln', 'Paul H1am', 'Daul Be', 'Nathan Lee', 'Jason_on_the_block', 'Clara T', 'Kaylee182', 'EDM Sauce', 'Becky', 'Skrillex4life', 'Il0veCalvinHarris', 'born2rave', 'Bass_drop002', 'Trance_or_die', 'haveuseenmolly']
+# Initial user db seed
+# names = ['ploxiln', 'Paul H1am', 'Daul Be', 'Nathan Lee', 'Jason_on_the_block', 'Clara T', 'Kaylee182', 'EDM Sauce', 'Becky', 'Skrillex4life', 'Il0veCalvinHarris', 'born2rave', 'Bass_drop002', 'Trance_or_die', 'haveuseenmolly']
 
-ravers = []
-names.each do |name|
-  ravers.push(Raver.create(name: name))
-end
+# names.each do |name|
+#   Raver.create(name: name)
+# end
 
-ravers.each do |raver|
-  rand = (1..10).to_a.sample
-  Trip.create(raver_id: raver.id, festival_id: rand)
+Raver.all.each do |raver|
+  festival = Festival.all.sample
+  Trip.create(raver_id: raver.id, festival_id: festival.id)
 end

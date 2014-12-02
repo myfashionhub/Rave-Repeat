@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714032932) do
+ActiveRecord::Schema.define(version: 20140710145211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20140714032932) do
     t.date     "end_date"
     t.text     "lineup"
     t.string   "playlist"
+    t.string   "playlist_scid"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "playlist_scid"
   end
 
   create_table "flights", force: true do |t|
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20140714032932) do
   create_table "trips", force: true do |t|
     t.string   "date"
     t.string   "lineup"
-    t.string   "start_date"
-    t.string   "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.string   "from_airport"
     t.string   "to_airport"
     t.integer  "raver_id"

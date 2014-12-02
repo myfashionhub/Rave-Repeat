@@ -19,7 +19,7 @@ class CreateTables < ActiveRecord::Migration
       t.date :end_date
       t.text   :lineup
       t.string :playlist
-      t.string, :playlist_scid
+      t.string :playlist_scid
       t.string :status
       t.timestamps
     end
