@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def display_date(date)
-    date.strftime("%B %d")
+    date.strftime("%B %d, %Y")
   end
 
   def display_year(date)
