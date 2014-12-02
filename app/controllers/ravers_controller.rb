@@ -11,12 +11,18 @@ class RaversController < ApplicationController
   end
 
   def trips
+    all_trips = Trip.where(raver_id: current_raver.id)
     if params[:past]
-      trips = Trip.where(raver_id: current_raver.id)
-                .where('start_date < ?', Date.today)
+      trips = all_trips.select do |trip|
+        puts trip.start_date.class
+        puts trip.start_date < Date.today
+        trip.start_date < Date.today
+      end
     elsif params[:upcoming]
-      trips = Trip.where(raver_id: current_raver.id)
-                .where('start_date >= ?', Date.today)
+      trips = all_trips.select do |trip|
+        puts trip.start_date >= Date.today
+        trip.start_date >= Date.today
+      end
     end
 
     trip_info = trips.map do |trip|

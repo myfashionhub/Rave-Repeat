@@ -31,8 +31,8 @@ class TripsController < ApplicationController
     @trip = Trip.create(raver_id: @raver.id,
       festival_id: festival_id,
       to_airport: festival.location,
-      start_date: convert_date(festival.start_date - 1),
-      end_date: convert_date(festival.end_date + 1),
+      start_date: festival.start_date - 1,
+      end_date: festival.end_date + 1,
     )
     redirect_to "/trips/#{@trip.id}"
   end

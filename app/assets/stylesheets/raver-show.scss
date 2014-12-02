@@ -47,6 +47,7 @@
   }
 }
 
+/* TRIP LIST */
 .trips {
   margin: 2em auto 2em auto;
   width: 85%;
@@ -55,9 +56,12 @@
   h3 {
     margin: .2em 0 .6em 0;
   }
+
   article {
-    margin: 1em 0 4em 0;
+    margin: 1em 0 1em 0;
+    overflow: auto;
   }
+
   button {
     @include button-style;
     @include button-orange;
@@ -66,7 +70,6 @@
   }
 }
 
-/* TRIP LIST */
 .trips .upcoming .year {
   display: none;
 }

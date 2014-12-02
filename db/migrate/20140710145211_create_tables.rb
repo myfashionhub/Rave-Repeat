@@ -19,6 +19,7 @@ class CreateTables < ActiveRecord::Migration
       t.date :end_date
       t.text   :lineup
       t.string :playlist
+      t.string, :playlist_scid
       t.string :status
       t.timestamps
     end
@@ -26,8 +27,8 @@ class CreateTables < ActiveRecord::Migration
     create_table :trips do |t|
       t.string :date
       t.string :lineup
-      t.string :start_date
-      t.string :end_date
+      t.date :start_date
+      t.date :end_date
       t.string :from_airport
       t.string :to_airport
       t.references :raver
