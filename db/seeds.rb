@@ -1,6 +1,6 @@
 require 'csv'
 
-CSV.foreach("#{Rails.root}/db/festivals-2014.csv") do |row|
+CSV.foreach("#{Rails.root}/db/festivals.csv") do |row|
   Festival.find_or_create_by(
     name: row[0],
     location: row[1],
@@ -28,13 +28,20 @@ CSV.foreach("#{Rails.root}/db/festivals-2014.csv") do |row|
 end
 
 # Initial user db seed
-# names = ['ploxiln', 'Paul H1am', 'Daul Be', 'Nathan Lee', 'Jason_on_the_block', 'Clara T', 'Kaylee182', 'EDM Sauce', 'Becky', 'Skrillex4life', 'Il0veCalvinHarris', 'born2rave', 'Bass_drop002', 'Trance_or_die', 'haveuseenmolly']
+names = ['ploxiln', 'Paul H1am', 'Daul Be', 'Nathan Lee',
+'Jason_on_the_block', 'Clara T', 'Kaylee182', 'EDM Sauce',
+'Becky', 'Skrillex4life', 'Il0veCalvinHarris', 'born2rave',
+'Bass_drop002', 'Trance_or_die', 'haveuseenmolly']
 
-# names.each do |name|
-#   Raver.create(name: name)
-# end
+names.each do |name|
+  Raver.create(name: name)
+end
 
 Raver.all.each do |raver|
-  festival = Festival.all.sample
-  Trip.create(raver_id: raver.id, festival_id: festival.id)
+  festival1 = Festival.all.sample
+  festival2 = Festival.all.sample
+  Trip.create(raver_id: raver.id, festival_id: festival1.id,
+    start_date: festival1.start_date - 1, end_date: festival1.end_date + 1)
+  Trip.create(raver_id: raver.id, festival_id: festival2.id,
+    start_date: festival2.start_date - 1, end_date: festival2.end_date + 1)
 end
