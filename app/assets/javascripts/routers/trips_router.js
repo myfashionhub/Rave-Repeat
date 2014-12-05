@@ -36,12 +36,8 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
     });
 
     flights.fetch({
-      success: flightsView.render
+      done: flightsView.render
     });
-  },
-
-  hidePastTrips: function() {
-
   },
 
   renderFlights: function() {
