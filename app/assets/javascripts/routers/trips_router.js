@@ -9,8 +9,8 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
         upcomingTrips,
         pastTripsView,
         upcomingTripsView;
-    this.showTrips(raver_id, '.trips .upcoming', 'upcoming=true', upcomingTrips, upcomingTripsView);
-    this.showTrips(raver_id, '.trips .past', 'past=true', pastTrips, pastTripsView);
+    this.showTrips(raver_id, '.trips div.upcoming', 'upcoming=true', upcomingTrips, upcomingTripsView);
+    this.showTrips(raver_id, '.trips div.past', 'past=true', pastTrips, pastTripsView);
     this.renderFlights(); // When cusomizing trips
   },
 

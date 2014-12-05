@@ -7,6 +7,11 @@ RaveRepeat.Views.TripView = Backbone.View.extend({
     this.listenTo(this.model, 'all', this.render);
   },
 
+  events: {
+    'click [class="delete-trip"]': 'delete',
+    'click .expand': 'showTripDetails'
+  },
+
   render: function() {
     var trip = this.template(this.model.attributes);
     this.$el.append(trip);
@@ -18,8 +23,13 @@ RaveRepeat.Views.TripView = Backbone.View.extend({
     this.remove();
   },
 
-  events: {
-    'click [class="delete-trip"]': 'delete'
+  showTripDetails: function() {
+    var details = this.$el.find('.details')
+    if (details.css('display') === 'none') {
+      details.slideDown();
+    } else {
+      details.slideUp();
+    }
   }
 });
 

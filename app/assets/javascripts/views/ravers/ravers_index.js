@@ -1,9 +1,11 @@
 RaveRepeat.Views.RaverView = Backbone.View.extend({
+  tagName: 'li',
+  template: JST['ravers/index'],
+
   initialize: function() {
     this.listenTo(this.model, 'all', this.render);
   },
-  tagName: 'li',
-  template: JST['ravers/index'],
+
   render: function() {
     var raver = this.template(this.model.attributes);
     this.$el.append(raver);
@@ -18,7 +20,6 @@ RaveRepeat.Views.RaversView = Backbone.View.extend({
   },
   render: function() {
     var that = this;
-    //console.log(this.$el);
     this.$el.empty();
     _.each(this.collection.models, function(raver) {
       var raverView = new RaveRepeat.Views.RaverView({model: raver});

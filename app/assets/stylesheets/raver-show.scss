@@ -19,7 +19,7 @@
     }
   }
 
-  h2 {
+  h1 {
     font-size: 1.8em;
     color: $blood-orange;
     margin: 1.2em 0 .5em 1em;
@@ -70,10 +70,41 @@
   }
 }
 
-.trips .upcoming .year {
-  display: none;
+.trips .upcoming {
+  .year, .expand {
+    display: none;
+  }
 }
 
-.trips .past .details {
-  display: none;
+.trips .past {
+  .details {
+    display: none;
+  }
+  .expand {
+    font-family: $hammersmith;
+    font-size: .8em;
+    text-transform: uppercase;
+    color: $light-lime;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.trips {
+  h2.past {
+    font-size: 1.3em;
+    color: $light-text;
+    margin: 0;
+  }
+
+  .past article {
+    margin: .6em 0;
+  }
+
+  .past h3 {
+    font-size: 1.05em;
+    font-style: italic;
+    color: $light-text;
+  }
 }
