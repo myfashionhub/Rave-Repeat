@@ -16,7 +16,6 @@ $(document).ready(function() {
       window.location.hash = '';
   }
 
-  raverNav();
   tripNav();
   tripFlow();
   suggestAirports();
