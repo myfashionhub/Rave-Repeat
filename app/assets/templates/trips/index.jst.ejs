@@ -1,17 +1,63 @@
-<h3>
-  <%= festival %> <span class='year'><%= start_date.split(', ')[1] %></span> <span class='expand'>Details</span>
-</h3>
+<table class='title'>
+  <tr>
+    <td>
+    <h3>
+      <%= festival %>
+
+      <span class='year'>
+        <%= start_date.split(', ')[1] %>
+      </span>
+
+      <span class='expand'>
+        Details
+      </span>
+    </h3>
+    </td>
+
+    <td>
+    <span class='actions'>
+      <form class='edit-trip' action='/trips/<%- trip_id %>'>
+        <button>Edit trip</button>
+      </form> |
+
+      <button class='delete-trip'>Delete trip</button>
+    </span>
+    </td>
+  </tr>
+</table>
 
 <div class='details'>
-  From <%- start_date.split(',')[0] %> to <%- end_date.split(',')[0] %>, <%- start_date.split(', ')[1] %><br/>
+<table>
+  <tr>
+    <td>
+      Date:
+    </td>
 
-  Line up: <%= lineup %><br/>
-  Flight: <%= from_airport %> - <%= to_airport %>
+    <td>
+      <%- start_date.split(',')[0] %> - <%- end_date.split(',')[0] %>, <%- start_date.split(', ')[1] %>
+    </td>
+  </tr>
 
-  <button class='delete-trip'>Delete trip</button>
+  <tr>
+    <td>
+    Line up:
+    </td>
 
-  <form class='edit-trip' action='/trips/<%- trip_id %>'>
-    <button>Edit trip</button>
-  </form>
+    <td>
+    <%= lineup %>
+    </td>
+  </tr>
 
+  <tr>
+    <td>
+      Flight:
+    </td>
+
+    <td>
+      <%= from_airport %> - <%= to_airport %>
+    </td>
+  </tr>
+</table>
 </div>
+
+

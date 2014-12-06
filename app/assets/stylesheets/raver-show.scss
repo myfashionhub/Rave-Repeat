@@ -54,44 +54,36 @@
   width: 85%;
   font-size: 1em;
   font-family: $mont;
+
+  /* Trip name */
   h3 {
-    margin: .2em 0 .6em 0;
+    font-family: $hammersmith;
   }
 
   article {
-    margin: 1em 0 1em 0;
+    margin: .6em 0 1.4em 0;
     overflow: auto;
   }
+}
 
-  button {
-    @include button-style;
-    @include button-orange;
-    float: right;
-    margin: .8em 3.5em 0 0;
+.title {
+  width: 100%;
+  td:first-child {
+    width: 50%;
   }
 }
 
-.trips .upcoming {
-  .year, .expand {
-    display: none;
+.details table {
+  width: 100%;
+  td:first-child {
+    width: 6em;
+  }
+  tr {
+    padding: 0 0 .3em 0;
   }
 }
 
-.trips .past {
-  .details {
-    display: none;
-  }
-  .expand {
-    font-family: $hammersmith;
-    font-size: .8em;
-    text-transform: uppercase;
-    color: $light-lime;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
+/* Past trips */
 .trips {
   h2.past {
     font-size: 1.3em;
@@ -109,3 +101,63 @@
     color: $light-text;
   }
 }
+
+.trips .past {
+  button {
+    @include button-style;
+    @include button-orange;
+    float: right;
+    margin: .8em 2em 0 0;
+  }
+}
+
+.trips .past {
+  .details {
+    display: none;
+  }
+
+  .expand {
+    font-family: $hammersmith;
+    font-size: .8em;
+    text-transform: uppercase;
+    color: $light-lime;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+/* Upcoming trips */
+.trips .upcoming {
+  .actions {
+    font-family: 'Helvetica';
+    color: $blood-orange;
+  }
+
+  form.edit-trip {
+    display: inline;
+  }
+
+  button {
+    background: transparent;
+    outline: 0;
+    border: none;
+    font-family: $mont;
+    font-size: 1em;
+    color: $blood-orange;
+    &:hover {
+      cursor: pointer;
+      color: $text-color;
+    }
+  }
+}
+
+.trips .upcoming {
+  .year, .expand {
+    display: none;
+  }
+}
+
+
+
