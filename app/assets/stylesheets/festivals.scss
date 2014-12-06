@@ -1,0 +1,32 @@
+@import 'variables';
+
+/* FESTIVAL SHOW */
+.festival-wrapper {
+  h3 {
+    font-size: 1.2em;
+    margin: 0 0 1em 2em;
+  }
+}
+
+.festival {
+  text-align: center;
+  margin: .5em 0 1em 0;
+  overflow: auto;
+
+  h2 {
+    color: $light-orange;
+  }
+
+  sup {
+    font-family: Helvetica;
+    font-size: .5em;
+    color: $text-color;
+    @include hover-style;
+  }
+}
+
+.festival .ravers {
+  @include menu-list;
+  display: none;
+  margin: .5em 0;
+}

@@ -18,12 +18,14 @@ RaveRepeat.Views.RaversView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'all', this.render);
   },
+
   render: function() {
     var that = this;
     this.$el.empty();
+
     _.each(this.collection.models, function(raver) {
       var raverView = new RaveRepeat.Views.RaverView({model: raver});
-      that.$el.append(raverView.render().el).hide().slideDown();
+      that.$el.append(raverView.render().el);
     });
   }
 

@@ -5,10 +5,8 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
 
   initialize: function() {
     var raver_id = $('.raver').attr('data-id');
-    var pastTrips,
-        upcomingTrips,
-        pastTripsView,
-        upcomingTripsView;
+    var pastTrips, upcomingTrips,
+        pastTripsView, upcomingTripsView;
     this.showTrips(raver_id, '.trips div.upcoming', 'upcoming=true', upcomingTrips, upcomingTripsView);
     this.showTrips(raver_id, '.trips div.past', 'past=true', pastTrips, pastTripsView);
     this.renderFlights(); // When cusomizing trips
@@ -54,17 +52,6 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
       that.showFlights();
       currentLineup();
     });
-  },
-
-  showRavers: function(id, el) {
-    var ravers = new RaveRepeat.Collections.Ravers();
-    ravers.url = '/festivals/' + id;
-    var raversView = new RaveRepeat.Views.RaversView({
-      collection: ravers,
-      el: el
-    });
-
-    ravers.fetch({ success: raversView.render });
   }
 
 });

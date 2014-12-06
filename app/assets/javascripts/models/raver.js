@@ -1,1 +1,3 @@
-RaveRepeat.Models.Raver = Backbone.Model.extend({});
+RaveRepeat.Models.Raver = Backbone.Model.extend({
+  idAttribute: 'raver_id'
+});

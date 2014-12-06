@@ -36,6 +36,4 @@ $(document).ready(function() {
   displayOwnLineup();
   lineupBuilder();
 
-  // Festival index
-  renderRavers();
 });

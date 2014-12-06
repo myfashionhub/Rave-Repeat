@@ -1,6 +1,5 @@
 RaveRepeat.Views.TripView = Backbone.View.extend({
   tagName: 'article',
-
   template: JST['trips/index'],
 
   initialize: function() {
