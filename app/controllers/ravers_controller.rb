@@ -22,8 +22,7 @@ class RaversController < ApplicationController
     trip_info = trips.map do |trip|
       festival = Festival.find(trip.festival_id)
       #flight   = Flight.find_by(trip_id: trip.id)
-      puts trip.start_date
-      puts trip.start_date.class
+
       { festival: festival.name,
         start_date: display_date(trip.start_date),
         end_date: display_date(trip.end_date),

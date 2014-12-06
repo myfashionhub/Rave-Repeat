@@ -3,14 +3,15 @@
 </h3>
 
 <div class='details'>
-  From <%- start_date %> to <%- end_date %><br/>
+  From <%- start_date.split(',')[0] %> to <%- end_date.split(',')[0] %>, <%- start_date.split(', ')[1] %><br/>
 
-  To see: <%= lineup %><br/>
+  Line up: <%= lineup %><br/>
   Flight: <%= from_airport %> - <%= to_airport %>
+
+  <button class='delete-trip'>Delete trip</button>
 
   <form class='edit-trip' action='/trips/<%- trip_id %>'>
     <button>Edit trip</button>
   </form>
 
-  <button class='delete-trip'>Delete trip</button>
 </div>

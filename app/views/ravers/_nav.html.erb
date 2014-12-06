@@ -1,0 +1,19 @@
+<nav class="raver" data-id="<%= @raver.id %>">
+  <h3 class='current-raves'>
+    <i class="fa fa-heart"></i> Your raves
+  </h3>
+  <h3 class='new-rave'>
+    <i class="fa fa-plus"></i> Plan new rave
+  </h3>
+</nav>
+
+
+<script>
+  if (<%= @raver.trips.length == 0 %>) {
+    $('.new-rave').addClass('current-tab');
+  } else {
+    $('.current-raves').addClass('current-tab');
+  }  setTimeout(raverNav, 200);  if ($('.trips .upcoming').children().html() === '') {
+    $('.trips').append('You currently don\'t have any trip planned.');
+  }
+</script>

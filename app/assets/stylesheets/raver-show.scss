@@ -12,7 +12,8 @@
 
 .raver-wrapper {
   .raver {  /*mini nav*/
-    float: right;
+    width: 100%;
+    text-align: right;
     h3 {
       margin: .2em 0;
       @include menu-style;
@@ -22,7 +23,7 @@
   h1 {
     font-size: 1.8em;
     color: $blood-orange;
-    margin: 1.2em 0 .5em 1em;
+    margin: .3em 0 .5em 1em;
   }
 }
 
