@@ -14,7 +14,6 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
 
     var viewResults = function(e) {
       e.preventDefault();
-      console.log('Backbone view flights')
       var url = $('.result-url').val();
       var flights = new RaveRepeat.Collections.Flights();
       var flightsView = new RaveRepeat.Views.FlightsView({

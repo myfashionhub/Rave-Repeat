@@ -1,13 +1,13 @@
 <table>
   <tr>
     <td>
-      <h4><%= airline %></h4>
+      <h4 class='airline'><%= airline %></h4>
     </td>
 
     <td>
       <span class='price'>
         <%= price %>
-      </span>
+      </span> &nbsp; &nbsp;
       <a href='<%= link %>' class='buy' target='_blank'>
         Buy now
       </a>
@@ -18,7 +18,7 @@
     <td>
     Depart:
     </td>
-    <td>
+    <td class='leg1'>
       <%= leg1 %>
     </td>
   <tr>
@@ -27,7 +27,7 @@
     <td>
       Return:
     </td>
-    <td>
+    <td class='leg2'>
       <%= leg2 %>
     </td>
   </tr>

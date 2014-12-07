@@ -1,11 +1,14 @@
 RaveRepeat.Views.FlightView = Backbone.View.extend({
+  tagName: 'article class="flight"',
+  template: JST['flights/index'],
+  events: {
+    'click .save-flight': 'saveFlight',
+    'click [class="delete-flight"]': 'delete'
+  },
+
   initialize: function() {
     this.listenTo(this.model, 'all', this.render);
   },
-
-  tagName: 'article class="flight"',
-
-  template: JST['flights/index'],
 
   render: function() {
     var flight = this.template(this.model.attributes);
@@ -14,12 +17,43 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
   },
 
   delete: function() {
-    this.model.destroy();
+    this.model.destroy({url: '/flights/'+this.model.id,
+      success: function(model, response) {
+        console.log(response.msg)
+      },
+      error: function(model, response) {
+        console.log(response)
+      }
+    });
     this.remove();
   },
 
-  events: {
-    'click [class="delete-flight"]': 'delete'
+  saveFlight: function() {
+    var leg1 = this.$el.find('.leg1').html();
+    var leg2 = this.$el.find('.leg2').html();
+    var link    = this.$el.find('.buy').attr('href');
+    var airline = this.$el.find('.airline').html();
+    var price   = this.$el.find('.price').html();
+    var tripId = $('#trip-info').attr('trip-data');
+
+    var flight = new RaveRepeat.Models.Flight({
+      leg1: leg1, leg2: leg2,
+      price: price, airline: airline,
+      link: link, trip_id: tripId
+    });
+
+    flight.save(null, {
+      success: function(model, response) {
+        console.log(response.msg)
+      },
+      error: function(model, response) {
+        console.log(response)
+      }
+    });
+
+    this.$el.find('.delete-flight').show();
+    this.$el.find('.save-flight').hide();
+    console.log(this.$el.find('.delete-flight'))
   }
 });
 

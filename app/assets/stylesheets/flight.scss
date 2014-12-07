@@ -41,6 +41,7 @@ section.flight {
     padding: .45em;
     border: 0;
   }
+
   #view-flights {
     &:hover {
       background-color: #ebebeb;
@@ -60,7 +61,14 @@ section.flight {
       color: $text-color;
     }
   }
-  input[type='checkbox'] {
-    margin-left: 2em;
+
+  .delete-flight {
+    display: none;
+  }
+}
+
+.delete-flight, .save-flight {
+  &:hover {
+    cursor: pointer;
   }
 }

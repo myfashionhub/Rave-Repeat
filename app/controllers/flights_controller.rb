@@ -22,12 +22,12 @@ class FlightsController < ApplicationController
       link: params[:link],
       trip_id: params[:trip_id]
     )
-    render json: flight.to_json
+    render json: { msg: 'Flight saved!' }.to_json
   end
 
   def destroy
-    flight = Flight.find(params[:flight_id])
+    flight = Flight.find(params[:id])
     flight.destroy
-    render json: flight.to_json
+    render json: { msg: 'Removed flight from itinerary.' }.to_json
   end
 end
