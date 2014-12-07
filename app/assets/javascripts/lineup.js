@@ -2,15 +2,16 @@ function displayOwnLineup() {
   var ownArtists = $('.own').find('li');
   _.each(ownArtists, function(artistLi) {
     if ($(artistLi).find('i').length === 0 ) {
-      $(artistLi).append('<i class="fa fa-times"></i>');
+      $(artistLi).append(' <i class="fa fa-times"></i>');
     }
   });
-  $('i').click(function(e) {
+
+  $('.own i').click(function(e) {
     $(e.target).parent().remove();
   });
 }
 
-function lineupBuilder() {
+function dragDropArtists() {
   var officialArtists = $('.official').find('li');
   _.each(officialArtists, function(artist) {
     $(artist).draggable({
@@ -33,18 +34,33 @@ function lineupBuilder() {
   });
 }
 
-// not working
-function notDupe(artist) {
-  var ownArtists = $('.own').find('li');
-  _.each(ownArtists, function(artistLi) {
-    if ($(artistLi).html() === artist) {
-      console.log('start comparing');
-      console.log($(artistLi).html());
-      return false;
+function lineupBuilder() {
+  var officialArtists = $('.official').find('li');
+  _.each(officialArtists, function(artist) {
+    $(artist).append(' <i class="fa fa-plus"></i>');
+  });
+
+  $('.official i').click(function(e) {
+    var artistLi = $(e.target).parent();
+    if (isDupe(artistLi)) {
+      console.log('dupe')
     } else {
-      return true;
+      artistLi.find('i').replaceWith('<i class="fa fa-times"></i>');
+      artistLi.appendTo($('.own'));
+      $('.official i').click(modifyLineup);
     }
   });
+}
+
+function isDupe(artistOfficial) {
+  var ownArtists = $('.own').find('li');
+  for (var i = 0; i < ownArtists.length; i++) {
+    var artistOwn = ownArtists[i];
+    if ($(artistOwn).contents()[0].data === $(artistOfficial).contents()[0].data) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function saveLineup() {
@@ -69,7 +85,5 @@ function saveLineup() {
 function modifyLineup(e) {
   var artistLi = $(e.target).parent();
   artistLi.find('i').remove();
-  $('.official').append(artistLi);
-  lineupBuilder();
-  // Make item draggable after being returned to the list
+  artistLi.append(' <i class="fa fa-plus"></i>').appendTo($('.official'));
 }

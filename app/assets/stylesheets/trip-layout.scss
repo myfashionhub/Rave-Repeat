@@ -59,7 +59,11 @@ header {
   }
   #save-flight, #save-lineup {
     @include button-orange;
-    display: block;
-    margin: 3% auto 5% auto;
+    float: right;
+    margin: 2% 15% 5% 0;
   }
+}
+
+.hotel h2 {
+  margin: 0 0 1em 0;
 }

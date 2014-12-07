@@ -41,7 +41,8 @@ function toggleSection(section) {
 
 function tripFlow() {
   $('#save-flight').click(function() {
-    saveFlight();
+    $('.view-flights input').val('')
+    $('.flight-results').empty();
     toggleTab('hotel-tab');
     toggleSection('hotel');
   });
