@@ -35,12 +35,17 @@
   margin: 5em auto 2em auto;
   width: 350px;
   text-align: center;
+  h3 {
+    margin: 0 0 .8em 0;
+  }
+
   select {
     font-family: $hammersmith;
     font-size: 1.2em;
     color: $text-color;
     @include hover-style;
   }
+
   input[type='submit'] {
     @include button-style;
     @include button-orange;

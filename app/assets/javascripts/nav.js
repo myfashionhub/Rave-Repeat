@@ -8,11 +8,12 @@ function tripNav() {
 }
 
 function raverNav() {
+  $('.raver-wrapper section').hide()
   var currentTab = $.trim($('.current-tab').attr('class').replace('current-tab', ''));
   if (currentTab === 'current-raves') {
-    $('.new-trip').hide();
+    $('.trips').fadeIn();
   } else {
-    $('.trips').hide();
+    $('.new-trip').fadeIn();
   }
 
   $('nav.raver h3').click(function(e) {

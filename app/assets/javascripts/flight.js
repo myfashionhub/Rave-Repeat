@@ -74,7 +74,7 @@ function saveFlight() {
     var link    = trip.find('a').attr('href');
     var airline = trip.find('.airline').html();
     var price   = trip.find('.price').html();
-    var tripId = $('#trip-id').val();
+    var tripId = $('#trip-info').attr('trip-data');
     $.ajax({
       url: '/flights',
       method: 'post',

@@ -1,0 +1,21 @@
+<header>
+  <h2><%= @raver.name %>, plan your trip</h2>
+  <p>
+    <%= @festival.name %> | <%= display_date(@festival.start_date).split(',')[0] %> - <%= display_date(@festival.end_date).split(',')[0] %>, <%= display_year(@festival.start_date) %>
+  </p>
+
+  <ul class='trip-menu'>
+    <li class='flight-tab current-tab'>
+      Add flight <i class="fa fa-paper-plane-o"></i>
+    </li>
+    <li class='hotel-tab'>
+      Add hotel <i class="fa fa-building-o"></i>
+    </li>
+    <li class='lineup-tab'>
+      Customize lineup <i class="fa fa-heart-o"></i>
+    </li>
+    <li class='itinerary-tab'>
+      View itinerary <i class="fa fa-list"></i>
+    </li>
+  </ul>
+</header>

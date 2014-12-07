@@ -1,6 +1,6 @@
-<input type="hidden" id='trip-id' value='<%= @trip.id %>'></input>
-<input type="hidden" id='festival-id' value='<%= @festival.id %>'></input>
-<input type="hidden" id='playlist' value='<%= @festival.playlist %>'></input>
+<input type="hidden" id='trip-info' trip-data='<%= @trip.id %>'
+festival-data='<%= @festival.id %>'
+playlist-data='<%= @festival.playlist %>'></input>
 
 <div class="trip-wrapper">
   <%= render 'layouts/nav' %>
@@ -13,28 +13,7 @@
   //   });
       </script> -->
 
-  <header>
-    <h2><%= @raver.name %>, plan your trip</h2>
-    <p>
-      <%= @festival.name %> | <%= display_date(@festival.start_date) %> - <%= display_date(@festival.end_date) %>, <%= display_year(@festival.start_date) %>
-    </p>
-
-    <ul class='trip-menu'>
-      <li class='flight-tab current-tab'>
-        Add flight <i class="fa fa-paper-plane-o"></i>
-      </li>
-      <li class='hotel-tab'>
-        Add hotel <i class="fa fa-building-o"></i>
-      </li>
-      <li class='lineup-tab'>
-        Customize lineup <i class="fa fa-heart-o"></i>
-      </li>
-      <li class='itinerary-tab'>
-        View itinerary <i class="fa fa-list"></i>
-      </li>
-    </ul>
-  </header>
-
+  <%= render 'nav' %>
 
   <div class="show">
     <section class='flight current'>
@@ -45,57 +24,16 @@
   </div>
 
 
+  <!-- Hidden -->
+  <div class="hidden">
+    <%= render 'lineup' %>
 
-<!-- Hidden -->
-<div class="hidden">
-  <section class='lineup'>
-    <p>Drag artists from the official list and drop in the left column to create your own lineup.</p>
+    <section class='hotel'>
+      <h2>Coming soon.</h2>
+      <button id='save-hotel'>Continue</button>
+    </section>
 
-    <ul class='own'>
-      <h2>Dream lineup:</h2>
-      <% @trip.lineup.sort.each do |artist| %>
-        <li><%= artist.html_safe %></li>
-      <% end %>
-    </ul>
-
-    <ul class='official'>
-      <h3>Official lineup</h3>
-      <% @festival.lineup.sort.each do |artist| %>
-        <li><%= artist %></li>
-      <% end %>
-    </ul>
-
-    <button id='save-lineup'>Save and continue</button>
-  </section>
-
-  <section class='hotel'>
-    <h2>Coming soon.</h2>
-    <button id='save-hotel'>Continue</button>
-  </section>
-
-
-  <section class='itinerary'>
-    <% if @trip.flights.length > 0 %>
-      <h2>Trip details:</h2>
-      <div class="current-flight"></div>
-    <% end %>
-
-    <% if @trip.lineup %>
-    <div class="current-lineup">
-      <h2>Line up:</h2>
-      <ul></ul>
-    </div>
-    <% end %>
-
-    <!-- <button id='share'>Spread the PLUR</button> -->
-
-    <!-- <%# if @trip.hotel != nil %>
-      <h3>Hotel booking:</h3>
-      <div class="current-hotel"></div>
-    <%# end %>  -->
-  </section>
-
-</div> <!-- hidden div -->
-
+    <%= render 'itinerary' %>
+  </div>
 
 </div> <!-- trip wrapper -->

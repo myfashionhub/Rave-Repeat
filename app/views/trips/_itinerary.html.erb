@@ -1,0 +1,20 @@
+<section class='itinerary'>
+  <% if @trip.flights.length > 0 %>
+    <h2>Trip details:</h2>
+    <div class="current-flight"></div>
+  <% end %>
+
+  <% if @trip.lineup %>
+  <div class="current-lineup">
+    <h2>Line up:</h2>
+    <ul></ul>
+  </div>
+  <% end %>
+
+  <!-- <button id='share'>Spread the PLUR</button> -->
+
+  <!-- <%# if @trip.hotel != nil %>
+    <h3>Hotel booking:</h3>
+    <div class="current-hotel"></div>
+  <%# end %>  -->
+</section>

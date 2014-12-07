@@ -3,7 +3,7 @@ function updateTrip() {
   var toAirport   = $('#to-airport').val();
   var startDate   = $('#depart-date').val();
   var endDate     = $('#return-date').val();
-  var tripId      = $('#trip-id').val();
+  var tripId      = $('#trip-info').attr('trip-data');
 
   $.ajax({
     url: '/trips/'+tripId,
@@ -21,7 +21,7 @@ function spreadPLUR() {
 }
 
 function currentLineup() {
-  var tripId = $('#trip-id').val();
+  var tripId = $('#trip-info').attr('trip-data');
   $.ajax({
     url: '/trips/'+tripId+'/lineup',
     method: 'get',

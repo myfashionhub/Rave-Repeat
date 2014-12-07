@@ -48,7 +48,7 @@ function notDupe(artist) {
 }
 
 function saveLineup() {
-  var tripId     = $('#trip-id').val();
+  var tripId     = $('#trip-info').attr('trip-data');
   var artistList = $('.own').find('li');
   var artists    = [];
   _.each(artistList, function(artistLi) {
