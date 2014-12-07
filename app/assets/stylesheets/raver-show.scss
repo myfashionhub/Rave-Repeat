@@ -159,5 +159,41 @@
   }
 }
 
+/* Confirm delete */
+.modal.delete-trip {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  width: 400px;
+  background: #fff;
+  font-size: 1.2em;
+  padding: 1em;
+  text-align: center;
+  border: 1px solid #ccc;
 
+  p {
+    margin: 1.5em 0 2em 0;
+  }
+  .fa-times {
+    float: right;
+    margin: -.4em -.1em 0 0;
+  }
+
+  .confirm, .cancel {
+    @include button-style;
+    float: right;
+    margin: 0 .5em 0 0;
+  }
+
+  .confirm {
+    @include button-orange;
+  }
+
+  .cancel {
+    @include button-green;
+  }
+}
 

@@ -33,9 +33,7 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
       el: $('.current-flight')
     });
 
-    flights.fetch({
-      done: flightsView.render
-    });
+    flights.fetch({ done: flightsView.render });
   },
 
   renderFlights: function() {
