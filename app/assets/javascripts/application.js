@@ -20,13 +20,6 @@ $(document).ready(function() {
   tripFlow();
   suggestAirports();
 
-  // Flight functions
-  $('#search-flight').click(function(e) {
-    e.preventDefault();
-    updateTrip();
-    searchFlight();
-  });
-
   $('.view-flights').submit(function(e) {
     e.preventDefault();
     viewFlights();

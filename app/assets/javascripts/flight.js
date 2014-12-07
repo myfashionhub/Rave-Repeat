@@ -1,3 +1,15 @@
+$(function() {
+  var flightSearch = function(e) {
+    e.preventDefault()
+    updateTrip();
+    searchFlight();
+  }
+
+  $('#search-flight').click(flightSearch);
+  $('.search-flight').submit(flightSearch);
+
+});
+
 function searchFlight() {
   var location1 = $('#from-airport').val().replace(' ', '%20'),
       location2 = $('#to-airport').val().replace(' ', '%20'),
