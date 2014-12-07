@@ -6,9 +6,9 @@
     <input type="text" id='to-airport' value='<%= @festival.location %>'></input><br/>
 
     Depart:
-    <input type="text" id='depart-date' value='<%= @trip.start_date %>'></input>
+    <input type="text" id='depart-date' value='<%= convert_date(@trip.start_date) %>' placeholder='mm/dd/yyyy'</input>
     Return:
-    <input type="text" id='return-date' value='<%= @trip.end_date %>'></input><br/>
+    <input type="text" id='return-date' value='<%= convert_date(@trip.end_date) %>' placeholder='mm/dd/yyyy'></input><br/>
   </form>
 
   <button id='search-flight'>Search on Kayak</button>
