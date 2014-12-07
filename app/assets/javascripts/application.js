@@ -20,11 +20,6 @@ $(document).ready(function() {
   tripFlow();
   suggestAirports();
 
-  $('.view-flights').submit(function(e) {
-    e.preventDefault();
-    viewFlights();
-  });
-
   // Line up functions
   displayOwnLineup();
   lineupBuilder();

@@ -1,7 +1,45 @@
-<h4><%= airline %></h4>
+<table>
+  <tr>
+    <td>
+      <h4><%= airline %></h4>
+    </td>
 
-<span>Depart: <%= leg1 %><br/>
-Return: <%= leg2 %></span><br/>
+    <td>
+      <span class='price'>
+        <%= price %>
+      </span>
+      <a href='<%= link %>' class='buy' target='_blank'>
+        Buy now
+      </a>
+    </td>
+  </tr>
 
-<div class='clear'></div>
-<button class='delete-flight' data='<%- id %>'>Delete</button>
+  <tr>
+    <td>
+    Depart:
+    </td>
+    <td>
+      <%= leg1 %>
+    </td>
+  <tr>
+
+  <tr>
+    <td>
+      Return:
+    </td>
+    <td>
+      <%= leg2 %>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan='2'>
+      <span class='delete-flight'>
+        <i class="fa fa-minus-circle"></i> Unsave
+      </span>
+      <span class='save-flight'>
+        <i class="fa fa-plus-circle"></i> Save
+      </span>
+    <td>
+  </tr>
+<table>

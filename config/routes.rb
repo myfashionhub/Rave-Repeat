@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/trips/:trip_id/flights' => 'flights#index'
   delete '/trips/:trip_id/flights/:flight_id' => 'flights#destroy'
   post '/flights/search' => 'flights#search'
+  get '/flights/search' => 'flights#search'
 end
 
 #                   root GET    /                                 welcome#index

@@ -45,23 +45,6 @@
   font-size: 1.1em;
 }
 
-.current-flight {
-  overflow: auto;
-  article {
-    margin: 1em 0 0 0;
-    overflow: auto;
-  }
-
-  h4 {
-    margin: 0 0 .5em 0;
-  }
-
-  .delete-flight {
-    float: right;
-    margin: 1em 28% 0 0;
-  }
-}
-
 .current-lineup {
   margin: 1.5em 0;
   h3 {
@@ -75,5 +58,34 @@
 .trip-wrapper .show {
   h2 {
     color: $light-orange;
+  }
+}
+
+/* Flights */
+.current-flight {
+  overflow: auto;
+
+  .flight {
+    width: 100%;
+    margin: 1em 0 0 0;
+    overflow: auto;
+  }
+
+  .buy, .save-flight {
+    display: none;
+  }
+}
+
+.current-flight .flight table {
+  td:first-child {
+    width: 4em;
+  }
+
+  .delete-flight {
+    float: right;
+    color: $lime-green;
+    &:hover {
+      color: $neon-green;
+    }
   }
 }

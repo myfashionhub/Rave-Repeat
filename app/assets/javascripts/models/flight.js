@@ -1,1 +1,3 @@
-RaveRepeat.Models.Flight = Backbone.Model.extend({});
+RaveRepeat.Models.Flight = Backbone.Model.extend({
+  idAttribute: 'id'
+});

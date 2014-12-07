@@ -7,7 +7,11 @@ $(function() {
 
   $('#search-flight').click(flightSearch);
   $('.search-flight').submit(flightSearch);
-
+  // $('.view-flights').submit(function(e) {
+  //   e.preventDefault();
+  //   viewFlights();
+  // });
+  var flightRouter = new RaveRepeat.Routers.Flights();
 });
 
 function searchFlight() {

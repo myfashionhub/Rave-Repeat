@@ -3,7 +3,7 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
     this.listenTo(this.model, 'all', this.render);
   },
 
-  tagName: 'article',
+  tagName: 'article class="flight"',
 
   template: JST['flights/index'],
 
