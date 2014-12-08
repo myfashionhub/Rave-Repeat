@@ -1,3 +1,41 @@
+@import 'variables';
+
+body {
+  margin: 0;
+  overflow: auto;
+  font-family: 'Hammersmith One'; /*Montserrat*/
+  font-size: 16px;
+  color: $text-color;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  opacity: .85;
+  overflow:auto;
+}
+
+.wrapper, .welcome {
+  overflow: auto;
+}
+
 h1, h2, h3, h4, h5 {
   margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat';
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: .1em 0;
 }

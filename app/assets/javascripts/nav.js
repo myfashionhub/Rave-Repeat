@@ -57,3 +57,20 @@ function tripFlow() {
     toggleTab('itinerary-tab');
   });
 }
+
+function notify(msg, status) {
+  $('.notify .message').html(msg);
+  if (status === 'success') {
+    $('.notify').addClass('success');
+  } else {
+    $('.notify').addClass('error');
+  }
+
+  $('.notify').fadeIn();
+  setTimeout(function() {
+    $('.notify').fadeOut('slow');
+    setTimeout(function() {
+      $('.notify').removeClass('success').removeClass('error');
+    }, 1000);
+  }, 2000);
+}

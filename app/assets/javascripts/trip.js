@@ -21,21 +21,3 @@ function spreadPLUR() {
 
   });
 }
-
-function currentLineup() {
-  var tripId = $('#trip-info').attr('trip-data');
-  $.ajax({
-    url: '/trips/'+tripId+'/lineup',
-    method: 'get',
-    dataType: 'json',
-    success: function(data) {
-      var artists = data.lineup;
-      $('.current-lineup ul').empty();
-
-      _.each(artists, function(artist) {
-        var artistLi = $('<li>').html(artist);
-        $('.current-lineup ul').append(artistLi);
-      });
-    }
-  });
-}

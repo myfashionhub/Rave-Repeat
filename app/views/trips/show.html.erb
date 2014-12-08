@@ -16,6 +16,12 @@ playlist-data='<%= @festival.playlist %>'></input>
   <%= render 'nav' %>
 
   <div class="show">
+    <div class="notify">
+      <span class="message"></span>
+      <i class="fa fa-check-circle"></i>
+      <i class="fa fa-times-circle"></i>
+    </div>
+
     <section class='flight current'>
       <%= render 'flight' %>
 

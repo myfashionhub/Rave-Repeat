@@ -1,3 +1,5 @@
+@import 'variables';
+
 .overlay {
   display: none;
   width: 100%;
@@ -6,4 +8,31 @@
   z-index: 2;
   top: 0;
   background: rgba(0,0,0,.4);
+}
+
+.notify {
+  position: fixed;
+  z-index: 2;
+  display: none;
+  top: .8em;
+  right: .8em;
+  border-radius: 5px;
+  padding: .5em .8em .4em .8em;
+  font-size: 1.2em;
+  background-color: #fff;
+}
+
+
+.notify.success {
+  color: $lime-green;
+  .fa-times-circle {
+    display: none;
+  }
+}
+
+.notify.error {
+  color: $blood-orange;
+  .fa-check-circle {
+    display: none;
+  }
 }
