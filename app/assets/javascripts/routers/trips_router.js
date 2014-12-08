@@ -3,13 +3,14 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
     'itinerary': 'renderFlights'
   },
 
-  initialize: function() {
+  initialize: function() {    console.log('init')
     var raver_id = $('.raver').attr('data-id');
     var pastTrips, upcomingTrips,
         pastTripsView, upcomingTripsView;
     this.showTrips(raver_id, '.trips div.upcoming', 'upcoming=true', upcomingTrips, upcomingTripsView);
     this.showTrips(raver_id, '.trips div.past', 'past=true', pastTrips, pastTripsView);
-    this.renderFlights(); // When cusomizing trips
+
+    //this.menuNav();
   },
 
   showTrips: function(raver_id, el, params, collection, listView) {
@@ -37,8 +38,14 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
   },
 
   renderFlights: function() {
+    console.log('render flights route')
     this.showFlights();
     currentLineup();
+  },
+
+  menuNav: function() {
+    _.extend($('.trip-menu a'), Backbone.Events);
+    _.extend($('#save-lineup'), Backbone.Events);
   }
 
 });

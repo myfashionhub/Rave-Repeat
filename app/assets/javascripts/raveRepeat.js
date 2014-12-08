@@ -5,8 +5,7 @@ window.RaveRepeat = {
   Routers: {},
 
   initialize: function() {
-    var tripsRouter = new RaveRepeat.Routers.Trips();
-    Backbone.history.start({pushState: true});
+    //Backbone.history.start({pushState: true});
   }
 
 };

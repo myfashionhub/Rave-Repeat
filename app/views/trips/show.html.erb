@@ -2,6 +2,11 @@
 festival-data='<%= @festival.id %>'
 playlist-data='<%= @festival.playlist %>'></input>
 
+<script>
+  var tripsRouter = new RaveRepeat.Routers.Trips();
+  Backbone.history.start();
+</script>
+
 <div class="trip-wrapper">
   <%= render 'layouts/nav' %>
   <%#= render 'layouts/music' %>
