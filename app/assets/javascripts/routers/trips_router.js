@@ -1,6 +1,6 @@
 RaveRepeat.Routers.Trips = Backbone.Router.extend({
   routes: {
-
+    'itinerary': 'renderFlights'
   },
 
   initialize: function() {
@@ -37,19 +37,8 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
   },
 
   renderFlights: function() {
-    var that = this;
-    _.extend($('.itinerary-tab'), Backbone.Events);
-    _.extend($('#save-lineup'), Backbone.Events);
-
-    $('.itinerary-tab').click(function() {
-      that.showFlights();
-      currentLineup();
-    });
-
-    $('#save-lineup').click(function() {
-      that.showFlights();
-      currentLineup();
-    });
+    this.showFlights();
+    currentLineup();
   }
 
 });

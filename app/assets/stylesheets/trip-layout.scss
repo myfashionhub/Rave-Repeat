@@ -55,10 +55,13 @@ header {
     @include button-style;
   }
 
-  #save-flight, #save-lineup {
+  #save-flight, #save-lineup, #save-hotel {
     @include button-orange;
     float: right;
     margin: 2% 15% 5% 0;
+    a:hover {
+      color: #fff;
+    }
   }
 }
 
