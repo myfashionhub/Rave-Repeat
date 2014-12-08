@@ -1,9 +1,5 @@
 @import 'variables';
 
-.hidden {
-  display: none;
-}
-
 .trip li {
   cursor: pointer;
   display: inline-block;
@@ -19,26 +15,27 @@ header {
     font-size: 1.8em;
     margin: 0 0 .4em 0;
   }
-  .trip-menu {
-    margin: 1.5em 0 0 12%;
-    font-family: $mont;
-    font-size: 1.2em;
-    color: #555;
-    @include menu-list;
-
-    > li {
-      display: inline-block;
-      margin-right: .8em;
-      @include hover-style;
-      &:hover {
-        color: $lime-green;
-      }
-    }
-  }
 }
 
-.current-tab {
-  color: $lime-green;
+.trip-menu {
+  margin: 1.5em 0 0 12%;
+  font-family: $mont;
+  font-size: 1.2em;
+  color: #555;
+
+  @include menu-list;  > li, a {
+    display: inline-block;
+    margin-right: .8em;
+    @include hover-style;
+    color: $text-color;
+    &:hover {
+      color: $lime-green;
+    }
+  }
+
+  li.current a {
+    color: $lime-green;
+  }
 }
 
 .trip-wrapper {
@@ -51,12 +48,13 @@ header {
   overflow: auto;
 }
 
-.show {
+.trip-wrapper .show {
   min-width: 600px;
   margin: 3% 0 0 10%;
   button {
     @include button-style;
   }
+
   #save-flight, #save-lineup {
     @include button-orange;
     float: right;
@@ -66,4 +64,11 @@ header {
 
 .hotel h2 {
   margin: 0 0 1em 0;
+}
+
+.trip-wrapper section {
+  display: none;
+  &.current {
+    display: block;
+  }
 }

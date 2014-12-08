@@ -22,16 +22,8 @@ playlist-data='<%= @festival.playlist %>'></input>
       <i class="fa fa-times-circle"></i>
     </div>
 
-    <section class='flight current'>
-      <%= render 'flight' %>
+    <%= render 'flight' %>
 
-      <button id='save-flight'>Continue</button>
-    </section>
-  </div>
-
-
-  <!-- Hidden -->
-  <div class="hidden">
     <%= render 'lineup' %>
 
     <section class='hotel'>

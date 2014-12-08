@@ -1,3 +1,4 @@
+// Itinerary tab
 function currentLineup() {
   var tripId = $('#trip-info').attr('trip-data');
   $.ajax({
@@ -16,6 +17,7 @@ function currentLineup() {
   });
 }
 
+// Line up tab
 function displayOwnLineup() {
   var ownArtists = $('.own').find('li');
   _.each(ownArtists, function(artistLi) {
@@ -95,7 +97,9 @@ function saveLineup() {
     method: 'post',
     dataType: 'json',
     data: { trip_id: tripId, lineup: artists },
-    success: function() { toggleSection('itinerary'); }
+    success: function() {
+      currentLineup();
+    }
   })
 }
 

@@ -19,12 +19,13 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
   delete: function() {
     this.model.destroy({url: '/flights/'+this.model.id,
       success: function(model, response) {
-        console.log(response.msg)
+        notify(response.msg, 'success')
       },
       error: function(model, response) {
-        console.log(response)
+        notify(response, 'error')
       }
     });
+    console.log(this.model.id)
     this.remove();
   },
 
@@ -44,16 +45,15 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
 
     flight.save(null, {
       success: function(model, response) {
-        console.log(response.msg)
+        notify(response.msg, 'success');
       },
       error: function(model, response) {
-        console.log(response)
+        notify(response, 'error')
       }
     });
 
-    this.$el.find('.delete-flight').show();
+    this.$el.find('.saved').show();
     this.$el.find('.save-flight').hide();
-    console.log(this.$el.find('.delete-flight'))
   }
 });
 

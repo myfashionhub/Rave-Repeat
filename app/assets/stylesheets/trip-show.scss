@@ -1,7 +1,7 @@
 @import 'variables';
 
 /* LINEUP */
-.lineup {
+.show .lineup {
   width: 65%;
   p {
     font-family: 'Helvetica';
@@ -83,9 +83,9 @@
 
   .delete-flight {
     float: right;
-    color: $lime-green;
+    color: $blood-orange;
     &:hover {
-      color: $neon-green;
+      color: $light-orange;
     }
   }
 }

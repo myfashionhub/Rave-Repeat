@@ -62,6 +62,12 @@ section.flight {
     }
   }
 
+  .save-flight, .saved {
+    color: $lime-green;
+    &:hover {
+      color: $neon-green;
+    }
+  }
   .delete-flight {
     display: none;
   }
@@ -71,4 +77,8 @@ section.flight {
   &:hover {
     cursor: pointer;
   }
+}
+
+.current-flight .saved, .flight-results .saved {
+  display: none;
 }
