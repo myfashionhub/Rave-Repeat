@@ -21,7 +21,7 @@ function raverNav() {
   }
 
   $('nav.raver h3').click(function(e) {
-    var tabName = $.trim($(e.target).attr('class').replace('current-tab', ''));
+    var tabName = $.trim($(e.target).attr('class').replace('current', ''));
     toggleTab(tabName);
     if (tabName === 'current-raves') {
       $('.new-trip').hide();

@@ -1,25 +1,23 @@
-<div class="background">
+<div class="background"></div>
 
-  <div class="raver-wrapper">
-    <%= render 'layouts/nav' %>
-    <%= render 'nav' %>
+<div class="raver-wrapper">
+  <%= render 'layouts/nav' %>
+  <%= render 'nav' %>
 
-    <h1>Hi <%= @raver.name %></h1>
-    <%= render 'trip_new' %>
+  <h1>Hi <%= @raver.name %></h1>
+  <%= render 'trip_new' %>
 
-    <section class='trips'>
-      <h2 class='past'>Past trips:</h2>
-      <div class='past'></div>
+  <section class='trips'>
+    <h2 class='past'>Past trips:</h2>
+    <div class='past'></div>
 
-      <h2 class='upcoming'>Upcoming trips:</h2>
-      <div class='upcoming'></div>
-    </section>
-  </div> <!-- wrapper -->
+    <h2 class='upcoming'>Upcoming trips:</h2>
+    <div class='upcoming'></div>
+  </section>
+</div> <!-- wrapper -->
 
-  <%= render 'modal' %>
-  <div class="overlay"></div>
-
-</div> <!-- background -->
+<%= render 'modal' %>
+<div class="overlay"></div>
 
 <script>
 

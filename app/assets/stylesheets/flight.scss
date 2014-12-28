@@ -2,17 +2,19 @@
 
 section.flight {
   width: 65%;
+  height: 100%;
   font-family: $hammersmith;
 }
 
+/* Flight search form */
 .search-flight {
-  width: 550px;
-  margin: 1em;
+  width: 33em;
+  margin: 1em auto;
   font-size: 1.2em;
-  float: left;
+
   input[type='text'] {
-    width: 9em;
-    margin: 0 .6em 0 0;
+    width: 11em;
+    margin: 0 1em 0 0;
     padding: 3px;
     border: 0;
     border-bottom: 1px solid #ccc;
@@ -24,34 +26,34 @@ section.flight {
       background-color: #fff;
     }
   }
+
+  #search-flight {
+    margin: 2em auto 0 auto;
+    display: block;
+    @include button-style;
+  }
 }
 
-#search-flight {
-  float: left;
-  margin: 3em 0;
-  @include button-green;
-}
 
 .view-flights {
   text-align: center;
   margin: 2em 0;
   input[type='text'] {
-    width: 20em;
+    width: 25em;
     font-family: $mont;
     padding: .45em;
-    border: 0;
+    border: 1px solid #ccc;
   }
 
   #view-flights {
-    &:hover {
-      background-color: #ebebeb;
-    }
+    @include button-green;
   }
 }
 
+/* Flight result list */
 .flight-results {
   width: 650px;
-  margin: 0 auto;
+  margin: 0 auto 2em auto;
   article {
     margin: 1em 2em 0 0;
   }
@@ -81,4 +83,11 @@ section.flight {
 
 .current-flight .saved, .flight-results .saved {
   display: none;
+}
+
+/* Continue button */
+#save-flight {
+  position: absolute;
+  bottom: 5%;
+  right: 18%;
 }
