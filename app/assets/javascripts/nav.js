@@ -13,7 +13,7 @@ function tripNav() {
 
 function raverNav() {
   $('.raver-wrapper section').hide();
-  var currentTab = $.trim($('.current').attr('class').replace('current', ''));
+  var currentTab = $.trim($('.current').attr('class').replace(' current', ''));
   if (currentTab === 'current-raves') {
     $('.trips').fadeIn();
   } else {
@@ -21,8 +21,9 @@ function raverNav() {
   }
 
   $('nav.raver h3').click(function(e) {
-    var tabName = $.trim($(e.target).attr('class').replace('current', ''));
-    toggleTab(tabName);
+    var tabName = $.trim($(e.target).attr('class').replace(' current', ''));
+    toggleTab('nav.raver', tabName);
+
     if (tabName === 'current-raves') {
       $('.new-trip').hide();
       $('.trips').toggle('blind');
