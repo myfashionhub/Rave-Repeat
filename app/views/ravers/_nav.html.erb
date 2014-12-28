@@ -10,9 +10,9 @@
 
 <script>
   if (<%= @raver.trips.length == 0 %>) {
-    $('.new-rave').addClass('current-tab');
+    $('.new-rave').addClass('current');
   } else {
-    $('.current-raves').addClass('current-tab');
+    $('.current-raves').addClass('current');
   }
 
   if ($('.trips .upcoming').children().html() === '') {
