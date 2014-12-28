@@ -1,6 +1,6 @@
 RaveRepeat.Routers.Trips = Backbone.Router.extend({
   routes: {
-    'itinerary': 'renderFlights'
+
   },
 
   initialize: function() {
@@ -20,25 +20,6 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
 
     this.collection.url = '/ravers/'+raver_id+'/trips?'+params;
     this.collection.fetch({async: false});
-  },
-
-  showFlights: function() {
-    var trip_id = $('#trip-info').attr('trip-data');
-    var flights = new RaveRepeat.Collections.Flights();
-    flights.url = '/trips/'+ trip_id + '/flights';
-
-    var flightsView = new RaveRepeat.Views.FlightsView({
-      collection: flights,
-      el: $('.current-flight')
-    });
-
-    flights.fetch({ done: flightsView.render });
-  },
-
-  renderFlights: function() {
-    console.log('render flights route')
-    this.showFlights();
-    currentLineup();
   },
 
   menuNav: function() {

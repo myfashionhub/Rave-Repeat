@@ -1,13 +1,14 @@
 $(function() {
+  // Kayak flight search
   var flightSearch = function(e) {
     e.preventDefault()
     updateTrip();
     searchFlight();
-  }
+  };
+
   $('#search-flight').click(flightSearch);
   $('.search-flight').submit(flightSearch);
 
-  var flightRouter = new RaveRepeat.Routers.Flights();
 });
 
 function searchFlight() {
@@ -20,7 +21,6 @@ function searchFlight() {
       '&df=mdy&d1='+date1+'&d2='+date2+'&ns=y';
   window.open(base_url+query);
 }
-
 
 function suggestAirports() {
   $('#from-airport').autocomplete({

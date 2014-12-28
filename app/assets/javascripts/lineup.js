@@ -97,10 +97,8 @@ function saveLineup() {
     method: 'post',
     dataType: 'json',
     data: { trip_id: tripId, lineup: artists },
-    success: function() {
-      currentLineup();
-    }
-  })
+    success: function() { }
+  });
 }
 
 
