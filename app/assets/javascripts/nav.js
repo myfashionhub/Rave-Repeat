@@ -54,6 +54,7 @@ function tripFlow() {
 
   $('#save-hotel').click(function() {
     toggleTab('.trip-menu', 'lineup');
+    displayOwnLineup();
     toggleSection('.trip-wrapper', 'lineup');
   });
 
