@@ -12,8 +12,8 @@ function tripNav() {
 }
 
 function raverNav() {
-  $('.raver-wrapper section').hide()
-  var currentTab = $.trim($('.current-tab').attr('class').replace('current-tab', ''));
+  $('.raver-wrapper section').hide();
+  var currentTab = $.trim($('.current').attr('class').replace('current', ''));
   if (currentTab === 'current-raves') {
     $('.trips').fadeIn();
   } else {
