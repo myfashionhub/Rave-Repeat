@@ -1,7 +1,5 @@
+/* EDIT TRIP */
 function tripNav() {
-  $('.trip-menu .flight').addClass('current');
-  $('.trip-wrapper section.flight').addClass('current');
-
   $('.trip-menu a').click(function(e) {
     var sectionName = $(e.target).attr('href').replace('#', ''),
         tabContainer = '.trip-menu',
@@ -11,6 +9,38 @@ function tripNav() {
   });
 }
 
+function tripFlow() {
+  $('#save-flight').click(function() {
+    $('.view-flights input').val('')
+    $('.flight-results').empty();
+    toggleTab('.trip-menu', 'hotel');
+    toggleSection('.trip-wrapper', 'hotel');
+  });
+
+  $('#save-hotel').click(function() {
+    displayOwnLineup();
+    toggleTab('.trip-menu', 'lineup');
+    toggleSection('.trip-wrapper', 'lineup');
+  });
+
+  $('#save-lineup').click(function() {
+    saveLineup();
+    toggleTab('.trip-menu', 'itinerary');
+    toggleSection('.trip-wrapper', 'itinerary');
+  });
+}
+
+function detectTripSection() {
+  var sectionName = window.location.hash.replace('#','');
+  if (sectionName === '') {
+    sectionName = 'flight';
+  }
+  console.log(sectionName)
+  toggleTab('.trip-menu', sectionName);
+  toggleSection('.trip-wrapper', sectionName);
+}
+
+/* RAVER NAV */
 function raverNav() {
   $('.raver-wrapper section').hide();
   var currentTab = $.trim($('.current').attr('class').replace(' current', ''));
@@ -34,6 +64,7 @@ function raverNav() {
   });
 }
 
+/* HELPER FUNCTIONS */
 function toggleTab(container, sectionName) {
   $(container+' .current').removeClass('current');
   $(container+' .'+sectionName).addClass('current');
@@ -42,27 +73,6 @@ function toggleTab(container, sectionName) {
 function toggleSection(container, sectionName) {
   $(container+' section.current').fadeOut().removeClass('current');
   $(container+' section.'+sectionName).addClass('current').hide().fadeIn();
-}
-
-function tripFlow() {
-  $('#save-flight').click(function() {
-    $('.view-flights input').val('')
-    $('.flight-results').empty();
-    toggleTab('.trip-menu', 'hotel');
-    toggleSection('.trip-wrapper', 'hotel');
-  });
-
-  $('#save-hotel').click(function() {
-    toggleTab('.trip-menu', 'lineup');
-    displayOwnLineup();
-    toggleSection('.trip-wrapper', 'lineup');
-  });
-
-  $('#save-lineup').click(function() {
-    saveLineup();
-    toggleTab('.trip-menu', 'itinerary');
-    toggleSection('.trip-wrapper', 'itinerary');
-  });
 }
 
 function notify(msg, status) {
