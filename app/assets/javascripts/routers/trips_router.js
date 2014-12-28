@@ -3,14 +3,13 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
     'itinerary': 'renderFlights'
   },
 
-  initialize: function() {    console.log('init')
+  initialize: function() {
+    console.log('init')
     var raver_id = $('.raver').attr('data-id');
     var pastTrips, upcomingTrips,
         pastTripsView, upcomingTripsView;
     this.showTrips(raver_id, '.trips div.upcoming', 'upcoming=true', upcomingTrips, upcomingTripsView);
     this.showTrips(raver_id, '.trips div.past', 'past=true', pastTrips, pastTripsView);
-
-    //this.menuNav();
   },
 
   showTrips: function(raver_id, el, params, collection, listView) {
