@@ -18,7 +18,7 @@ header {
 }
 
 .trip-menu {
-  margin: 1.5em 0 0 12%;
+  margin: 1.5em 0 0 0;
   font-family: $mont;
   font-size: 1.2em;
   color: #555;
@@ -58,10 +58,17 @@ header {
   #save-flight, #save-lineup, #save-hotel {
     @include button-orange;
     float: right;
-    margin: 2% 15% 5% 0;
     a:hover {
       color: #fff;
     }
+  }
+
+  #save-flight {
+    margin: 0 10% 5% 0;
+  }
+
+  #save-lineup, #save-hotel {
+    margin: 2% 15% 5% 0;
   }
 }
 

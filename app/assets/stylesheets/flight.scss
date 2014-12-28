@@ -2,6 +2,7 @@
 
 section.flight {
   width: 65%;
+  min-width: 600px;
   height: 100%;
   font-family: $hammersmith;
 }
@@ -53,7 +54,7 @@ section.flight {
 /* Flight result list */
 .flight-results {
   width: 650px;
-  margin: 0 auto 2em auto;
+  margin: 0 auto 1em auto;
   article {
     margin: 1em 2em 0 0;
   }
@@ -83,11 +84,4 @@ section.flight {
 
 .current-flight .saved, .flight-results .saved {
   display: none;
-}
-
-/* Continue button */
-#save-flight {
-  position: absolute;
-  bottom: 5%;
-  right: 18%;
 }

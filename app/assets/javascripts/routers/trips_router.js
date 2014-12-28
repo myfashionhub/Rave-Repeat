@@ -4,7 +4,6 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
   },
 
   initialize: function() {
-    console.log('init')
     var raver_id = $('.raver').attr('data-id');
     var pastTrips, upcomingTrips,
         pastTripsView, upcomingTripsView;
