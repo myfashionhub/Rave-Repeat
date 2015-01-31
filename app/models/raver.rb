@@ -4,6 +4,7 @@ class Raver < ActiveRecord::Base
   has_and_belongs_to_many :merchandises
 
   serialize :lineup, Array
+  include ApplicationHelper
 
   def self.twitter_omniauth(data)
     @user = Raver.find_by(name: data.info.nickname) || create_with_twitter(data)
@@ -29,6 +30,29 @@ class Raver < ActiveRecord::Base
       facebook_token: data.credentials.token,
       facebook_uid: data.uid
       })
+  end
+
+  def self.trips(params)
+    if params[:past]
+      trips = Trip.where(raver_id: params[:raver_id])
+                .where('start_date < ?', Date.today)
+    elsif params[:upcoming]
+      trips = Trip.where(raver_id: params[:raver_id])
+                .where('start_date >= ?', Date.today)
+    end
+
+    trips.map do |trip|
+      festival = Festival.find(trip.festival_id)
+
+      { festival: festival.name,
+        start_date: ApplicationHelper.display_date(trip.start_date),
+        end_date: ApplicationHelper.display_date(trip.end_date),
+        from_airport: trip.from_airport,
+        to_airport: trip.to_airport,
+        lineup: trip.lineup || 'Not specified',
+        trip_id: trip.id
+      }
+    end
   end
 
 end

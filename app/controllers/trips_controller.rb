@@ -13,11 +13,6 @@ class TripsController < ApplicationController
           lineup: trip.lineup || 'Not specified',
           trip_id: trip.id
         }
-        # {
-        #   airline: flight.airline,
-        #   leg1: flight.leg1,
-        #   leg2: flight.leg2,
-        # }
     end
     current_trips.sort_by!{ |trip| [trip[:start_date].slice(-1,4), trip[:start_date].slice(0,2)] }
 
