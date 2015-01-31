@@ -10,12 +10,11 @@ Rails.application.routes.draw do
 
   resources :festivals, only: [:index, :show]
 
-  resources :trips#, only [:index]
+  resources :trips #, only: [:destroy]
   get '/trips/:id/lineup' => 'trips#lineup'
   post '/trips/lineup' => 'trips#update_lineup'
 
   resources :flights, only: [:create, :destroy]
   get '/trips/:trip_id/flights' => 'flights#index'
-  post '/flights/search' => 'flights#search'
   get '/flights/search' => 'flights#search'
 end

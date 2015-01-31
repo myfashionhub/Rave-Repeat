@@ -40,6 +40,7 @@ RaveRepeat.Views.TripView = Backbone.View.extend({
   },
 
   delete: function() {
+    this.model.url = 'http://'+window.location.host+'/trips/'+this.model.id;
     this.model.destroy();
     this.remove();
   },
