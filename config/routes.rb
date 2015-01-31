@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :festivals, only: [:index, :show]
 
-  resources :trips #, only: [:destroy]
+  resources :trips, except: [:index, :new]
   get '/trips/:id/lineup' => 'trips#lineup'
   post '/trips/lineup' => 'trips#update_lineup'
 

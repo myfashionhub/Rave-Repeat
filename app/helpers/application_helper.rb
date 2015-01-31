@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def self.onvert_date(date)
+  def self.convert_date(date)
     Date.parse(date.to_s).strftime("%m/%d/%Y")
   end
 

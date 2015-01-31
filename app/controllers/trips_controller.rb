@@ -1,46 +1,20 @@
 class TripsController < ApplicationController
-  def index
-    raver = current_raver
-    trips = raver.trips.to_a
-    current_trips = trips.map do |trip|
-      festival = Festival.find(trip.festival_id)
-        flight   = Flight.find_by(trip_id: trip.id)
-        { festival: festival.name,
-          start_date: trip.start_date,
-          end_date: trip.end_date,
-          from_airport: trip.from_airport,
-          to_airport: trip.to_airport,
-          lineup: trip.lineup || 'Not specified',
-          trip_id: trip.id
-        }
-    end
-    current_trips.sort_by!{ |trip| [trip[:start_date].slice(-1,4), trip[:start_date].slice(0,2)] }
-
-    render json: current_trips.to_json
-  end
 
   def create
-    @raver      = current_raver
-    festival_id = params[:trip][:festival_id]
-    festival    = Festival.find(festival_id)
-    @trip = Trip.create(raver_id: @raver.id,
-      festival_id: festival_id,
-      to_airport: festival.location,
-      start_date: festival.start_date - 1,
-      end_date: festival.end_date + 1,
-    )
-    redirect_to "/trips/#{@trip.id}"
+    params[:raver_id] = current_raver.id
+    trip = Trip.create_new(params)
+    redirect_to "/trips/#{trip.id}"
   end
 
   def show
     @raver    = current_raver
     @trip     = Trip.find(params[:id])
     @festival = Festival.find(@trip.festival_id)
-    @flight   = Flight.find_by(trip_id: @trip.id)
+    flight    = Flight.find_by(trip_id: @trip.id)
 
     respond_to do |format|
       format.html
-      format.json { render json: { trip: @trip, flight: @flight} }
+      format.json { render json: { trip: @trip, flight: flight} }
     end
   end
 
