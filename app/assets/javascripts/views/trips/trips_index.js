@@ -63,10 +63,15 @@ RaveRepeat.Views.TripsView = Backbone.View.extend({
   render: function() {
     var that = this;
     this.$el.empty();
-    _.each(this.collection.models, function(trip) {
-      var tripView = new RaveRepeat.Views.TripView({model: trip});
-      that.$el.append(tripView.render().el);
-    });
+
+    if (this.collection.models.length === 0) {
+      that.$el.html('<p>No trip to show.</p>');
+    } else {
+      _.each(this.collection.models, function(trip) {
+        var tripView = new RaveRepeat.Views.TripView({model: trip});
+        that.$el.append(tripView.render().el);
+      });
+    }
     return this;
   }
 });
