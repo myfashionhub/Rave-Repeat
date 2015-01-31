@@ -12,7 +12,7 @@ function updateTrip() {
     method: 'put',
     dataType: 'json',
     data: { from_airport: fromAirport, to_airport: toAirport, start_date: startDate, end_date: endDate },
-    success: function() { console.log("Trip updated"); }
+    success: function() {}
   });
 }
 

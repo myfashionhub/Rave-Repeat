@@ -25,7 +25,7 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
         notify(response, 'error')
       }
     });
-    console.log(this.model.id)
+
     this.remove();
   },
 

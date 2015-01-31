@@ -14,7 +14,6 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
     $('.trip-menu .itinerary').click(function() {
       that.renderFlights();
     });
-
   },
 
   viewSearchResults: function() {
@@ -33,9 +32,9 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
 
       flights.url = '/flights/search?url='+url
       flights.fetch({async: false,
-        success: function() {},
+        success: function(response) {},
         error: function() {
-          that.$el.html('Cannot fetch flights at the moment.')
+          notify('Cannot fetch flights at the moment.', 'error')
         }
       });
     };

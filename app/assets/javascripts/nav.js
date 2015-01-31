@@ -35,7 +35,7 @@ function detectTripSection() {
   if (sectionName === '') {
     sectionName = 'flight';
   }
-  console.log(sectionName)
+
   toggleTab('.trip-menu', sectionName);
   toggleSection('.trip-wrapper', sectionName);
 }
