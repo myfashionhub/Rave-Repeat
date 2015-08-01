@@ -1,6 +1,6 @@
 require 'csv'
 
-CSV.foreach("#{Rails.root}/db/festivals.csv") do |row|
+CSV.foreach("#{Rails.root}/db/festivals-2015.csv") do |row|
   Festival.find_or_create_by(
     name: row[0],
     location: row[1],
