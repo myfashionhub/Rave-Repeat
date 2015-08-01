@@ -11,7 +11,7 @@ function tripNav() {
 
 function tripFlow() {
   $('#save-flight').click(function() {
-    $('.view-flights input').val('')
+    $('.view-flights input').val('');
     $('.flight-results').empty();
     toggleTab('.trip-menu', 'hotel');
     toggleSection('.trip-wrapper', 'hotel');

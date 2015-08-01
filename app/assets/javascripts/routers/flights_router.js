@@ -1,11 +1,9 @@
 RaveRepeat.Routers.Flights = Backbone.Router.extend({
-  routes: {
-    'itinerary': 'renderFlights'
-  },
 
   initialize: function() {
     var that = this;
     this.viewSearchResults();
+    this.renderFlights();
 
     $('#save-lineup').click(function() {
       that.renderFlights();
@@ -17,6 +15,7 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
   },
 
   viewSearchResults: function() {
+    // Search results via Kayak module
     var that = this;
     _.extend($('#view-flights'), Backbone.Events);
     _.extend($('.view-flights'), Backbone.Events);
@@ -44,6 +43,8 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
   },
 
   showFlights: function() {
+    // Show saved flights of the current trip
+    console.log('Show flights')
     var trip_id = $('#trip-info').attr('trip-data');
     var flights = new RaveRepeat.Collections.Flights();
     flights.url = '/trips/'+ trip_id + '/flights';
