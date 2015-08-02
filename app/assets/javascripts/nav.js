@@ -15,16 +15,17 @@ function tripNav() {
 }
 
 function tripFlow() {
-  $('.hotel.continue-btn').click(function() {
-    displayOwnLineup();
-    toggleTab('.trip-menu', 'lineup');
-    toggleSection('.trip-wrapper', 'lineup');
-  });
+  var tripOrder = {
+    'flight': 'hotel',
+    'hotel': 'lineup',
+    'lineup': 'itinerary'
+  };
 
-  $('.lineup.continue-btn').click(function() {
-    saveLineup();
-    toggleTab('.trip-menu', 'itinerary');
-    toggleSection('.trip-wrapper', 'itinerary');
+  $('.continue-btn').click(function() {
+    var currentTab = $(this).attr('class').replace(' continue-btn','');
+    toggleTab('.trip-menu', tripOrder[currentTab]);
+    toggleSection('.trip-wrapper', tripOrder[currentTab]);
+
   });
 }
 
