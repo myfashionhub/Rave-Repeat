@@ -7,23 +7,21 @@ function tripNav() {
     toggleTab(tabContainer, sectionName);
     toggleSection(sectionContainer, sectionName);
   });
+
+  // Remove hash created by Facebook redirect
+  if (window.location.hash && window.location.hash == '#_=_') {
+      window.location.hash = '';
+  }
 }
 
 function tripFlow() {
-  $('#save-flight').click(function() {
-    $('.view-flights input').val('');
-    $('.flight-results').empty();
-    toggleTab('.trip-menu', 'hotel');
-    toggleSection('.trip-wrapper', 'hotel');
-  });
-
-  $('#save-hotel').click(function() {
+  $('.hotel.continue-btn').click(function() {
     displayOwnLineup();
     toggleTab('.trip-menu', 'lineup');
     toggleSection('.trip-wrapper', 'lineup');
   });
 
-  $('#save-lineup').click(function() {
+  $('.lineup.continue-btn').click(function() {
     saveLineup();
     toggleTab('.trip-menu', 'itinerary');
     toggleSection('.trip-wrapper', 'itinerary');

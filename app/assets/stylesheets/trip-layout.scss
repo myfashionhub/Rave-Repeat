@@ -55,21 +55,23 @@ header {
     @include button-style;
   }
 
-  #save-flight, #save-lineup, #save-hotel {
+  .continue-btn {
     @include button-orange;
     float: right;
     a:hover {
       color: #fff;
     }
+
+    &.flight {
+      margin: 0 10% 5% 0;
+    }
+
+    &.lineup, &.hotel {
+      margin: 2% 15% 5% 0;
+    }
   }
 
-  #save-flight {
-    margin: 0 10% 5% 0;
-  }
 
-  #save-lineup, #save-hotel {
-    margin: 2% 15% 5% 0;
-  }
 }
 
 .hotel h2 {

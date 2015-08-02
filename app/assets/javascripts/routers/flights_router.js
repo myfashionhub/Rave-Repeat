@@ -2,49 +2,42 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
 
   initialize: function() {
     var that = this;
-    this.viewSearchResults();
-    this.renderFlights();
+    this.showFlights();
+    $('.continue-btn').first().addClass('active');
 
-    $('#save-lineup').click(function() {
-      that.renderFlights();
-    });
+    $('.lineup.continue-btn').click(that.showFlights);
+    $('.trip-menu .itinerary').click(that.showFlights);
 
-    $('.trip-menu .itinerary').click(function() {
-      that.renderFlights();
-    });
+    $('#view-flights').click(that.viewSearchResults);
+    $('form.view-flights').submit(that.viewSearchResults)
   },
 
-  viewSearchResults: function() {
+  viewSearchResults: function(e) {
     // Search results via Kayak module
     var that = this;
-    _.extend($('#view-flights'), Backbone.Events);
-    _.extend($('.view-flights'), Backbone.Events);
+    e.preventDefault();
 
-    var viewResults = function(e) {
-      e.preventDefault();
-      var url = $('.result-url').val();
-      var flights = new RaveRepeat.Collections.Flights();
-      var flightsView = new RaveRepeat.Views.FlightsView({
-        collection: flights,
-        el: $('.flight-results')
-      });
+    var url = $('.result-url').val();
+    var flights = new RaveRepeat.Collections.Flights();
+    var flightsView = new RaveRepeat.Views.FlightsView({
+      collection: flights,
+      el: $('.flight-results')
+    });    
 
-      flights.url = '/flights/search?url='+url
-      flights.fetch({async: false,
-        success: function(response) {},
-        error: function() {
-          notify('Cannot fetch flights at the moment.', 'error')
-        }
-      });
-    };
+    flights.url = '/flights/search?url='+url
+    flights.fetch({async: false,
+      success: function(response) {},
+      error: function() {
+        notify('Cannot fetch flights at the moment.', 'error')
+      }
+    });
 
-    $('#view-flight').click(viewResults);
-    $('.view-flights').submit(viewResults);
+    $('.flight.continue-btn').addClass('active');
   },
 
   showFlights: function() {
     // Show saved flights of the current trip
-    console.log('Show flights')
+
     var trip_id = $('#trip-info').attr('trip-data');
     var flights = new RaveRepeat.Collections.Flights();
     flights.url = '/trips/'+ trip_id + '/flights';
@@ -55,10 +48,6 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
     });
 
     flights.fetch({ done: flightsView.render });
-  },
-
-  renderFlights: function() {
-    this.showFlights();
-    currentLineup();
   }
+
 });

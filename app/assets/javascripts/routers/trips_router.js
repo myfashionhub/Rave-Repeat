@@ -27,11 +27,6 @@ RaveRepeat.Routers.Trips = Backbone.Router.extend({
 
     this.collection.url = '/ravers/'+raver_id+'/trips?'+params;
     this.collection.fetch({async: false});
-  },
-
-  menuNav: function() {
-    _.extend($('.trip-menu a'), Backbone.Events);
-    _.extend($('#save-lineup'), Backbone.Events);
   }
 
 });

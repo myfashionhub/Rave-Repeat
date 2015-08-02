@@ -85,3 +85,10 @@ section.flight {
 .current-flight .saved, .flight-results .saved {
   display: none;
 }
+
+.flight.continue-btn {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
