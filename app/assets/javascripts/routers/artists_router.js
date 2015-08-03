@@ -10,9 +10,10 @@ RaveRepeat.Routers.Artists = Backbone.Router.extend({
       url: '/festivals/'+festivalId
   	};
 
-  	this.fetchLineup(current.el, current.url);
-  	this.fetchLineup(official.el, official.url);
+  	currentLineup = this.fetchLineup(current.el, current.url);
+  	officialLineup = this.fetchLineup(official.el, official.url);
 
+    $('.lineup.continue-btn').click(this.saveLineup);
   },
 
   fetchLineup: function(el, url) {
@@ -24,6 +25,11 @@ RaveRepeat.Routers.Artists = Backbone.Router.extend({
 
   	artists.url = url;
   	artists.fetch({ async: false });
+    return lineup;
+  },
+
+  saveLineup: function() {
+     
   }
 
 });

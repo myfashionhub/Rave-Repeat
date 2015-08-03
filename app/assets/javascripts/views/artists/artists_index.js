@@ -1,10 +1,6 @@
 RaveRepeat.Views.ArtistView = Backbone.View.extend({
   tagName: 'li class="artist"',
   template: JST['artists/index'],
-  events: {
-    'click .fa-times': 'remove',
-    'click .fa-plus': 'add'
-  },
 
   initialize: function() {
     //this.listenTo(this.model, 'all', this.render);
@@ -14,15 +10,8 @@ RaveRepeat.Views.ArtistView = Backbone.View.extend({
     var artist = this.template(this.model);
     this.$el.append(artist);
     return this;
-  },
-
-  remove: function() {
-    this.remove();
-  },
-
-  add: function(collection) {
-    collection.push(this.model)
   }
+
 });
 
 
@@ -31,34 +20,44 @@ RaveRepeat.Views.ArtistsView = Backbone.View.extend({
     this.listenTo(this.collection, 'all', this.render);
   },
 
+  events: {
+    'click .fa-times': 'removeArtist',
+    'click .fa-plus': 'addArtist'
+  },
+
   render: function() {
     var that = this;
     this.$el.empty();
+    this.artists = this.collection.models[0].attributes.lineup;
 
-    var artists = this.collection.models[0].attributes.lineup;
-    _.each(artists, function(artist) {
+    _.each(this.artists, function(artist) {
       var artistView = new RaveRepeat.Views.ArtistView({ 
-        model: { name: artist }
+        model: { 
+          name: artist,
+          id: that.artists.indexOf(artist) 
+        }
       });
       that.$el.append(artistView.render().el)
     });
   },
 
-  save: function() {
-    var artistList = $('.own').find('li');
-    var artists    = [];
-    _.each(artistList, function(artistLi) {
-      $(artistLi).find('i').remove();
-      artists.push($(artistLi).html());
-    })  
+  removeArtist: function(e) {
+    var index = $(e.target).parent().find('.name').attr('data-id');
+    this.artists.splice(index, 1);
+    this.render();
+  },
 
-    $.ajax({
-      url: '/trips/lineup',
-      method: 'post',
-      dataType: 'json',
-      data: { trip_id: tripId, lineup: artists },
-      success: function() { }
-    });    
+  addArtist: function(e) {
+    // Clone artist from official lineup to current one  
+    var index = $(e.target).parent().find('.name').attr('data-id');
+        artist = officialLineup.artists[parseInt(index)];
+    
+    if (currentLineup.artists.indexOf(artist) === -1) {
+      currentLineup.artists.unshift(artist);
+      currentLineup.render();      
+    } else {
+      notify(artist+' is already in your lineup', 'error');
+    }
   }
 
 });

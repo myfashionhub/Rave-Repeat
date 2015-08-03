@@ -14,7 +14,7 @@ window.RaveRepeat = {
 
 };
 
-var tripId, festivalId;
+var tripId, festivalId, currentLineup, officialLineup;
 
 $(document).ready(function() {
 
