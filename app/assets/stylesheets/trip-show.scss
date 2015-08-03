@@ -2,7 +2,6 @@
 
 /* LINEUP */
 .show .lineup {
-  width: 65%;
   p {
     font-family: 'Helvetica';
     font-size: 1.2em;
@@ -24,9 +23,15 @@
   min-height: 450px;
 }
 
-.ui-draggable, i {
-  @include hover-style;
+/* States of artist li */
+.official .artist {
+  .fa-times { display: none; }
 }
+
+.own .artist {
+  .fa-plus { display: none; }
+}
+
 
 /* ITINERARY */
 .itinerary {

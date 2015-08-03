@@ -1,15 +1,29 @@
 RaveRepeat.Routers.Artists = Backbone.Router.extend({
 
   initialize: function() {
-  	var that = this;
-  	saveLineup();
-  	this.showLineup();
+  	var current = {
+      el: $('.lineup ul.own'),
+      url: '/trips/'+tripId+'/lineup'
+  	},
+    official = {
+      el: $('.lineup ul.official'),
+      url: '/festivals/'+festivalId
+  	};
 
-  	$('.trip-menu .itinerary').click(that.showLineup);
+  	this.fetchLineup(current.el, current.url);
+  	this.fetchLineup(official.el, official.url);
+
   },
 
-  showLineup: function() {
-  	currentLineup();
+  fetchLineup: function(el, url) {
+  	var artists = new RaveRepeat.Collections.Artists(),
+        lineup = new RaveRepeat.Views.ArtistsView({
+          el: el,
+          collection: artists
+        });
+
+  	artists.url = url;
+  	artists.fetch({ async: false });
   }
 
 });

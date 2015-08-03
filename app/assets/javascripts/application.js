@@ -18,8 +18,4 @@ $(document).ready(function() {
   tripFlow();
   suggestAirports();
 
-  // Line up functions
-  displayOwnLineup();
-  lineupBuilder();
-
 });
