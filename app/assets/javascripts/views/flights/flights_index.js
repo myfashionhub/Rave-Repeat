@@ -35,7 +35,6 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
     var link    = this.$el.find('.buy').attr('href');
     var airline = this.$el.find('.airline').html();
     var price   = this.$el.find('.price').html();
-    var tripId = $('#trip-info').attr('trip-data');
 
     var flight = new RaveRepeat.Models.Flight({
       leg1: leg1, leg2: leg2,

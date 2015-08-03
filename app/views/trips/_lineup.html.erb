@@ -1,26 +1,13 @@
 <section class='lineup'>
-  <p>Drag artists from the official list and drop in the left column to create your own lineup.</p>
+  <p>Customize your own lineup then click save.</p>
 
-  <ul class='own'>
-    <h2>Dream lineup:</h2>
-    <% @trip.lineup.sort.each do |artist| %>
-      <li><%= artist.html_safe %></li>
-    <% end %>
-  </ul>
+  <h2>Dream lineup:</h2>
+  <ul class='own'></ul>
 
-  <ul class='official'>
-    <h3>Official lineup</h3>
-    <% @festival.lineup.sort.each do |artist| %>
-      <li><%= artist %></li>
-    <% end %>
-  </ul>
+  <h3>Official lineup</h3>
+  <ul class='official'></ul>
 
   <button class='lineup continue-btn'>
     <a href="#itinerary">Save and continue</a>
   </button>
 </section>
-
-<script type="text/javascript">
-  var artistsRouter = new RaveRepeat.Routers.Artists();
-
-</script>

@@ -3,7 +3,6 @@ function updateTrip() {
   var toAirport   = $('#to-airport').val();
   var startDate   = $('#depart-date').val();
   var endDate     = $('#return-date').val();
-  var tripId      = $('#trip-info').attr('trip-data');
   
   startDate = startDate.split('/')[2]+'-'+startDate.split('/')[0]+'-'+startDate.split('/')[1];
   endDate = endDate.split('/')[2]+'-'+endDate.split('/')[0]+'-'+endDate.split('/')[1];

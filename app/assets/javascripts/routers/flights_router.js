@@ -38,9 +38,8 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
   showFlights: function() {
     // Show saved flights of the current trip
 
-    var trip_id = $('#trip-info').attr('trip-data');
     var flights = new RaveRepeat.Collections.Flights();
-    flights.url = '/trips/'+ trip_id + '/flights';
+    flights.url = '/trips/'+ tripId + '/flights';
 
     var flightsView = new RaveRepeat.Views.FlightsView({
       collection: flights,
