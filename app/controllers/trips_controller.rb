@@ -46,5 +46,3 @@ class TripsController < ApplicationController
   end
 
 end
-
-#http://www.airportcodes.org/
