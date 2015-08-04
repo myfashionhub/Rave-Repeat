@@ -11,10 +11,8 @@ Rails.application.routes.draw do
   resources :festivals, only: [:index, :show]
 
   resources :trips, except: [:index, :new]
-  get '/trips/:id/lineup' => 'trips#lineup'
-  post '/trips/lineup' => 'trips#update_lineup'
 
-  resources :flights, only: [:create, :destroy]
+  resources :flights, only: [:index, :create, :destroy]
   get '/trips/:trip_id/flights' => 'flights#index'
   get '/flights/search' => 'flights#search'
 end

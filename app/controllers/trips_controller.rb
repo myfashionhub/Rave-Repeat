@@ -14,28 +14,29 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: { trip: @trip, flight: flight} }
+      format.json do
+        render json: {
+          trip: @trip, flight: flight, lineup: @trip.lineup
+        }
+      end
     end
   end
 
   def update
     trip = Trip.find(params[:id])
-    trip.update(from_airport: params[:from_airport],
-                to_airport: params[:to_airport],
-                start_date: params[:start_date],
-                end_date: params[:end_date])
+
+    if params[:lineup]
+      trip.update(lineup: params[:lineup])
+    else
+      trip.update(
+        from_airport: params[:from_airport],
+        to_airport: params[:to_airport],
+        start_date: params[:start_date],
+        end_date: params[:end_date]
+      )
+    end
+
     render json: { msg: "Updated trip" }.to_json
-  end
-
-  def lineup
-    trip   = Trip.find(params[:id])
-    render json: { lineup: trip.lineup }.to_json
-  end
-
-  def update_lineup
-    trip = Trip.find(params[:trip_id])
-    trip.update(lineup: params[:lineup].uniq)
-    render json: { msg: "Updated lineup" }.to_json
   end
 
 
