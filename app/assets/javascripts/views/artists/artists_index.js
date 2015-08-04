@@ -7,8 +7,8 @@ RaveRepeat.Views.ArtistView = Backbone.View.extend({
   },
 
   render: function() {
-    var artist = this.template(this.model);
-    this.$el.append(artist);
+    var artistLi = this.template(this.model);
+    this.$el.append(artistLi);
     return this;
   }
 
@@ -28,15 +28,14 @@ RaveRepeat.Views.ArtistsView = Backbone.View.extend({
   render: function() {
     var that = this;
     this.$el.empty();
-    this.artists = this.collection.models[0].attributes.lineup;
 
-    _.each(this.artists, function(artist) {
+    _.each(this.collection.models, function(artist) {
+      artist.id = that.collection.indexOf(artist);
+
       var artistView = new RaveRepeat.Views.ArtistView({ 
-        model: { 
-          name: artist,
-          id: that.artists.indexOf(artist) 
-        }
+        model: artist
       });
+
       that.$el.append(artistView.render().el)
     });
   },
