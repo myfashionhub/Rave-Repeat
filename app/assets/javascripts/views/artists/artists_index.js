@@ -42,20 +42,20 @@ RaveRepeat.Views.ArtistsView = Backbone.View.extend({
 
   removeArtist: function(e) {
     var index = $(e.target).parent().find('.name').attr('data-id');
-    this.artists.splice(index, 1);
+    this.collection.models.splice(index, 1);
     this.render();
   },
 
   addArtist: function(e) {
-    // Clone artist from official lineup to current one  
+    // Clone artist from official lineup to current one
     var index = $(e.target).parent().find('.name').attr('data-id');
-        artist = officialLineup.artists[parseInt(index)];
+        artist = this.collection.models[parseInt(index)];
     
-    if (currentLineup.artists.indexOf(artist) === -1) {
-      currentLineup.artists.unshift(artist);
+    if (currentLineup.collection.models.indexOf(artist) === -1) {
+      currentLineup.collection.models.unshift(artist);
       currentLineup.render();      
     } else {
-      notify(artist+' is already in your lineup', 'error');
+      notify(artist.name+' is already in your lineup', 'error');
     }
   }
 
