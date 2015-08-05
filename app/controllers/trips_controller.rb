@@ -2,8 +2,8 @@ class TripsController < ApplicationController
 
   def create
     params[:raver_id] = current_raver.id
-    trip_id = Trip.create_new(params)
-    redirect_to "/trips/#{trip_id}"
+    trip = Trip.find_or_create(params)
+    redirect_to "/trips/#{trip.id}"
   end
 
   def show
