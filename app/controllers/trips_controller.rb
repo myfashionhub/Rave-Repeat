@@ -35,8 +35,8 @@ class TripsController < ApplicationController
         end_date: params[:end_date]
       )
     end
-
-    render json: { msg: "Updated trip" }.to_json
+    variable = params[:lineup] ? 'Lineup' : 'Flight information'
+    render json: { msg: "#{variable} updated" }.to_json
   end
 
 

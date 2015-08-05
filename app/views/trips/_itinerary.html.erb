@@ -4,17 +4,22 @@
     <div class="current-flight"></div>
   <% end %>
 
-  <% if @trip.lineup %>
-  <div class="current-lineup">
-    <h2>Line up:</h2>
-    <ul></ul>
+  <div class="lineup">
+    <h2>Dream lineup:</h2>
+    <ul class='own'></ul>
   </div>
-  <% end %>
-
-  <!-- <button id='share'>Spread the PLUR</button> -->
-
-  <!-- <%# if @trip.hotel != nil %>
-    <h3>Hotel booking:</h3>
-    <div class="current-hotel"></div>
-  <%# end %>  -->
 </section>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var artists = new RaveRepeat.Collections.Artists({
+          el: $('.lineup ul.own')
+        }),
+        currentLineup = new RaveRepeat.Views.ArtistsView({
+          collection: artists
+        });
+
+    artists.url = '/trips/'+tripId;
+    artists.fetch({async: false});
+  });
+</script>

@@ -29,20 +29,19 @@ RaveRepeat.Routers.Artists = Backbone.Router.extend({
   },
 
   saveLineup: function() {
-    var artists = [];
-    _.each(currentLineup.artists, function(artist) {
-      artists.push(artist.trim());
+    var lineup = [];
+    _.each(currentLineup.collection.models, function(artist) {
+      lineup.push(artist.name.trim());
     });
-    console.log(artists)
-    Backbone.sync(
-      'update', 
-      currentLineup.collection,
-      { success: function(data) {  
-          console.log(data);
-        }
+
+    $.ajax({
+      url: '/trips/'+tripId,
+      type: 'PUT',
+      data: { lineup: lineup },
+      success: function(data) {
+        notify(data.msg, 'success')
       }
-    );
- 
+    })
   }
 
 });
