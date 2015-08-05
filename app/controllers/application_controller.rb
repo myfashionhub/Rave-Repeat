@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_filter :log_referer
 
   helper_method :current_raver,
                 :display_date, :display_year,
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def convert_date(date)
-    Date.parse(date.to_s).strftime("%m/%d/%Y")
+    Date.parse(date.to_s).strftime("%m/%d/%Y") rescue 'Unspecified'
   end
 
   def display_date(date)
@@ -23,4 +24,7 @@ class ApplicationController < ActionController::Base
     date.strftime("%Y")
   end
 
+  def log_referer
+    logger.info(request.env)
+  end
 end

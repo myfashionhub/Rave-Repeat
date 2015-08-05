@@ -3,7 +3,7 @@ RaveRepeat.Routers.Artists = Backbone.Router.extend({
   initialize: function() {
   	var current = {
       el: $('.lineup ul.own'),
-      url: '/trips/'+tripId+'/lineup'
+      url: '/trips/'+tripId
   	},
     official = {
       el: $('.lineup ul.official'),
@@ -29,7 +29,20 @@ RaveRepeat.Routers.Artists = Backbone.Router.extend({
   },
 
   saveLineup: function() {
-     
+    var artists = [];
+    _.each(currentLineup.artists, function(artist) {
+      artists.push(artist.trim());
+    });
+    console.log(artists)
+    Backbone.sync(
+      'update', 
+      currentLineup.collection,
+      { success: function(data) {  
+          console.log(data);
+        }
+      }
+    );
+ 
   }
 
 });
