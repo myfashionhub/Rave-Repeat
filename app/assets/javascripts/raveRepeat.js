@@ -9,6 +9,8 @@ window.RaveRepeat = {
     var artistsRouter = new RaveRepeat.Routers.Artists();
     var raverRouter = new RaveRepeat.Routers.Ravers();
     var flightRouter = new RaveRepeat.Routers.Flights();
+    var hotelRouter = new RaveRepeat.Routers.Hotels();
+
     detectTripSection();
   }
 

@@ -15,16 +15,10 @@ function tripNav() {
 }
 
 function tripFlow() {
-  var tripOrder = {
-    'flight': 'hotel',
-    'hotel': 'lineup',
-    'lineup': 'itinerary'
-  };
-
   $('.continue-btn').click(function() {
-    var currentTab = $(this).attr('class').replace(' continue-btn','');
-    toggleTab('.trip-menu', tripOrder[currentTab]);
-    toggleSection('.trip-wrapper', tripOrder[currentTab]);
+    var nextTab = $(this).attr('data-tab');
+    toggleTab('.trip-menu', nextTab);
+    toggleSection('.trip-wrapper', nextTab);
 
   });
 }
