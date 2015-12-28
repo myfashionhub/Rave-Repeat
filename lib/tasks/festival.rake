@@ -9,15 +9,15 @@ namespace :festival do
         name: row[0],
         start_date: row[2]
       )
+      puts "Updating #{festival.name}"
 
       festival.update(
-        name: row[0],
         location: row[1],
-        start_date: row[2],
         end_date: row[3],
         playlist: row[4],
-        playlist_scid: row[5],
-        status: row[6]
+        image: row[5],
+        status: row[6],
+        ticket_link: row[8]
       )
 
       row[7].split(',').each do |artist_name|

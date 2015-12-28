@@ -16,6 +16,7 @@ class CreateArtists < ActiveRecord::Migration
     end
 
     add_column :festivals, :ticket_link, :string
-    add_column :festivals, :prices, :text 
+    add_column :festivals, :prices, :text
+    rename_column :festivals, :playlist_scid, :image
   end
 end
