@@ -31,7 +31,7 @@ RaveRepeat.Routers.Artists = Backbone.Router.extend({
   saveLineup: function() {
     var lineup = [];
     _.each(currentLineup.collection.models, function(artist) {
-      lineup.push(artist.name.trim());
+      lineup.push(artist.attributes.id);
     });
 
     $.ajax({

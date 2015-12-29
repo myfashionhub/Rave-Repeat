@@ -13,7 +13,10 @@ class FestivalsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do 
-        render json: {ravers: ravers, lineup: @festival.lineup}.to_json 
+        render json: {
+          ravers: ravers,
+          lineup: @festival.get_lineup
+        }.to_json
       end
     end
   end

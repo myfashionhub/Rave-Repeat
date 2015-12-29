@@ -9,17 +9,3 @@
     <ul class='own'></ul>
   </div>
 </section>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    var artists = new RaveRepeat.Collections.Artists({
-          el: $('.lineup ul.own')
-        }),
-        currentLineup = new RaveRepeat.Views.ArtistsView({
-          collection: artists
-        });
-
-    artists.url = '/trips/'+tripId;
-    artists.fetch({async: false});
-  });
-</script>

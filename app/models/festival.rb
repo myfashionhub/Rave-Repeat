@@ -5,4 +5,10 @@ class Festival < ActiveRecord::Base
 
   validates :name, presence: true,
                    uniqueness: { scope: :start_date }
+
+  def get_lineup
+    Appearance.where(festival_id: self.id).map do |appearance|
+      Artist.find(appearance.artist_id)
+    end.compact
+  end
 end

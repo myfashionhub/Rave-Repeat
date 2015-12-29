@@ -16,7 +16,7 @@ class TripsController < ApplicationController
       format.html
       format.json do
         render json: {
-          trip: @trip, flight: flight, lineup: @trip.lineup
+          trip: @trip, flight: flight, lineup: @trip.get_lineup
         }
       end
     end

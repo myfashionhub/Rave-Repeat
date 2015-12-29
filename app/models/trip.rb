@@ -26,4 +26,10 @@ class Trip < ActiveRecord::Base
     trip
   end
 
+  def get_lineup
+    self.lineup.map do |artist_id|
+      Artist.find(artist_id)
+    end.compact
+  end
+
 end

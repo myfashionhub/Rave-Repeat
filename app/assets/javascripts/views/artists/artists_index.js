@@ -7,7 +7,7 @@ RaveRepeat.Views.ArtistView = Backbone.View.extend({
   },
 
   render: function() {
-    var artistLi = this.template(this.model);
+    var artistLi = this.template(this.model.attributes);
     this.$el.append(artistLi);
     return this;
   }
@@ -41,21 +41,32 @@ RaveRepeat.Views.ArtistsView = Backbone.View.extend({
   },
 
   removeArtist: function(e) {
-    var index = $(e.target).parent().find('.name').attr('data-id');
-    this.collection.models.splice(index, 1);
+    var artistId = $(e.target).parent().find('.name').attr('data-id');
+    var artist = _.find(
+          this.collection.models,
+          function(model) {
+            return model.attributes.id === parseInt(artistId);
+          }
+        );
+    _.without(this.collection.models, artist);
     this.render();
   },
 
   addArtist: function(e) {
     // Clone artist from official lineup to current one
-    var index = $(e.target).parent().find('.name').attr('data-id');
-        artist = this.collection.models[parseInt(index)];
-    
+    var artistId = $(e.target).parent().find('.name').attr('data-id');
+    var artist = _.find(
+          this.collection.models,
+          function(model) {
+            return model.attributes.id === parseInt(artistId);
+          }
+        );
+
     if (currentLineup.collection.models.indexOf(artist) === -1) {
-      currentLineup.collection.models.unshift(artist);
+      currentLineup.collection.models.push(artist);
       currentLineup.render();      
     } else {
-      notify(artist.name+' is already in your lineup', 'error');
+      notify(artist.attributes.name+' is already in your lineup', 'error');
     }
   }
 
