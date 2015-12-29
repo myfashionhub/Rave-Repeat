@@ -4,15 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_raver,
-                :display_date, :display_year,
-                :convert_date
-
+                :display_date, :display_year
   def current_raver
     Raver.find(session[:raver_id]) if session[:raver_id]
-  end
-
-  def convert_date(date)
-    Date.parse(date.to_s).strftime("%m/%d/%Y") rescue 'Unspecified'
   end
 
   def display_date(date)

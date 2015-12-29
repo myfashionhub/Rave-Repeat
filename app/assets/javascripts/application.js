@@ -13,9 +13,7 @@
 
 
 $(document).ready(function() {
-
   tripNav();
   tripFlow();
-  suggestAirports();
 
 });
