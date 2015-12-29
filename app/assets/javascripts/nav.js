@@ -1,38 +1,3 @@
-/* EDIT TRIP */
-function tripNav() {
-  $('.trip-menu a').click(function(e) {
-    var sectionName = $(e.target).attr('href').replace('#', ''),
-        tabContainer = '.trip-menu',
-        sectionContainer = '.trip-wrapper';
-    toggleTab(tabContainer, sectionName);
-    toggleSection(sectionContainer, sectionName);
-  });
-
-  // Remove hash created by Facebook redirect
-  if (window.location.hash && window.location.hash == '#_=_') {
-      window.location.hash = '';
-  }
-}
-
-function tripFlow() {
-  $('.continue-btn').click(function() {
-    var nextTab = $(this).attr('data-tab');
-    toggleTab('.trip-menu', nextTab);
-    toggleSection('.trip-wrapper', nextTab);
-
-  });
-}
-
-function detectTripSection() {
-  var sectionName = window.location.hash.replace('#','');
-  if (sectionName === '') {
-    sectionName = 'flight';
-  }
-
-  toggleTab('.trip-menu', sectionName);
-  toggleSection('.trip-wrapper', sectionName);
-}
-
 /* RAVER NAV */
 function raverNav() {
   $('.raver-wrapper section').hide();

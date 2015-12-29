@@ -12,14 +12,10 @@ class FlightsController < ApplicationController
   end
 
   def create
-    airline = params[:airline]
-    airline.delete!("\n").squeeze! if airline.include?('\n')
     flight = Flight.create(
       leg1: params[:leg1],
       leg2: params[:leg2],
-      airline: airline,
       price: params[:price],
-      link: params[:link],
       trip_id: params[:trip_id]
     )
     render json: { msg: 'Flight saved!' }.to_json
