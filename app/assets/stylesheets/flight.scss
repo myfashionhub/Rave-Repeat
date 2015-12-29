@@ -36,54 +36,20 @@ section.flight {
 }
 
 
-.view-flights {
+.flight-result {
   text-align: center;
   margin: 2em 0;
-  input[type='text'] {
+  textarea {
     width: 25em;
+    height: 10em;
     font-family: $mont;
     padding: .45em;
     border: 1px solid #ccc;
   }
 
-  #view-flights {
+  button {
     @include button-green;
   }
-}
-
-/* Flight result list */
-.flight-results {
-  width: 650px;
-  margin: 0 auto 1em auto;
-  article {
-    margin: 1em 2em 0 0;
-  }
-  a {
-    color: $light-orange;
-    &:hover {
-      color: $text-color;
-    }
-  }
-
-  .save-flight, .saved {
-    color: $lime-green;
-    &:hover {
-      color: $neon-green;
-    }
-  }
-  .delete-flight {
-    display: none;
-  }
-}
-
-.delete-flight, .save-flight {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.current-flight .saved, .flight-results .saved {
-  display: none;
 }
 
 .flight.continue-btn {

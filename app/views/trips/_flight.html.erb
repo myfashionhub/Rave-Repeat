@@ -13,26 +13,20 @@
     <input type="text" id='return-date' value='<%= @trip.end_date %>'
     placeholder='yyyy-mm-dd'></input><br/>
 
-  <button id='search-flight'>Search on Kayak</button>
+    <button id='search-flight'>Search flights</button>
   </form>
 
-  <form class="view-flights">
-    <input class='result-url' type='text' placeholder="Paste your Kayak search result url here"></input>
-    <button id='view-flights'>View flights</button>
+  <form class="flight-result">
+    <textarea class='result'
+    placeholder="Paste Kayak flight here"></textarea>
+    <button>Save flight</button>
   </form>
-
-  <button class='flight continue-btn' data-tab='hotel'>
-    <a href="#hotel">Continue</a>
-  </button>
-
-  <div class="flight-results"></div>
 
   <button class='flight continue-btn' data-tab='hotel'>
     <a href="#hotel">Continue</a>
   </button>
 </section>
 
-
 <script type="text/javascript">
-  var flight = new Flight();
+  flightRouter = new RaveRepeat.Routers.Flights();
 </script>

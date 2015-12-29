@@ -14,8 +14,9 @@ function Trip() {
       that.nextTab();
     });
 
-    $('.trip-menu a').click(function() {
-      that.nextTab();
+    $('.trip-menu a').click(function(e) {
+      that.currentTab = $(e.target).attr('href').replace('#','');
+      that.navigate();
     });
   };
 
@@ -36,7 +37,7 @@ function Trip() {
     this.navigate();
   };
 
-  this.udpate = function() {
+  this.update = function() {
     var fromAirport = $('#from-airport').val();
     var toAirport   = $('#to-airport').val();
     var startDate   = $('#depart-date').val();
@@ -52,7 +53,9 @@ function Trip() {
         start_date: startDate,
         end_date: endDate
       },
-      success: function() {}
+      success: function(data) {
+        console.log(data);
+      }
     });
   };
 

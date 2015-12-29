@@ -11,7 +11,7 @@ window.RaveRepeat = {
     var hotelRouter = new RaveRepeat.Routers.Hotels();
     var flightRouter;
 
-    var trip = new Trip();
+    window.trip = new Trip();
   }
 
 };

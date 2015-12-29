@@ -30,29 +30,14 @@ RaveRepeat.Views.FlightView = Backbone.View.extend({
   },
 
   saveFlight: function() {
-    var leg1 = this.$el.find('.leg1').html();
-    var leg2 = this.$el.find('.leg2').html();
-    var link    = this.$el.find('.buy').attr('href');
-    var airline = this.$el.find('.airline').html();
-    var price   = this.$el.find('.price').html();
-
-    var flight = new RaveRepeat.Models.Flight({
-      leg1: leg1, leg2: leg2,
-      price: price, airline: airline,
-      link: link, trip_id: tripId
-    });
-
-    flight.save(null, {
+    this.model.save(null, {
       success: function(model, response) {
-        notify(response.msg, 'success');
+        $('.flight.continue-btn').trigger('click');
       },
       error: function(model, response) {
         notify(response, 'error')
       }
     });
-
-    this.$el.find('.saved').show();
-    this.$el.find('.save-flight').hide();
   }
 });
 
