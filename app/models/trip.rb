@@ -13,6 +13,7 @@ class Trip < ActiveRecord::Base
 
     if !trip
       festival = Festival.find(festival_id)
+
       trip = Trip.create(
         raver_id: raver_id,
         festival_id: festival_id,

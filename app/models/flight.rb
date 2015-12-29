@@ -1,7 +1,7 @@
-require "#{Rails.root}/lib/kayak_module"
-
 class Flight < ActiveRecord::Base
   belongs_to :trip
+
+  validates :trip_id, uniqueness: { scope: [:leg1, :leg2] }
 
   def self.search(url)
     flights = Kayak.parse(url)
