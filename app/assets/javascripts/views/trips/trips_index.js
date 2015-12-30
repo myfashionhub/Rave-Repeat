@@ -65,7 +65,7 @@ RaveRepeat.Views.TripsView = Backbone.View.extend({
     this.$el.empty();
 
     if (this.collection.models.length === 0) {
-      that.$el.html('<p class="no-trip">No trip to show.</p>');
+      that.$el.html('<p class="empty">No trip to show.</p>');
     } else {
       _.each(this.collection.models, function(trip) {
         var tripView = new RaveRepeat.Views.TripView({model: trip});

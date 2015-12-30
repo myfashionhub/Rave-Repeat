@@ -89,13 +89,12 @@ nav.raver .current,
       padding: 0 0 .3em 0;
     }
   }
-
-  .no-trip {
-    color: #777;
-    font-style: italic;
-  }
 }
 
+.empty {
+  color: #777;
+  font-style: italic;
+}
 
 /* Past trips */
 .trips .past {
