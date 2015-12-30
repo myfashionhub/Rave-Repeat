@@ -49,7 +49,7 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
   saveResult: function(e) {
     e.preventDefault();
     var that = this;
-
+    console.log('save result')
     var text = $('.flight-result textarea').val();
     var price = text.match(/\$\d+/)[0];
     var leg1 = text.match(/\d:.+/)[0];
@@ -57,7 +57,7 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
 
     var airport1 = leg1.match(/[A-Z]{3}/)[0];
     var index1 = leg1.indexOf(airport1) + airport1.length;
-    leg1 = leg1.slice(0, index1) + ' &gt;' + leg1.slice(index1);
+    leg1 = leg1.slice(0, index1) + ' =&gt;' + leg1.slice(index1);
 
     var airport2 = leg2.match(/[A-Z]{3}/)[0];
     var index2 = leg2.indexOf(airport2) + airport2.length;
