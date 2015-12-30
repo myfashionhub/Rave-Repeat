@@ -29,6 +29,11 @@ RaveRepeat.Views.ArtistsView = Backbone.View.extend({
     var that = this;
     this.$el.empty();
 
+    if ( this.collection.models.length === 0 ) {
+      this.$el.html('<p class="empty">No artist in your lineup</p>');
+      return;
+    }
+
     _.each(this.collection.models, function(artist) {
       artist.id = that.collection.indexOf(artist);
 
@@ -42,28 +47,19 @@ RaveRepeat.Views.ArtistsView = Backbone.View.extend({
 
   removeArtist: function(e) {
     var artistId = $(e.target).parent().find('.name').attr('data-id');
-    var artist = _.find(
-          this.collection.models,
-          function(model) {
-            return model.attributes.id === parseInt(artistId);
-          }
-        );
-    _.without(this.collection.models, artist);
+
+    var artist = this.collection.where({ id: parseInt(artistId) });
+    this.collection.remove(artist);
     this.render();
   },
 
   addArtist: function(e) {
     // Clone artist from official lineup to current one
     var artistId = $(e.target).parent().find('.name').attr('data-id');
-    var artist = _.find(
-          this.collection.models,
-          function(model) {
-            return model.attributes.id === parseInt(artistId);
-          }
-        );
+    var artist = this.collection.where({ id: parseInt(artistId) });
 
     if (currentLineup.collection.models.indexOf(artist) === -1) {
-      currentLineup.collection.models.push(artist);
+      currentLineup.collection.add(artist);
       currentLineup.render();      
     } else {
       notify(artist.attributes.name+' is already in your lineup', 'error');

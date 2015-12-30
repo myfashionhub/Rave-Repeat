@@ -1,17 +1,13 @@
 <section class='itinerary'>
-  <% if @trip.flights.length > 0 %>
+
+  <div class="flight">
     <h2>Trip details:</h2>
     <div class="current-flight"></div>
-  <% end %>
+  </div>
 
-  <% if @trip.lineup.length > 0 %>
   <div class="lineup">
     <h2>Dream lineup:</h2>
     <ul class='own'></ul>
   </div>
-  <% end %>
 
-  <% if @trip.lineup.length == 0 && @trip.flights.length == 0 %>
-  <p>No flignt info or lineup specified yet.</p>
-  <% end %>
 </section>

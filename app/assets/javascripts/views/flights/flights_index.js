@@ -51,10 +51,14 @@ RaveRepeat.Views.FlightsView = Backbone.View.extend({
     var that = this;
     this.$el.empty();
 
-    _.each(this.collection.models, function(flight) {
-      var flightView = new RaveRepeat.Views.FlightView({model: flight});
-      that.$el.append(flightView.render().el)
-    });
+    if ( this.collection.models.length === 0 ) {
+      this.$el.html('<p class="empty">No flight info.</p>')
+    } else {
+      _.each(this.collection.models, function(flight) {
+        var flightView = new RaveRepeat.Views.FlightView({model: flight});
+        that.$el.append(flightView.render().el)
+      });
+    }
   }
 
 });
