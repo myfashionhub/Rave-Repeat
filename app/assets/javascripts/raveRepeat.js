@@ -10,8 +10,6 @@ window.RaveRepeat = {
     var raverRouter = new RaveRepeat.Routers.Ravers();
     var hotelRouter = new RaveRepeat.Routers.Hotels();
     var flightRouter;
-
-    window.trip = new Trip();
   }
 
 };
