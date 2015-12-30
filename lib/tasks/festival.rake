@@ -34,19 +34,21 @@ namespace :festival do
     end
   end
 
-  task :convert_artists => :environment do |task|
-    Festival.all.each do |festival|
-      festival.lineup.split("\n- ").each do |artist_name|
-        artist = Artist.find_or_create_by_name(artist_name)
+end
 
-        if artist.id.present?
-          Appearance.create(
-            artist_id: artist.id,
-            festival_id: festival.id
-          )
-        end
+
+task :convert_artists => :environment do |task|
+  Trip.all.each do |trip|
+    lineup = []
+
+    trip.lineup.each do |artist_name|
+      artist = Artist.find_or_create_by_name(artist_name.strip)
+
+      if artist.id.present?
+        lineup.push(artist.id)
       end
     end
-  end
 
+    trip.update(lineup: lineup)
+  end
 end
