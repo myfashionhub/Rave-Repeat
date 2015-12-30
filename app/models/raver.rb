@@ -3,7 +3,6 @@ class Raver < ActiveRecord::Base
   has_many :festivals, through: :trips
   has_and_belongs_to_many :merchandises
 
-  serialize :lineup, Array
   include ApplicationHelper
 
   def self.twitter_omniauth(data)
@@ -43,13 +42,16 @@ class Raver < ActiveRecord::Base
 
     trips.map do |trip|
       festival = Festival.find(trip.festival_id)
+      artists = trip.lineup.map do |artist_id|
+        Artist.find(artist_id).name
+      end.join(', ')
 
       { festival: festival.name,
         start_date: ApplicationHelper.display_date(trip.start_date),
         end_date: ApplicationHelper.display_date(trip.end_date),
         from_airport: trip.from_airport,
         to_airport: trip.to_airport,
-        lineup: trip.lineup || 'Not specified',
+        lineup: artists,
         trip_id: trip.id
       }
     end

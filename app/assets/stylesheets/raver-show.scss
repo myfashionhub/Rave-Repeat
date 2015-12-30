@@ -71,24 +71,31 @@ nav.raver .current,
     margin: .6em 0 1.4em 0;
     overflow: auto;
   }
+
+  .title {
+    width: 100%;
+    td:first-child {
+      width: 50%;
+    }
+  }
+
+  .details table {
+    width: 100%;
+    td:first-child {
+      width: 6em;
+      color: #777;
+    }
+    tr {
+      padding: 0 0 .3em 0;
+    }
+  }
+
+  .no-trip {
+    color: #777;
+    font-style: italic;
+  }
 }
 
-.title {
-  width: 100%;
-  td:first-child {
-    width: 50%;
-  }
-}
-
-.details table {
-  width: 100%;
-  td:first-child {
-    width: 6em;
-  }
-  tr {
-    padding: 0 0 .3em 0;
-  }
-}
 
 /* Past trips */
 .trips .past {
@@ -141,11 +148,7 @@ nav.raver .current,
     color: $blood-orange;
   }
 
-  form.edit-trip {
-    display: inline;
-  }
-
-  button {
+  .edit-trip, .delete-trip {
     background: transparent;
     outline: 0;
     border: none;
@@ -157,9 +160,7 @@ nav.raver .current,
       color: $text-color;
     }
   }
-}
 
-.trips .upcoming {
   .year, .expand {
     display: none;
   }
