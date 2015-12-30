@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228220058) do
+ActiveRecord::Schema.define(version: 20151230044955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20151228220058) do
     t.string   "location"
     t.date     "start_date"
     t.date     "end_date"
-    t.text     "lineup"
     t.string   "playlist"
     t.string   "image"
     t.string   "status"
@@ -84,7 +83,6 @@ ActiveRecord::Schema.define(version: 20151228220058) do
     t.string   "facebook_uid"
     t.string   "facebook_token"
     t.string   "location"
-    t.string   "lineup"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
