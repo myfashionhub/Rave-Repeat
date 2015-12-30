@@ -18,7 +18,6 @@ var tripId, festivalId, currentLineup, officialLineup;
 
 $(document).ready(function() {
 
-	festivalId = $('#trip-info').attr('festival-data');
 	RaveRepeat.initialize();
 
 });

@@ -10,7 +10,10 @@
     margin: 10px 0 15px 0;
   }
 
-  i { hover: cursor; }
+  i { cursor: pointer; }
+
+  .own .fa-times { visibility: hidden; }
+  &.current .own .fa-times { visibility: visible; }
 }
 
 .official, .own {

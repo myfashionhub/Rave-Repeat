@@ -26,8 +26,11 @@ function Trip() {
     window.location.hash = '#' + that.currentTab;
 
     if ( this.currentTab === 'itinerary' ) {
-      var router = new RaveRepeat.Routers.Flights();
-      router.showFlights();
+      var flightsRouter = new RaveRepeat.Routers.Flights();
+      flightsRouter.showFlights();
+
+      var artistsRouter = new RaveRepeat.Routers.Artists();
+      artistsRouter.fetchLineup($('.lineup ul.own'),'/trips/'+tripId)
     }
   };
 

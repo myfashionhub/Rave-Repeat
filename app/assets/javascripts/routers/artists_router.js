@@ -1,7 +1,9 @@
 RaveRepeat.Routers.Artists = Backbone.Router.extend({
 
   initialize: function() {
-  	var current = {
+    festivalId = $('#trip-info').attr('festival-data');
+
+    var current = {
       el: $('.lineup ul.own'),
       url: '/trips/'+tripId
   	},
