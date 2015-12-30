@@ -27,7 +27,7 @@ class TripsController < ApplicationController
 
     if params[:lineup]
       trip.update(lineup: params[:lineup])
-    else
+    elsif params[:from_airport] || params[:start_date]
       trip.update(
         from_airport: params[:from_airport],
         to_airport: params[:to_airport],

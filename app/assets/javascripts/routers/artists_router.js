@@ -34,6 +34,7 @@ RaveRepeat.Routers.Artists = Backbone.Router.extend({
       lineup.push(artist.attributes.id);
     });
 
+    if ( lineup.length === 0 ) { return; }
     $.ajax({
       url: '/trips/'+tripId,
       type: 'PUT',
