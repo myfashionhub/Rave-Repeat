@@ -91,18 +91,18 @@ nav.raver .current,
 }
 
 /* Past trips */
-.trips {
-  h2.past {
+.trips .past {
+  h2 {
     font-size: 1.3em;
     color: $light-text;
     margin: 0;
   }
 
-  .past article {
+  article {
     margin: .6em 0;
   }
 
-  .past h3 {
+  h3 {
     font-size: 1.05em;
     font-style: italic;
     color: $light-text;
@@ -111,14 +111,9 @@ nav.raver .current,
   p {
     margin: .7em 0 1em 0;
   }
-}
 
-.trips .past {
-  button {
-    @include button-style;
-    @include button-orange;
-    float: right;
-    margin: .8em 2em 0 0;
+  .actions {
+    display: none;
   }
 }
 
