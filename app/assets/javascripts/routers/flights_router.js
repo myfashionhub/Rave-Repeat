@@ -49,19 +49,26 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
   saveResult: function(e) {
     e.preventDefault();
     var that = this;
-    console.log('save result')
+
     var text = $('.flight-result textarea').val();
+    /*
+      Delta logo Delta 7:00 am JFK nonstop 10:40 am SFO 6h 40m
+      Delta logo Delta 4:15 pm SFO nonstop 12:36 am JFK (+1) 5h 21m
+      Sponsored Result $671 Delta
+    */
     var price = text.match(/\$\d+/)[0];
-    var leg1 = text.match(/\d:.+/)[0];
-    var leg2 = text.match(/\d:.+$/)[0];
+    var times = text.match(/\d+:\d+\s\wm/g);
+    var airports = text.match(/[A-Z]{3}/g);
+    var durations = text.match(/\d+h\s\d+m/g);
 
-    var airport1 = leg1.match(/[A-Z]{3}/)[0];
-    var index1 = leg1.indexOf(airport1) + airport1.length;
-    leg1 = leg1.slice(0, index1) + ' =&gt;' + leg1.slice(index1);
-
-    var airport2 = leg2.match(/[A-Z]{3}/)[0];
-    var index2 = leg2.indexOf(airport2) + airport2.length;
-    leg2 = leg2.slice(0, index2) + ' =&gt;' + leg2.slice(index2);
+    // Edge cases: 1 stop over, more than 4 airports
+    // Next day arrival
+    var leg1 = times[0] + ' ' + airports[0] + ' - ' +
+      times[1] + ' ' + airports[1] +
+      ' (' + durations[0] + ')';
+    var leg2 = times[2] + ' ' + airports[2] + ' - ' +
+      times[3] + ' ' + airports[airports.length - 1] +
+      ' (' + durations[1] + ')';
 
     var flight = new RaveRepeat.Models.Flight({
       leg1: leg1,

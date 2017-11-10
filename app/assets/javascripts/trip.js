@@ -25,12 +25,12 @@ function Trip() {
     toggleSection('.trip-wrapper', that.currentTab);
     window.location.hash = '#' + that.currentTab;
 
-    if ( this.currentTab === 'itinerary' ) {
+    if (this.currentTab === 'itinerary') {
       var flightsRouter = new RaveRepeat.Routers.Flights();
       flightsRouter.showFlights();
 
       var artistsRouter = new RaveRepeat.Routers.Artists();
-      artistsRouter.fetchLineup($('.lineup ul.own'),'/trips/'+tripId)
+      artistsRouter.fetchLineup($('.lineup ul.own'), '/trips/'+tripId)
     }
   };
 

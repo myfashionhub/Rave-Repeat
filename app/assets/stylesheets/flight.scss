@@ -40,14 +40,15 @@ section.flight {
 
 
 .flight-result {
-  text-align: center;
   margin: 2em 0;
+  text-align: center;
   textarea {
     width: 25em;
     height: 10em;
-    font-family: $mont;
     padding: .45em;
     border: 1px solid #ccc;
+    font-size: 1em;
+    font-family: $mont;
   }
 
   button {
