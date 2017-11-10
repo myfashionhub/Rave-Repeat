@@ -28,10 +28,13 @@ section.flight {
     }
   }
 
-  #search-flight {
-    margin: 2em auto 0 auto;
+  button { /* Search flight */
+    margin: 1em 2em 0 auto;
     display: block;
     @include button-style;
+    &:hover {
+      background-color: $light-grey;
+    }
   }
 }
 

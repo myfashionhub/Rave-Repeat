@@ -5,6 +5,7 @@ $blood-orange: #fe4b03;
 $light-orange: #ff5e1d;
 $text-color: #444;
 $light-text: #666;
+$light-grey: #ebebeb;
 $hammersmith: 'Hammersmith One';
 $mont: 'Montserrat';
 
@@ -15,17 +16,17 @@ $mont: 'Montserrat';
   outline: 0;
   &:hover {
     cursor: pointer;
-    background-color: #ebebeb;
   }
   font-family: $mont;
+  font-size: 16px;
 }
 
 @mixin button-green {
+  color: #fff;
   background-color: $lime-green;
   &:hover {
     background-color: $light-lime;
   }
-  color: #fff;
 }
 
 @mixin button-orange {
