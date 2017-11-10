@@ -7,10 +7,8 @@
 
 var HotelSearch = function() {
 
-	this.buildSearchQuery = function() {
-
+  this.buildSearchQuery = function() {
     var baseUrl = 'http://blue.kayak.com/searchresults.html',
         searchString = $('.ifajf').val();
-
   }
 }
