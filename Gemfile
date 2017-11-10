@@ -19,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'backbone-on-rails'
 gem 'jquery-ui-rails', "~> 4.0.5"
-gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'pry'

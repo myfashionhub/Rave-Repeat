@@ -73,8 +73,6 @@ GEM
     execjs (2.7.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
-    font-awesome-sass (4.7.0)
-      sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     google-api-client (0.17.0)
@@ -256,7 +254,6 @@ PLATFORMS
 DEPENDENCIES
   backbone-on-rails
   capybara
-  font-awesome-sass
   google-api-client
   jquery-rails
   jquery-ui-rails (~> 4.0.5)
