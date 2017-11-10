@@ -1,5 +1,5 @@
 RaveRepeat.Views.FlightView = Backbone.View.extend({
-  tagName: 'article class="flight"',
+  tagName: 'article',
   template: JST['flights/index'],
   events: {
     'click .save-flight': 'saveFlight',

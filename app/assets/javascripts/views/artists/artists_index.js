@@ -1,5 +1,5 @@
 RaveRepeat.Views.ArtistView = Backbone.View.extend({
-  tagName: 'li class="artist"',
+  tagName: 'li',
   template: JST['artists/index'],
 
   initialize: function() {

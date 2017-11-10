@@ -12,7 +12,7 @@
   &.current .own .fa-times { visibility: visible; }
 }
 
-.official, .own {
+.official-container, .own-container {
   width: 45%;
   margin-left: 4%;
   float: left;
@@ -20,16 +20,12 @@
   @include menu-list;
 }
 
-.own {
-  min-height: 450px;
-}
-
 /* States of artist li */
-.official .artist {
+.official li {
   .fa-times { display: none; }
 }
 
-.own .artist {
+.own li {
   .fa-plus { display: none; }
 }
 
