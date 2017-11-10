@@ -24,7 +24,6 @@ gem 'nokogiri'
 
 gem 'backbone-on-rails'
 gem 'jquery-ui-rails'
-gem 'font-awesome-sass'
 ```
 
 ## Getting started
