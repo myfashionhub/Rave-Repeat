@@ -38,9 +38,9 @@ export RR_FACEBOOK_SECRET=
 
 * Commands
 ```
-$ bundle 
-$ rake db:create db:migrate
-$ rake db:seed  # Seed databases with festival info
+$ bundle install
+$ bundle exec rake db:create db:migrate
+$ bundle exec rake db:seed  # Seed databases with festival info
 $ rails s
 ```
 

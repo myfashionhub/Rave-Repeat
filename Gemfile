@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby "2.3.3"
+ruby "2.5.5"
 
-gem 'rails', '4.2.2'
-gem 'pg'
+gem 'rails', '5.1.0'
+gem 'pg', '0.18'
 gem 'rake', '~> 10.4.0'
 
 gem 'omniauth'
@@ -14,7 +14,7 @@ gem 'capybara'
 gem 'poltergeist'
 gem 'phantomjs'
 
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'backbone-on-rails'

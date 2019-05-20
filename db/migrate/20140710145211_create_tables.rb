@@ -1,4 +1,4 @@
-class CreateTables < ActiveRecord::Migration
+class CreateTables < ActiveRecord::Migration[5.1]
   def up
     create_table :ravers do |t|
       t.string :name
@@ -8,7 +8,6 @@ class CreateTables < ActiveRecord::Migration
       t.string :facebook_uid
       t.string :facebook_token
       t.string :location
-      t.string :lineup
       t.timestamps
     end
 
@@ -17,10 +16,12 @@ class CreateTables < ActiveRecord::Migration
       t.string :location
       t.date :start_date
       t.date :end_date
-      t.text   :lineup
       t.string :playlist
-      t.string :playlist_scid
+      t.string :image
       t.string :status
+      t.string :ticket_link
+      t.text :prices
+
       t.timestamps
     end
 
@@ -62,6 +63,21 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+    create_table :artists do |t|
+      t.string :name
+      t.string :image
+      t.string :website
+      t.string :description
+      t.text   :biography
+      t.timestamps
+    end
+
+    create_table :appearances do |t|
+      t.integer    :artist_id
+      t.integer    :festival_id
+      t.timestamps
+    end
 
   def down
     drop_table :ravers
