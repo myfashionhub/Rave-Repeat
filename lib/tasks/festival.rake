@@ -1,9 +1,8 @@
 require 'csv'
 
 namespace :festival do
-
   task :populate, [:year] => :environment do |task, args|
-    filename = "#{Rails.root}/db/festivals-#{args[:year]}.csv"
+    filename = "#{Rails.root}/db/festivals.csv"
     CSV.foreach(filename) do |row|
       festival = Festival.find_or_create_by(
         name: row[0],
@@ -32,23 +31,5 @@ namespace :festival do
         end
       end
     end
-  end
-
-end
-
-
-task :convert_artists => :environment do |task|
-  Trip.all.each do |trip|
-    lineup = []
-
-    trip.lineup.each do |artist_name|
-      artist = Artist.find_or_create_by_name(artist_name.strip)
-
-      if artist.id.present?
-        lineup.push(artist.id)
-      end
-    end
-
-    trip.update(lineup: lineup)
   end
 end
