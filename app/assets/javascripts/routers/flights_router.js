@@ -14,17 +14,18 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
   search: function(e) {
     var that = this;
     e.preventDefault();
-    this.findAirportCode();
     trip.update();
 
     var baseUrl = 'http://www.kayak.com/flights/';
     this.airport1 = $('#from-airport').val().match(/\(.{3}\)/)[0].
                     replace(/\W/g,'');
+    this.airport2 = this.findAirportCode();
     this.date1 = $('#depart-date').val();
     this.date2 = $('#return-date').val();
 
     var url = baseUrl+this.airport1+'-'+this.airport2+'/'+
               this.date1+'/'+this.date2;
+    console.warn('kayak url', url);
     window.open(url);
     //this.parseResult(url);
   },
@@ -96,13 +97,10 @@ RaveRepeat.Routers.Flights = Backbone.Router.extend({
 
   findAirportCode: function() {
     var location2 = $('#to-airport').val();
-    var that = this;
 
-    for (var i=0; i < airports.length; i++) {
+    for (var i = 0; i < airports.length; i++) {
       if (airports[i].indexOf(location2) > -1) {
-        that.airport2 = airports[i].match(/\(.{3}\)/)[0].replace(/\W/g,'');
-        //$('#from-airport').val( $('#from-airport').val() + ' ('+that.airport2+')' );
-        return;
+        return airports[i].match(/\(.{3}\)/)[0].replace(/\W/g,'');
       }
     }
   },
